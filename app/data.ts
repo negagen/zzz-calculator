@@ -41,6 +41,7 @@ export const defaultEnemyStatus: EnemyStatus = {
   defense: 952,
   damageRes: 0,
   defenseDown: 0,
+  registanceDown: 0,
   stunDamageMultiplier: 100,
 };
 

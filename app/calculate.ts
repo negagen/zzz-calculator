@@ -160,7 +160,8 @@ export const calculateDamageBase = (
         (damageLevel[baseStatus.level] + defense)) *
         1000
     ) / 10;
-  const resistanceRate = 100 - enemyStatus.damageRes;
+  const resistanceRate =
+    100 - enemyStatus.damageRes + enemyStatus.registanceDown;
   const stunBonusRate = enemyStatus.stunDamageMultiplier;
 
   return {

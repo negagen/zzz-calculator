@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Table, Input } from "antd";
+import { Table } from "antd";
 import type { TableProps } from "antd";
 import type {
   Agent,
@@ -18,11 +18,7 @@ import { AgentStatusPanel } from "./AgentStatus";
 import { EngineStatusPanel } from "./EngineStatus";
 import { DiskStatusPanel } from "./DiskStatus";
 import { EnemyStatusPanel } from "./EnemyStatus";
-import {
-  calculateAttack,
-  calculateDamageBase,
-  calculateStatus,
-} from "./calculate";
+import { calculateDamageBase, calculateStatus } from "./calculate";
 import {
   defaultAgentStatus,
   defaultEngineStatus,

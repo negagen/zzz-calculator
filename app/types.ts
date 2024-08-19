@@ -93,6 +93,7 @@ export interface EnemyStatus {
   defense: number;
   defenseDown: number;
   damageRes: number;
+  registanceDown: number;
   stunDamageMultiplier: number;
 }
 

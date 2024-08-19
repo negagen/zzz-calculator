@@ -62,6 +62,22 @@ export const EnemyStatusPanel = ({
         </div>
 
         <div className="flex flex-row items-center w-full">
+          <div className="w-28">耐性ダウン</div>
+          <div>
+            <Input
+              type="number"
+              value={enemyStatus.registanceDown}
+              onChange={(e) => {
+                onChange({
+                  ...enemyStatus,
+                  registanceDown: parseInt(e.target.value),
+                });
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-row items-center w-full">
           <div className="w-28">ブレイク弱体倍率</div>
           <div>
             <Input
