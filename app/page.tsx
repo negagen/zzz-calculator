@@ -1,113 +1,296 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import { Table, Input } from "antd";
+import type { TableProps } from "antd";
+import type {
+  Agent,
+  Engine,
+  Skill,
+  AgentStatus,
+  EnemyStatus,
+  DiskStatus,
+  EngineStatus,
+  BaseStatus,
+  DamageBase,
+} from "./types";
+import { AgentStatusPanel } from "./AgentStatus";
+import { EngineStatusPanel } from "./EngineStatus";
+import { DiskStatusPanel } from "./DiskStatus";
+import { EnemyStatusPanel } from "./EnemyStatus";
+import {
+  calculateAttack,
+  calculateDamageBase,
+  calculateStatus,
+} from "./calculate";
+import {
+  defaultAgentStatus,
+  defaultEngineStatus,
+  defaultDiskStatus,
+  defaultEnemyStatus,
+  defaultSkills,
+} from "./data";
 
 export default function Home() {
+  const [agentStatus, setAgentStatus] =
+    useState<AgentStatus>(defaultAgentStatus);
+  const [engineStatus, setEngineStatus] =
+    useState<EngineStatus>(defaultEngineStatus);
+  const [diskStatus, setDiskStatus] = useState<DiskStatus>(defaultDiskStatus);
+  const [enemyStatus, setEnemyStatus] =
+    useState<EnemyStatus>(defaultEnemyStatus);
+  const baseStatus = calculateStatus(agentStatus, engineStatus, diskStatus);
+  const damageBase = calculateDamageBase(baseStatus, enemyStatus);
+  const skills = defaultSkills;
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex min-h-screen flex-col">
+      <div className="flex flex-col p-4 border border-gray-200 rounded-lg shadow-md">
+        <div className="text-xl font-bold">ステータス</div>
+        <div className="flex flex-row gap-2.5">
+          <AgentStatusPanel
+            agentStatus={agentStatus}
+            onChange={setAgentStatus}
+          />
+          <EngineStatusPanel
+            engineStatus={engineStatus}
+            onChange={setEngineStatus}
+          />
+          <DiskStatusPanel diskStatus={diskStatus} onChange={setDiskStatus} />
+          <EnemyStatusPanel
+            enemyStatus={enemyStatus}
+            onChange={setEnemyStatus}
+          />
         </div>
       </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="flex flex-row items-center">
+        <StatusPanel baseStatus={baseStatus} />
       </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <div className="flex flex-row items-center">
+        <DamageBasePanel damageBase={damageBase} />
+      </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="flex flex-row">
+        {skills.map((skill, i) => (
+          <SkillDamage key={i} damageBase={damageBase} skill={skill} />
+        ))}
       </div>
     </main>
   );
 }
+
+interface CalculatorProps {
+  damageBase: DamageBase;
+}
+
+const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
+  return (
+    <>
+      <div className="flex flex-col border border-gray-200 rounded-lg shadow-md">
+        <div className="flex flex-row gap-1.5 justify-between">
+          <CalculatorCard text="攻撃力" value={damageBase.attack} />
+          <CalculatorCard
+            text="会心係数"
+            value={`${damageBase.critBonusRate}%`}
+          />
+          <CalculatorCard
+            text="与ダメ係数"
+            value={`${damageBase.damageBuff}%`}
+          />
+        </div>
+        <div className="flex flex-row gap-1.5 justify-between">
+          <CalculatorCard
+            text="防御係数"
+            value={`${damageBase.defenceRate}%`}
+          />
+          <CalculatorCard
+            text="属性係数"
+            value={`${damageBase.registanceRate}%`}
+          />
+          <CalculatorCard
+            text="ブレイク弱体倍率"
+            value={`${damageBase.stunBonusRate}%`}
+          />
+        </div>
+      </div>
+      <div className="flex flex-row gap-1.5 justify-between">
+        <div>
+          <CalculatorCard
+            text="ダメージ基礎値(通常)"
+            value={calculateDamage(damageBase, 100, false)}
+          />
+          <CalculatorCard
+            text="ダメージ基礎値(会心)"
+            value={calculateDamage(damageBase, 100, true)}
+          />
+        </div>
+      </div>
+    </>
+  );
+};
+
+const CalculatorCard = ({
+  text,
+  value,
+}: {
+  text: string;
+  value: string | number;
+}) => {
+  return (
+    <div className="flex flex-col w-40 h-20 items-center justify-center border border-gray-200 rounded-lg shadow-md">
+      <h1 className="text font-bold">{text}</h1>
+      <p className="text text-gray-800">{value}</p>
+    </div>
+  );
+};
+
+interface SkillDamageDataType {
+  key: string;
+  name: string;
+  skillDamageRate: number;
+  expected: number;
+}
+
+const columns: TableProps<SkillDamageDataType>["columns"] = [
+  {
+    title: "Name",
+    dataIndex: "name",
+    key: "name",
+  },
+  {
+    title: "スキル係数（合計）",
+    dataIndex: "skillDamageRate",
+    key: "skillDamageRate",
+  },
+  {
+    title: "通常",
+    dataIndex: "normal",
+    key: "normal",
+  },
+  {
+    title: "会心",
+    dataIndex: "critDamage",
+    key: "critDamage",
+  },
+  {
+    title: "期待値",
+    dataIndex: "expected",
+    key: "expected",
+  },
+];
+
+const calculateDamage = (
+  damageBase: DamageBase,
+  skillDamageRate: number,
+  isCrit: boolean
+) => {
+  const damage =
+    (((((((damageBase.attack *
+      (skillDamageRate / 100) *
+      damageBase.damageBuff) /
+      100) *
+      damageBase.defenceRate) /
+      100) *
+      damageBase.registanceRate) /
+      100) *
+      damageBase.stunBonusRate) /
+    100;
+  if (isCrit) {
+    return Math.floor(damage * (damageBase.critDamage / 100));
+  }
+  return Math.floor(damage);
+};
+
+const calculateExpectedDamage = (
+  damageBase: DamageBase,
+  skillDamageRate: number
+) => {
+  const damage = Math.floor(
+    calculateDamage(damageBase, skillDamageRate, false) *
+      (damageBase.critBonusRate / 100)
+  );
+  return damage;
+};
+
+const SkillDamage = ({
+  damageBase,
+  skill,
+}: {
+  damageBase: DamageBase;
+  skill: Skill;
+}) => {
+  const data: SkillDamageDataType[] = skill.damages.map((damage, index) => {
+    {
+      return {
+        key: index.toString(),
+        name: skill.name + " " + (index + 1) + "段目",
+        skillDamageRate: damage,
+        normal: calculateDamage(damageBase, damage, false),
+        critDamage: calculateDamage(damageBase, damage, true),
+        expected: calculateExpectedDamage(damageBase, damage),
+      };
+    }
+  });
+
+  return (
+    <div className="flex flex-col items-center justify-between p-4 border border-gray-200 rounded-lg shadow-md">
+      <h1 className="text-xl font-bold">{skill.name}</h1>
+      <div className="text-sm text-gray-500">
+        <Table columns={columns} dataSource={data} />
+      </div>
+    </div>
+  );
+};
+
+const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
+  return (
+    <div className="flex flex-col p-4 border border-gray-200 rounded-lg shadow-md">
+      <div className="text-xl font-bold">ステータス</div>
+      <div className="flex flex-col">
+        <div className="flex flex-row">
+          <div className="w-28">攻撃力</div>
+
+          <div className="flex flex-col">
+            <div>
+              {`${baseStatus.attack}(${baseStatus.baseAttack} + ${baseStatus.attackBonus})`}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-row">
+          <div className="w-28">会心率</div>
+
+          <div className="flex flex-col">
+            <div>{baseStatus.critRate}%</div>
+          </div>
+        </div>
+
+        <div className="flex flex-row">
+          <div className="w-28">会心ダメージ</div>
+
+          <div className="flex flex-col">
+            <div>{baseStatus.critDamage}%</div>
+          </div>
+        </div>
+
+        <div className="flex flex-row">
+          <div className="w-28">与ダメージ%</div>
+
+          <div className="flex flex-col">
+            <div>{baseStatus.damageBuff}%</div>
+          </div>
+        </div>
+
+        <div className="flex flex-row">
+          <div className="w-28">貫通率</div>
+
+          <div className="flex flex-col">
+            <div>{baseStatus.penRate}%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
