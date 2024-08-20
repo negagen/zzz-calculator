@@ -1,29 +1,29 @@
 import { Input } from "antd";
-import { EngineStatus } from "./types";
+import { BattleStatus } from "@/app/types";
 
 export const BattleStatusPanel = ({
-  engineStatus,
+  battleStatus,
   onChange,
 }: {
-  engineStatus: EngineStatus;
-  onChange: (engineStatus: EngineStatus) => void;
+  battleStatus: BattleStatus;
+  onChange: (battleStatus: BattleStatus) => void;
 }) => {
   return (
     <div className="flex flex-col items-center w-72">
-      <div>音動機</div>
+      <div>その他バフ</div>
 
       <div className="flex flex-col items-center gap-4 w-72">
         <div className="flex flex-row items-center w-full">
-          <div className="w-28">攻撃力</div>
+          <div className="w-28">攻撃力実数</div>
           <div>
             <Input
               placeholder="攻撃力実数"
               type="number"
-              value={engineStatus.attack}
+              value={battleStatus.attackBonus}
               onChange={(e) => {
                 onChange({
-                  ...engineStatus,
-                  attack: parseInt(e.target.value),
+                  ...battleStatus,
+                  attackBonus: parseInt(e.target.value),
                 });
               }}
             />
@@ -37,11 +37,29 @@ export const BattleStatusPanel = ({
               placeholder="攻撃力%"
               type="number"
               step="0.1"
-              value={engineStatus.attackRate}
+              value={battleStatus.attackRateBonus}
               onChange={(e) => {
                 onChange({
-                  ...engineStatus,
-                  attackRate: parseFloat(e.target.value),
+                  ...battleStatus,
+                  attackRateBonus: parseFloat(e.target.value),
+                });
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-row items-center w-full">
+          <div className="w-28">戦闘攻撃力%</div>
+          <div>
+            <Input
+              placeholder="攻撃力%"
+              type="number"
+              step="0.1"
+              value={battleStatus.battleAttackRateBonus}
+              onChange={(e) => {
+                onChange({
+                  ...battleStatus,
+                  battleAttackRateBonus: parseFloat(e.target.value),
                 });
               }}
             />
@@ -55,11 +73,11 @@ export const BattleStatusPanel = ({
               placeholder="会心率"
               type="number"
               step="0.1"
-              value={engineStatus.critRate}
+              value={battleStatus.critRateBonus}
               onChange={(e) => {
                 onChange({
-                  ...engineStatus,
-                  critRate: parseFloat(e.target.value),
+                  ...battleStatus,
+                  critRateBonus: parseFloat(e.target.value),
                 });
               }}
             />
@@ -73,11 +91,11 @@ export const BattleStatusPanel = ({
               placeholder="会心ダメージ"
               type="number"
               step="0.1"
-              value={engineStatus.critDamage}
+              value={battleStatus.critDamageBonus}
               onChange={(e) => {
                 onChange({
-                  ...engineStatus,
-                  critDamage: parseFloat(e.target.value),
+                  ...battleStatus,
+                  critDamageBonus: parseFloat(e.target.value),
                 });
               }}
             />
@@ -91,11 +109,11 @@ export const BattleStatusPanel = ({
               placeholder="貫通率"
               type="number"
               step="0.1"
-              value={engineStatus.penRatio}
+              value={battleStatus.penRateBonus}
               onChange={(e) => {
                 onChange({
-                  ...engineStatus,
-                  penRatio: parseFloat(e.target.value),
+                  ...battleStatus,
+                  penRateBonus: parseFloat(e.target.value),
                 });
               }}
             />
@@ -109,11 +127,11 @@ export const BattleStatusPanel = ({
               placeholder="与ダメージ%"
               type="number"
               step="0.1"
-              value={engineStatus.damageBuff}
+              value={battleStatus.damageBuffBonus}
               onChange={(e) => {
                 onChange({
-                  ...engineStatus,
-                  damageBuff: parseFloat(e.target.value),
+                  ...battleStatus,
+                  damageBuffBonus: parseFloat(e.target.value),
                 });
               }}
             />

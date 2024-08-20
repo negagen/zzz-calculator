@@ -122,3 +122,13 @@ export interface DamageBase {
   stunBonusRate: number;
   isStun: boolean;
 }
+
+export interface BattleStatus {
+  attackBonus: number;
+  attackRateBonus: number;
+  battleAttackRateBonus: number;
+  critRateBonus: number;
+  critDamageBonus: number;
+  damageBuffBonus: number;
+  penRateBonus: number;
+}

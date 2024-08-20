@@ -3,6 +3,7 @@ import {
   DiskStatus,
   EngineStatus,
   EnemyStatus,
+  BattleStatus,
   Skill,
 } from "./types";
 
@@ -31,9 +32,9 @@ export const defaultDiskStatus: DiskStatus = {
   slot5: { rank: "S", type: "damageBuff" },
   slot6: { rank: "S", type: "attack" },
   attackCount: 0,
-  attackRateCount: 4,
-  critRateCount: 4,
-  critDamageCount: 4,
+  attackRateCount: 0,
+  critRateCount: 0,
+  critDamageCount: 0,
   penCount: 0,
 };
 
@@ -58,3 +59,13 @@ export const defaultSkills: Skill[] = [
     type: "basic",
   },
 ];
+
+export const defaultBattleStatus: BattleStatus = {
+  attackBonus: 0,
+  attackRateBonus: 0,
+  battleAttackRateBonus: 0,
+  critRateBonus: 0,
+  critDamageBonus: 0,
+  damageBuffBonus: 0,
+  penRateBonus: 0,
+};

@@ -5,6 +5,7 @@ import {
   BaseStatus,
   EnemyStatus,
   DamageBase,
+  BattleStatus,
 } from "./types";
 import Decimal from "decimal.js";
 
@@ -140,37 +141,53 @@ const damageLevel: Record<number, number> = {
 
 export const calculateDamageBase = (
   baseStatus: BaseStatus,
-  enemyStatus: EnemyStatus
+  enemyStatus: EnemyStatus,
+  battleStatus: BattleStatus
 ): DamageBase => {
-  const critBonusRate = Math.floor(
-    100 + (baseStatus.critRate / 100) * baseStatus.critDamage
-  );
-  const damageBuffRate = 100 + baseStatus.damageBuff;
+  const critRate = baseStatus.critRate + battleStatus.critRateBonus;
+  const critDamage = baseStatus.critDamage + battleStatus.critDamageBonus;
+  const damageBuff = baseStatus.damageBuff + battleStatus.damageBuffBonus;
+  const penRate = baseStatus.penRate + battleStatus.penRateBonus;
+
+  const attack = new Decimal(baseStatus.attack)
+    .times(new Decimal(100 + battleStatus.battleAttackRateBonus).div(100))
+    .floor()
+    .add(battleStatus.attackBonus)
+    .toNumber();
+
+  const critBonusRate = new Decimal(100)
+    .add(new Decimal(critRate).div(100).times(critDamage))
+    .times(100)
+    .floor()
+    .div(100)
+    .toNumber();
+  const damageBuffRate = 100 + damageBuff;
   const defense = Math.max(
-    Math.floor(
-      enemyStatus.defense *
-        (1 - enemyStatus.defenseDown / 100) *
-        (1 - baseStatus.penRate / 100)
-    ) - baseStatus.pen,
+    new Decimal(enemyStatus.defense)
+      .times(new Decimal(100).sub(enemyStatus.defenseDown).div(100))
+      .times(new Decimal(100).sub(penRate).div(100))
+      .toNumber() - baseStatus.pen,
     0
   );
-  const defenseRate =
-    Math.floor(
-      (damageLevel[baseStatus.level] /
-        (damageLevel[baseStatus.level] + defense)) *
-        1000
-    ) / 10;
+
+  const defenseRate = new Decimal(damageLevel[baseStatus.level])
+    .div(new Decimal(damageLevel[baseStatus.level]).add(defense))
+    .times(10000)
+    .floor()
+    .div(100)
+    .toNumber();
+
   const resistanceRate =
     100 - enemyStatus.damageRes + enemyStatus.registanceDown;
   const stunBonusRate = enemyStatus.stunDamageMultiplier;
 
   return {
-    attack: baseStatus.attack,
+    attack: attack,
     damageBuff: damageBuffRate,
     critDamage: 100 + baseStatus.critDamage,
     critBonusRate: critBonusRate,
-    pen: baseStatus.penRate,
-    penRatio: baseStatus.penRate,
+    pen: baseStatus.pen,
+    penRatio: penRate,
     defenceRate: defenseRate,
     registanceRate: resistanceRate,
     stunBonusRate: stunBonusRate,

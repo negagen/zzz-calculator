@@ -6,6 +6,7 @@ import type {
   EnemyStatus,
   DiskStatus,
   EngineStatus,
+  BattleStatus,
 } from "./types";
 import {
   AgentStatusPanel,
@@ -15,6 +16,7 @@ import {
   StatusPanel,
   SkillDamagePanel,
   DamageBasePanel,
+  BattleStatusPanel,
 } from "@/app/components";
 import { calculateDamageBase, calculateStatus } from "@/app/calculator";
 import {
@@ -23,6 +25,7 @@ import {
   defaultDiskStatus,
   defaultEnemyStatus,
   defaultSkills,
+  defaultBattleStatus,
 } from "./data";
 
 export default function Home() {
@@ -33,8 +36,11 @@ export default function Home() {
   const [diskStatus, setDiskStatus] = useState<DiskStatus>(defaultDiskStatus);
   const [enemyStatus, setEnemyStatus] =
     useState<EnemyStatus>(defaultEnemyStatus);
+  const [battleStatus, setBattleStatus] =
+    useState<BattleStatus>(defaultBattleStatus);
+
   const baseStatus = calculateStatus(agentStatus, engineStatus, diskStatus);
-  const damageBase = calculateDamageBase(baseStatus, enemyStatus);
+  const damageBase = calculateDamageBase(baseStatus, enemyStatus, battleStatus);
   const skills = defaultSkills;
 
   return (
@@ -54,6 +60,11 @@ export default function Home() {
           <EnemyStatusPanel
             enemyStatus={enemyStatus}
             onChange={setEnemyStatus}
+          />
+
+          <BattleStatusPanel
+            battleStatus={battleStatus}
+            onChange={setBattleStatus}
           />
         </div>
       </div>
