@@ -176,3 +176,36 @@ export const calculateDamageBase = (
     stunBonusRate: stunBonusRate,
   };
 };
+
+export const calculateDamage = (
+  damageBase: DamageBase,
+  skillDamageRate: number,
+  isCrit: boolean
+) => {
+  const damage =
+    (((((((damageBase.attack *
+      (skillDamageRate / 100) *
+      damageBase.damageBuff) /
+      100) *
+      damageBase.defenceRate) /
+      100) *
+      damageBase.registanceRate) /
+      100) *
+      damageBase.stunBonusRate) /
+    100;
+  if (isCrit) {
+    return Math.floor(damage * (damageBase.critDamage / 100));
+  }
+  return Math.floor(damage);
+};
+
+export const calculateExpectedDamage = (
+  damageBase: DamageBase,
+  skillDamageRate: number
+) => {
+  const damage = Math.floor(
+    calculateDamage(damageBase, skillDamageRate, false) *
+      (damageBase.critBonusRate / 100)
+  );
+  return damage;
+};
