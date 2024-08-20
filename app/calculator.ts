@@ -175,7 +175,7 @@ export const calculateDamageBase = (
   const defense = Math.max(
     new Decimal(enemyStatus.defense)
       .div(50)
-      .times(damageLevel[baseStatus.level])
+      .times(damageLevel[Math.min(enemyStatus.level, 60)])
       .floor()
       .times(new Decimal(100).sub(enemyStatus.defenseDown).div(100))
       .times(new Decimal(100).sub(penRate).div(100))
@@ -201,7 +201,7 @@ export const calculateDamageBase = (
     critBonusRate: critBonusRate,
     pen: baseStatus.pen,
     penRatio: penRate,
-    defenceRate: defenseRate,
+    defenseRate: defenseRate,
     registanceRate: resistanceRate,
     stunBonusRate: stunBonusRate,
     isStun: enemyStatus.isStun,
@@ -216,7 +216,7 @@ export const calculateDamage = (
   const attack = new Decimal(damageBase.attack);
   const skillDamage = new Decimal(skillDamageRate).div(100);
   const damageBuff = new Decimal(damageBase.damageBuff).div(100);
-  const defenceRate = new Decimal(damageBase.defenceRate).div(100);
+  const defenseRate = new Decimal(damageBase.defenseRate).div(100);
   const registanceRate = new Decimal(damageBase.registanceRate).div(100);
   const stunBonusRate = new Decimal(
     damageBase.isStun ? damageBase.stunBonusRate : 100
@@ -225,7 +225,7 @@ export const calculateDamage = (
   const damage = attack
     .times(skillDamage)
     .times(damageBuff)
-    .times(defenceRate)
+    .times(defenseRate)
     .times(registanceRate)
     .times(stunBonusRate);
 

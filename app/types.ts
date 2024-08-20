@@ -123,7 +123,7 @@ export interface DamageBase {
   critBonusRate: number;
   pen: number;
   penRatio: number;
-  defenceRate: number;
+  defenseRate: number;
   registanceRate: number;
   stunBonusRate: number;
   isStun: boolean;

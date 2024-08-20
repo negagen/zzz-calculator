@@ -1,5 +1,5 @@
 import { DamageBase } from "@/app/types";
-import { calculateDamage } from "@/app/calculator";
+import { calculateDamage, calculateExpectedDamage } from "@/app/calculator";
 
 interface CalculatorProps {
   damageBase: DamageBase;
@@ -23,7 +23,7 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
         <div className="flex flex-row gap-1.5 justify-between">
           <CalculatorCard
             text="防御係数"
-            value={`${damageBase.defenceRate}%`}
+            value={`${damageBase.defenseRate}%`}
           />
           <CalculatorCard
             text="属性係数"
@@ -38,12 +38,16 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
       <div className="flex flex-row gap-1.5 justify-between">
         <div>
           <CalculatorCard
-            text="ダメージ基礎値(通常)"
+            text="通常ダメージ"
             value={calculateDamage(damageBase, 100, false)}
           />
           <CalculatorCard
-            text="ダメージ基礎値(会心)"
+            text="会心ダメージ"
             value={calculateDamage(damageBase, 100, true)}
+          />
+          <CalculatorCard
+            text="ダメージ期待値"
+            value={calculateExpectedDamage(damageBase, 100)}
           />
         </div>
       </div>
