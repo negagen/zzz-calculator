@@ -42,7 +42,8 @@ export const defaultEnemyStatus: EnemyStatus = {
   damageRes: 0,
   defenseDown: 0,
   registanceDown: 0,
-  stunDamageMultiplier: 100,
+  stunDamageMultiplier: 150,
+  isStun: false,
 };
 
 export const defaultSkills: Skill[] = [

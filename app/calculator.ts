@@ -174,6 +174,7 @@ export const calculateDamageBase = (
     defenceRate: defenseRate,
     registanceRate: resistanceRate,
     stunBonusRate: stunBonusRate,
+    isStun: enemyStatus.isStun,
   };
 };
 
@@ -182,21 +183,28 @@ export const calculateDamage = (
   skillDamageRate: number,
   isCrit: boolean
 ) => {
-  const damage =
-    (((((((damageBase.attack *
-      (skillDamageRate / 100) *
-      damageBase.damageBuff) /
-      100) *
-      damageBase.defenceRate) /
-      100) *
-      damageBase.registanceRate) /
-      100) *
-      damageBase.stunBonusRate) /
-    100;
+  const attack = new Decimal(damageBase.attack);
+  const skillDamage = new Decimal(skillDamageRate).div(100);
+  const damageBuff = new Decimal(damageBase.damageBuff).div(100);
+  const defenceRate = new Decimal(damageBase.defenceRate).div(100);
+  const registanceRate = new Decimal(damageBase.registanceRate).div(100);
+  const stunBonusRate = new Decimal(
+    damageBase.isStun ? damageBase.stunBonusRate : 100
+  ).div(100);
+
+  const damage = attack
+    .times(skillDamage)
+    .times(damageBuff)
+    .times(defenceRate)
+    .times(registanceRate)
+    .times(stunBonusRate);
+
+  const critDamage = new Decimal(damageBase.critDamage).div(100);
+
   if (isCrit) {
-    return Math.floor(damage * (damageBase.critDamage / 100));
+    return Math.floor(damage.times(critDamage).toNumber());
   }
-  return Math.floor(damage);
+  return Math.floor(damage.toNumber());
 };
 
 export const calculateExpectedDamage = (

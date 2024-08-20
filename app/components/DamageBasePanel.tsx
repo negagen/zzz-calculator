@@ -31,7 +31,7 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
           />
           <CalculatorCard
             text="ブレイク弱体倍率"
-            value={`${damageBase.stunBonusRate}%`}
+            value={damageBase.isStun ? `${damageBase.stunBonusRate}%` : "-"}
           />
         </div>
       </div>

@@ -1,5 +1,5 @@
-import { Input, Select } from "antd";
-import { EnemyStatus } from "./types";
+import { Input, Select, Checkbox } from "antd";
+import { EnemyStatus } from "@/app/types";
 
 export const EnemyStatusPanel = ({
   enemyStatus,
@@ -78,12 +78,29 @@ export const EnemyStatusPanel = ({
         </div>
 
         <div className="flex flex-row items-center w-full">
+          <div>
+            <Checkbox
+              checked={enemyStatus.isStun}
+              onChange={(e) => {
+                onChange({
+                  ...enemyStatus,
+                  isStun: e.target.checked,
+                });
+              }}
+            >
+              ブレイク中
+            </Checkbox>
+          </div>
+        </div>
+
+        <div className="flex flex-row items-center w-full">
           <div className="w-28">ブレイク弱体倍率</div>
           <div>
             <Input
               placeholder="ブレイク弱体倍率"
               type="number"
               value={enemyStatus.stunDamageMultiplier}
+              disabled={!enemyStatus.isStun}
               onChange={(e) => {
                 onChange({
                   ...enemyStatus,

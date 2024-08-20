@@ -95,6 +95,7 @@ export interface EnemyStatus {
   damageRes: number;
   registanceDown: number;
   stunDamageMultiplier: number;
+  isStun: boolean;
 }
 
 export interface BaseStatus {
@@ -119,4 +120,5 @@ export interface DamageBase {
   defenceRate: number;
   registanceRate: number;
   stunBonusRate: number;
+  isStun: boolean;
 }
