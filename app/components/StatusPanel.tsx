@@ -49,6 +49,14 @@ export const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
             <div>{baseStatus.penRate}%</div>
           </div>
         </div>
+
+        <div className="flex flex-row">
+          <div className="w-28">貫通値</div>
+
+          <div className="flex flex-col">
+            <div>{baseStatus.pen}</div>
+          </div>
+        </div>
       </div>
     </div>
   );

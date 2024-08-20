@@ -26,7 +26,7 @@ export const StatusInput = ({
               value = "0";
             }
 
-            onChange(parseInt(value));
+            onChange(parseFloat(value));
           }}
         />
       </div>

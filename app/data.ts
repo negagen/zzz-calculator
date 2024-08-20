@@ -28,14 +28,14 @@ export const defaultDiskStatus: DiskStatus = {
   slot4: { rank: "S", type: "critDamage" },
   slot5: { rank: "S", type: "damageBuff" },
   slot6: { rank: "S", type: "attack" },
-  attackCount: 0,
-  attackRateCount: 0,
-  critRateCount: 0,
-  critDamageCount: 0,
+  attackCount: 4,
+  attackRateCount: 4,
+  critRateCount: 4,
+  critDamageCount: 4,
+  penCount: 0,
   setBonus1: { type: "critRate", critRate: 8 },
   setBonus2: { type: "damageBuff", damageBuff: 10 },
   setBonus3: { type: "none" },
-  penCount: 0,
 };
 
 export const defaultEnemyStatus: EnemyStatus = {

@@ -95,6 +95,9 @@ export const calculateBaseStatus = (
           ? 16
           : 8;
   }
+  diskPenRate += diskStatus.setBonus1.penRate || 0;
+  diskPenRate += diskStatus.setBonus2.penRate || 0;
+  diskPenRate += diskStatus.setBonus3.penRate || 0;
 
   const baseAttack = agent.attack + engine.attack;
   const subAttackRate = diskStatus.attackRateCount * 3;

@@ -93,18 +93,18 @@ export default function Home() {
           height={540}
           src="/images/zzz1_1.png"
           alt="Background"
-          className="absolute z-0 top-0 opacity-20"
+          className="absolute z-0 top-0 opacity-40"
         />
         <div
           className="w-full bg-gradient-to-t from-slate-950 z-1 absolute"
-          style={{ minHeight: "70vh" }}
+          style={{ minHeight: "65vh" }}
         ></div>
 
         <h1 className="text-3xl mt-4 mb-4 h-12 z-10">
           ZZZ Damage Calculator (Beta)
         </h1>
 
-        <div className="flex flex-col p-4 border border-3 border-gray-600 rounded-lg z-10 opacity-85">
+        <div className="flex flex-col p-4 border border-3 border-gray-600 rounded-lg z-10 opacity-80">
           <div className="flex flex-col gap-2.5">
             <div className="flex flex-row gap-2.5">
               <AgentStatusPanel
