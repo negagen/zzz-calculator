@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Table } from "antd";
+import Decimal from "decimal.js";
 import type { TableProps } from "antd";
 import type {
   Agent,
@@ -14,10 +15,11 @@ import type {
   BaseStatus,
   DamageBase,
 } from "./types";
-import { AgentStatusPanel } from "./AgentStatus";
-import { EngineStatusPanel } from "./EngineStatus";
-import { DiskStatusPanel } from "./DiskStatus";
-import { EnemyStatusPanel } from "./EnemyStatus";
+import { AgentStatusPanel } from "./AgentStatusPanel";
+import { EngineStatusPanel } from "./EngineStatusPanel";
+import { DiskStatusPanel } from "./DiskStatusPanel";
+import { EnemyStatusPanel } from "./EnemyStatusPanel";
+import { StatusPanel } from "./StatusPanel";
 import { calculateDamageBase, calculateStatus } from "./calculate";
 import {
   defaultAgentStatus,
@@ -146,6 +148,8 @@ interface SkillDamageDataType {
   key: string;
   name: string;
   skillDamageRate: number;
+  normal: number;
+  critDamage: number;
   expected: number;
 }
 
@@ -230,62 +234,25 @@ const SkillDamage = ({
     }
   });
 
+  const damageAmount = data.reduce(
+    (acc, curr) => new Decimal(acc).add(curr.skillDamageRate).toNumber(),
+    0
+  );
+
+  data.push({
+    key: "total",
+    name: "合計",
+    skillDamageRate: damageAmount,
+    normal: calculateDamage(damageBase, damageAmount, false),
+    critDamage: calculateDamage(damageBase, damageAmount, true),
+    expected: calculateExpectedDamage(damageBase, damageAmount),
+  });
+
   return (
     <div className="flex flex-col items-center justify-between p-4 border border-gray-200 rounded-lg shadow-md">
       <h1 className="text-xl font-bold">{skill.name}</h1>
       <div className="text-sm text-gray-500">
         <Table columns={columns} dataSource={data} />
-      </div>
-    </div>
-  );
-};
-
-const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
-  return (
-    <div className="flex flex-col p-4 border border-gray-200 rounded-lg shadow-md">
-      <div className="text-xl font-bold">ステータス</div>
-      <div className="flex flex-col">
-        <div className="flex flex-row">
-          <div className="w-28">攻撃力</div>
-
-          <div className="flex flex-col">
-            <div>
-              {`${baseStatus.attack}(${baseStatus.baseAttack} + ${baseStatus.attackBonus})`}
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-row">
-          <div className="w-28">会心率</div>
-
-          <div className="flex flex-col">
-            <div>{baseStatus.critRate}%</div>
-          </div>
-        </div>
-
-        <div className="flex flex-row">
-          <div className="w-28">会心ダメージ</div>
-
-          <div className="flex flex-col">
-            <div>{baseStatus.critDamage}%</div>
-          </div>
-        </div>
-
-        <div className="flex flex-row">
-          <div className="w-28">与ダメージ%</div>
-
-          <div className="flex flex-col">
-            <div>{baseStatus.damageBuff}%</div>
-          </div>
-        </div>
-
-        <div className="flex flex-row">
-          <div className="w-28">貫通率</div>
-
-          <div className="flex flex-col">
-            <div>{baseStatus.penRate}%</div>
-          </div>
-        </div>
       </div>
     </div>
   );

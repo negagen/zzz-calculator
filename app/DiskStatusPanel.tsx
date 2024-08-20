@@ -141,6 +141,8 @@ export const DiskStatusPanel = ({
         </div>
       </div>
 
+      <div className="w-full">サブステ上昇回数</div>
+
       <div className="flex flex-row items-center w-full">
         <div className="w-28">攻撃力実数</div>
         <div>
