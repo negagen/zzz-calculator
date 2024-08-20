@@ -1,26 +1,18 @@
 export type Speciality = "Attack" | "Stun" | "Anomaly" | "Defense";
 export type Attribute = "Fire" | "Ether" | "Ice" | "Physical" | "Electric";
 
+export type AgentLevel = 1 | 10 | 20 | 30 | 40 | 50 | 60;
+export type CoreSkillLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+
 export interface Agent {
   name: string;
-  speciality: Speciality;
-  attributes: Attribute;
-  hp: number;
-  attack: number;
-  defense: number;
-  critRate: number;
-  impact: number;
-  penRatio: number;
-  critDamage: number;
-  damageBuff: number;
-  coreSkillLevel: number;
+  attackTable: Record<AgentLevel, number>;
   coreSkillLevelBonusType:
     | "critRate"
     | "critDamage"
     | "penRate"
     | "energy"
     | "anomalyMastery";
-  skills: Skill[];
 }
 
 export interface Engine {

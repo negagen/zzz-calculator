@@ -3,11 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import type {
-  AgentStatus,
+  Agent,
   EnemyStatus,
   DiskStatus,
   EngineStatus,
   AdditionalStatus,
+  AgentLevel,
+  CoreSkillLevel,
 } from "./types";
 import {
   AgentStatusPanel,
@@ -20,19 +22,19 @@ import {
 } from "@/app/components";
 import { calculateDamageBase, calculateBaseStatus } from "@/app/calculator";
 import {
-  defaultAgentStatus,
   defaultEngineStatus,
   defaultDiskStatus,
   defaultEnemyStatus,
-  defaultSkills,
   defaultBattleStatus,
 } from "./data";
-import { ConfigProvider, Divider } from "antd";
-import BackgroundImg from "@/assets/zzz1_1.png";
+import { ConfigProvider } from "antd";
+import { agents, calculateAgentStatus } from "./agents";
 
 export default function Home() {
-  const [agentStatus, setAgentStatus] =
-    useState<AgentStatus>(defaultAgentStatus);
+  const [agent, setAgent] = useState<Agent>(agents[0]);
+  const [agentLevel, setAgentLevel] = useState<AgentLevel>(60);
+  const [agentCoreSkillLevel, setAgentCoreSkillLevel] =
+    useState<CoreSkillLevel>(7);
   const [engineStatus, setEngineStatus] =
     useState<EngineStatus>(defaultEngineStatus);
   const [diskStatus, setDiskStatus] = useState<DiskStatus>(defaultDiskStatus);
@@ -41,6 +43,11 @@ export default function Home() {
   const [battleStatus, setBattleStatus] =
     useState<AdditionalStatus>(defaultBattleStatus);
 
+  const agentStatus = calculateAgentStatus(
+    agent,
+    agentLevel,
+    agentCoreSkillLevel
+  );
   const baseStatus = calculateBaseStatus(agentStatus, engineStatus, diskStatus);
   const damageBase = calculateDamageBase(baseStatus, enemyStatus, battleStatus);
 
@@ -101,8 +108,18 @@ export default function Home() {
           <div className="flex flex-col gap-2.5">
             <div className="flex flex-row gap-2.5">
               <AgentStatusPanel
-                agentStatus={agentStatus}
-                onChange={setAgentStatus}
+                agent={agent}
+                level={agentLevel}
+                coreSkillLevel={agentCoreSkillLevel}
+                onChange={(
+                  agent: Agent,
+                  level: AgentLevel,
+                  coreSkillLevel: CoreSkillLevel
+                ) => {
+                  setAgent(agent);
+                  setAgentLevel(level);
+                  setAgentCoreSkillLevel(coreSkillLevel);
+                }}
               />
               <EngineStatusPanel
                 engineStatus={engineStatus}
