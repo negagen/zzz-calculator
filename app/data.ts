@@ -3,7 +3,7 @@ import {
   DiskStatus,
   EngineStatus,
   EnemyStatus,
-  BattleStatus,
+  AdditionalStatus,
   Skill,
 } from "./types";
 
@@ -39,7 +39,8 @@ export const defaultDiskStatus: DiskStatus = {
 };
 
 export const defaultEnemyStatus: EnemyStatus = {
-  defense: 952,
+  level: 70,
+  defense: 60,
   damageRes: 0,
   defenseDown: 0,
   registanceDown: 0,
@@ -60,7 +61,7 @@ export const defaultSkills: Skill[] = [
   },
 ];
 
-export const defaultBattleStatus: BattleStatus = {
+export const defaultBattleStatus: AdditionalStatus = {
   attackBonus: 0,
   attackRateBonus: 0,
   battleAttackRateBonus: 0,

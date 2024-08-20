@@ -1,5 +1,6 @@
 import { Input } from "antd";
-import { EngineStatus } from "./types";
+import { EngineStatus } from "@/app/types";
+import { StatusInput } from "./StatusInput";
 
 export const EngineStatusPanel = ({
   engineStatus,
@@ -9,116 +10,48 @@ export const EngineStatusPanel = ({
   onChange: (engineStatus: EngineStatus) => void;
 }) => {
   return (
-    <div className="flex flex-col items-center w-72">
-      <div>音動機</div>
+    <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4">
+      <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2">
+        音動機
+      </div>
 
-      <div className="flex flex-col items-center gap-4 w-72">
-        <div className="flex flex-row items-center w-full">
-          <div className="w-28">攻撃力</div>
-          <div>
-            <Input
-              placeholder="攻撃力実数"
-              type="number"
-              value={engineStatus.attack}
-              onChange={(e) => {
-                onChange({
-                  ...engineStatus,
-                  attack: parseInt(e.target.value),
-                });
-              }}
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-row items-center w-full">
-          <div className="w-28">攻撃力%</div>
-          <div>
-            <Input
-              placeholder="攻撃力%"
-              type="number"
-              step="0.1"
-              value={engineStatus.attackRate}
-              onChange={(e) => {
-                onChange({
-                  ...engineStatus,
-                  attackRate: parseFloat(e.target.value),
-                });
-              }}
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-row items-center w-full">
-          <div className="w-28">会心率</div>
-          <div>
-            <Input
-              placeholder="会心率"
-              type="number"
-              step="0.1"
-              value={engineStatus.critRate}
-              onChange={(e) => {
-                onChange({
-                  ...engineStatus,
-                  critRate: parseFloat(e.target.value),
-                });
-              }}
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-row items-center w-full">
-          <div className="w-28">会心ダメージ</div>
-          <div>
-            <Input
-              placeholder="会心ダメージ"
-              type="number"
-              step="0.1"
-              value={engineStatus.critDamage}
-              onChange={(e) => {
-                onChange({
-                  ...engineStatus,
-                  critDamage: parseFloat(e.target.value),
-                });
-              }}
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-row items-center w-full">
-          <div className="w-28">貫通率</div>
-          <div>
-            <Input
-              placeholder="貫通率"
-              type="number"
-              step="0.1"
-              value={engineStatus.penRatio}
-              onChange={(e) => {
-                onChange({
-                  ...engineStatus,
-                  penRatio: parseFloat(e.target.value),
-                });
-              }}
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-row items-center w-full">
-          <div className="w-28">与ダメージ%</div>
-          <div>
-            <Input
-              placeholder="与ダメージ%"
-              type="number"
-              step="0.1"
-              value={engineStatus.damageBuff}
-              onChange={(e) => {
-                onChange({
-                  ...engineStatus,
-                  damageBuff: parseFloat(e.target.value),
-                });
-              }}
-            />
-          </div>
-        </div>
+      <div className="flex flex-col items-center gap-2 w-64">
+        <StatusInput
+          title="レベル"
+          disabled={true}
+          value={60}
+          onChange={(value) => {}}
+        />
+        <StatusInput
+          title="攻撃力"
+          value={engineStatus.attack}
+          onChange={(value) => onChange({ ...engineStatus, attack: value })}
+        />
+        <StatusInput
+          title="攻撃力%"
+          value={engineStatus.attackRate}
+          onChange={(value) => onChange({ ...engineStatus, attackRate: value })}
+        />
+        <StatusInput
+          title="会心率"
+          value={engineStatus.critRate}
+          onChange={(value) => onChange({ ...engineStatus, critRate: value })}
+        />
+        <StatusInput
+          title="会心ダメージ"
+          value={engineStatus.critDamage}
+          onChange={(value) => onChange({ ...engineStatus, critDamage: value })}
+        />
+        <StatusInput
+          title="与ダメージ%"
+          value={engineStatus.damageBuff}
+          onChange={(value) => onChange({ ...engineStatus, damageBuff: value })}
+        />
+        <StatusInput
+          title="貫通率"
+          value={engineStatus.penRatio}
+          onChange={(value) => onChange({ ...engineStatus, penRatio: value })}
+        />
       </div>
     </div>
   );

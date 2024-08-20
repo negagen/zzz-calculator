@@ -10,10 +10,16 @@ export interface Agent {
   defense: number;
   critRate: number;
   impact: number;
-  anomalyMastery: number;
   penRatio: number;
   critDamage: number;
   damageBuff: number;
+  coreSkillLevel: number;
+  coreSkillLevelBonusType:
+    | "critRate"
+    | "critDamage"
+    | "penRate"
+    | "energy"
+    | "anomalyMastery";
   skills: Skill[];
 }
 
@@ -23,7 +29,6 @@ export interface Engine {
   attackBuff: number;
   critRate: number;
   critDamage: number;
-  anomalyMastery: number;
   impact: number;
   penRatio: number;
 }
@@ -90,6 +95,7 @@ export interface DiskStatus {
 }
 
 export interface EnemyStatus {
+  level: number;
   defense: number;
   defenseDown: number;
   damageRes: number;
@@ -123,10 +129,9 @@ export interface DamageBase {
   isStun: boolean;
 }
 
-export interface BattleStatus {
+export interface AdditionalStatus {
   attackBonus: number;
   attackRateBonus: number;
-  battleAttackRateBonus: number;
   critRateBonus: number;
   critDamageBonus: number;
   damageBuffBonus: number;

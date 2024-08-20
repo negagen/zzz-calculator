@@ -5,7 +5,7 @@ import {
   BaseStatus,
   EnemyStatus,
   DamageBase,
-  BattleStatus,
+  AdditionalStatus,
 } from "./types";
 import Decimal from "decimal.js";
 
@@ -142,7 +142,7 @@ const damageLevel: Record<number, number> = {
 export const calculateDamageBase = (
   baseStatus: BaseStatus,
   enemyStatus: EnemyStatus,
-  battleStatus: BattleStatus
+  battleStatus: AdditionalStatus
 ): DamageBase => {
   const critRate = baseStatus.critRate + battleStatus.critRateBonus;
   const critDamage = baseStatus.critDamage + battleStatus.critDamageBonus;
@@ -150,7 +150,7 @@ export const calculateDamageBase = (
   const penRate = baseStatus.penRate + battleStatus.penRateBonus;
 
   const attack = new Decimal(baseStatus.attack)
-    .times(new Decimal(100 + battleStatus.battleAttackRateBonus).div(100))
+    .times(new Decimal(100 + battleStatus.attackRateBonus).div(100))
     .floor()
     .add(battleStatus.attackBonus)
     .toNumber();
@@ -162,8 +162,12 @@ export const calculateDamageBase = (
     .div(100)
     .toNumber();
   const damageBuffRate = 100 + damageBuff;
+
   const defense = Math.max(
     new Decimal(enemyStatus.defense)
+      .div(50)
+      .times(damageLevel[baseStatus.level])
+      .floor()
       .times(new Decimal(100).sub(enemyStatus.defenseDown).div(100))
       .times(new Decimal(100).sub(penRate).div(100))
       .toNumber() - baseStatus.pen,

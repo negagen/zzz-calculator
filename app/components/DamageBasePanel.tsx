@@ -8,7 +8,7 @@ interface CalculatorProps {
 export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
   return (
     <>
-      <div className="flex flex-col border border-gray-200 rounded-lg shadow-md">
+      <div className="flex flex-col items-center bg-yellow-700 rounded-md p-4">
         <div className="flex flex-row gap-1.5 justify-between">
           <CalculatorCard text="攻撃力" value={damageBase.attack} />
           <CalculatorCard
@@ -60,8 +60,8 @@ const CalculatorCard = ({
 }) => {
   return (
     <div className="flex flex-col w-40 h-20 items-center justify-center border border-gray-200 rounded-lg shadow-md">
-      <h1 className="text font-bold">{text}</h1>
-      <p className="text text-gray-800">{value}</p>
+      <h1 className="font-bold">{text}</h1>
+      <p className="">{value}</p>
     </div>
   );
 };

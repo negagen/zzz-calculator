@@ -1,5 +1,5 @@
 export * from "./AgentStatusPanel";
-export * from "./BattleStatusPanel";
+export * from "./AdditionalStatusPanel";
 export * from "./DiskStatusPanel";
 export * from "./DamageBasePanel";
 export * from "./EnemyStatusPanel";

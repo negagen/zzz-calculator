@@ -1,9 +1,12 @@
-import { BaseStatus } from "./types";
+import { BaseStatus } from "@/app/types";
 
 export const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
   return (
-    <div className="flex flex-col p-4 border border-gray-200 rounded-lg shadow-md">
-      <div className="text-xl font-bold">ステータス</div>
+    <div className="flex flex-col items-center w-72 bg-yellow-700 rounded-md p-4">
+      <div className="mb-4 w-full bg-yellow-900 text-center rounded-md p-2">
+        ステータス
+      </div>
+
       <div className="flex flex-col">
         <div className="flex flex-row">
           <div className="w-28">攻撃力</div>
