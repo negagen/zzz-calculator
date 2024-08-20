@@ -10,10 +10,8 @@ import {
 export const defaultAgentStatus: AgentStatus = {
   level: 60,
   attack: 938,
-  attackBuff: 0,
   critRate: 5,
   critDamage: 50,
-  damageBuff: 0,
   penRate: 0,
 };
 
@@ -23,7 +21,6 @@ export const defaultEngineStatus: EngineStatus = {
   critRate: 24,
   critDamage: 0,
   penRatio: 0,
-  damageBuff: 0,
 };
 
 export const defaultDiskStatus: DiskStatus = {
@@ -35,6 +32,9 @@ export const defaultDiskStatus: DiskStatus = {
   attackRateCount: 0,
   critRateCount: 0,
   critDamageCount: 0,
+  setBonus1: { type: "critRate", critRate: 8 },
+  setBonus2: { type: "damageBuff", damageBuff: 10 },
+  setBonus3: { type: "none" },
   penCount: 0,
 };
 
@@ -64,7 +64,6 @@ export const defaultSkills: Skill[] = [
 export const defaultBattleStatus: AdditionalStatus = {
   attackBonus: 0,
   attackRateBonus: 0,
-  battleAttackRateBonus: 0,
   critRateBonus: 0,
   critDamageBonus: 0,
   damageBuffBonus: 0,

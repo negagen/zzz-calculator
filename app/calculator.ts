@@ -9,7 +9,7 @@ import {
 } from "./types";
 import Decimal from "decimal.js";
 
-export const calculateStatus = (
+export const calculateBaseStatus = (
   agent: AgentStatus,
   engine: EngineStatus,
   diskStatus: DiskStatus
@@ -30,6 +30,9 @@ export const calculateStatus = (
           ? 16
           : 8;
   }
+  diskCritRate += diskStatus.setBonus1.critRate || 0;
+  diskCritRate += diskStatus.setBonus2.critRate || 0;
+  diskCritRate += diskStatus.setBonus3.critRate || 0;
 
   let diskCritDamage = 0;
   if (diskStatus.slot4.type === "critDamage") {
@@ -66,6 +69,9 @@ export const calculateStatus = (
           ? 20
           : 10;
   }
+  diskAttackRate += diskStatus.setBonus1.attackRate || 0;
+  diskAttackRate += diskStatus.setBonus2.attackRate || 0;
+  diskAttackRate += diskStatus.setBonus3.attackRate || 0;
 
   let diskDamageBuff = 0;
   if (diskStatus.slot5.type === "damageBuff") {
@@ -76,6 +82,9 @@ export const calculateStatus = (
           ? 20
           : 10;
   }
+  diskDamageBuff += diskStatus.setBonus1.damageBuff || 0;
+  diskDamageBuff += diskStatus.setBonus2.damageBuff || 0;
+  diskDamageBuff += diskStatus.setBonus3.damageBuff || 0;
 
   let diskPenRate = 0;
   if (diskStatus.slot5.type === "penRate") {
@@ -122,7 +131,7 @@ export const calculateStatus = (
       .add(diskCritDamage)
       .add(subCritDamage)
       .toNumber(),
-    damageBuff: agent.damageBuff + engine.damageBuff + diskDamageBuff,
+    damageBuff: diskDamageBuff,
     pen: diskStatus.penCount * 9,
     penRate: agent.penRate + engine.penRatio + diskPenRate,
   };

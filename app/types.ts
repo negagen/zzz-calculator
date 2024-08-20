@@ -61,10 +61,8 @@ export type Team = Character[];
 export interface AgentStatus {
   level: number;
   attack: number;
-  attackBuff: number;
   critRate: number;
   critDamage: number;
-  damageBuff: number;
   penRate: number;
 }
 
@@ -72,7 +70,6 @@ export interface EngineStatus {
   attack: number;
   attackRate: number;
   critRate: number;
-  damageBuff: number;
   critDamage: number;
   penRatio: number;
 }
@@ -91,7 +88,18 @@ export interface DiskStatus {
   attackRateCount: number;
   critRateCount: number;
   critDamageCount: number;
+  setBonus1: DiskSetBonus;
+  setBonus2: DiskSetBonus;
+  setBonus3: DiskSetBonus;
   penCount: number;
+}
+
+export interface DiskSetBonus {
+  type: "none" | "attackRate" | "critRate" | "penRate" | "damageBuff";
+  attackRate?: number;
+  critRate?: number;
+  penRate?: number;
+  damageBuff?: number;
 }
 
 export interface EnemyStatus {

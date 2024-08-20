@@ -61,17 +61,6 @@ export const AgentStatusPanel = ({
           value={agentStatus.penRate}
           onChange={(value) => onChange({ ...agentStatus, penRate: value })}
         />
-
-        <StatusInput
-          title="与ダメージ%"
-          value={agentStatus.damageBuff}
-          onChange={(value) => onChange({ ...agentStatus, damageBuff: value })}
-        />
-        <StatusInput
-          title="攻撃力%"
-          value={agentStatus.attackBuff}
-          onChange={(value) => onChange({ ...agentStatus, attackBuff: value })}
-        />
       </div>
     </div>
   );

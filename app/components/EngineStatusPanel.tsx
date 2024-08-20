@@ -43,11 +43,6 @@ export const EngineStatusPanel = ({
           onChange={(value) => onChange({ ...engineStatus, critDamage: value })}
         />
         <StatusInput
-          title="与ダメージ%"
-          value={engineStatus.damageBuff}
-          onChange={(value) => onChange({ ...engineStatus, damageBuff: value })}
-        />
-        <StatusInput
           title="貫通率"
           value={engineStatus.penRatio}
           onChange={(value) => onChange({ ...engineStatus, penRatio: value })}

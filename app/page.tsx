@@ -18,7 +18,7 @@ import {
   DamageBasePanel,
   AdditionalStatusPanel,
 } from "@/app/components";
-import { calculateDamageBase, calculateStatus } from "@/app/calculator";
+import { calculateDamageBase, calculateBaseStatus } from "@/app/calculator";
 import {
   defaultAgentStatus,
   defaultEngineStatus,
@@ -41,7 +41,7 @@ export default function Home() {
   const [battleStatus, setBattleStatus] =
     useState<AdditionalStatus>(defaultBattleStatus);
 
-  const baseStatus = calculateStatus(agentStatus, engineStatus, diskStatus);
+  const baseStatus = calculateBaseStatus(agentStatus, engineStatus, diskStatus);
   const damageBase = calculateDamageBase(baseStatus, enemyStatus, battleStatus);
 
   return (
