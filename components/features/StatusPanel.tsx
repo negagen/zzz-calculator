@@ -2,12 +2,12 @@ import { BaseStatus } from "@/core";
 
 export const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
   return (
-    <div className="flex flex-col items-center w-72 bg-yellow-700 rounded-md p-4">
-      <div className="mb-4 w-full bg-yellow-900 text-center rounded-md p-2">
+    <div className="flex flex-col items-center w-80 bg-yellow-700 rounded-md p-4 text-slate-300">
+      <div className="mb-4 w-full bg-yellow-950 text-center rounded-md p-2">
         ステータス
       </div>
 
-      <div className="flex flex-col gap-1.5">
+      <div className="flex flex-col gap-1.5 bg-yellow-950 rounded-md p-4">
         <div className="flex flex-row">
           <div className="w-28">攻撃力</div>
 
