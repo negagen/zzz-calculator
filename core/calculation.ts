@@ -156,7 +156,10 @@ export const calculateDamageBase = (
   enemyStatus: EnemyStatus,
   battleStatus: AdditionalStatus
 ): DamageBase => {
-  const critRate = baseStatus.critRate + battleStatus.critRateBonus;
+  const critRate = Math.min(
+    baseStatus.critRate + battleStatus.critRateBonus,
+    100
+  );
   const critDamage = baseStatus.critDamage + battleStatus.critDamageBonus;
   const damageBuff = baseStatus.damageBuff + battleStatus.damageBuffBonus;
   const penRate = baseStatus.penRate + battleStatus.penRateBonus;
