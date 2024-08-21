@@ -1,5 +1,6 @@
 import { Input, Select } from "antd";
 import { DiskSetBonus, DiskStatus } from "@/core";
+import { HelpButton } from "./HelpButton";
 
 export const DiskStatusPanel = ({
   diskStatus,
@@ -15,13 +16,27 @@ export const DiskStatusPanel = ({
       </div>
 
       <div className="flex flex-col gap-2 w-full">
-        <div className="mb-2 w-full text-sm bg-gray-800 text-center rounded-md py-1 px-2">
+        <div className="mb-2 w-full text-sm bg-gray-800 text-center rounded-md py-1 px-2 relative">
           パーティション
+          <div className="absolute right-2 top-0 h-full flex items-center">
+            <HelpButton
+              title="ディスク（パーティション）"
+              content={
+                <div className="flex flex-col gap-1.5">
+                  <p>ディスクの各パーティションを設定します。</p>
+                  <p>
+                    ランクに応じたディスクのステータスは自動的にステータスへ反映されます。
+                  </p>
+                  <p>レベルは最大レベル時のステータスです。</p>
+                </div>
+              }
+            />
+          </div>
         </div>
         <div className="flex flex-row gap-2 w-full">
           <div className="flex flex-col gap-2 w-full">
             <div className="flex flex-row items-center w-full gap-2">
-              <div className="w-6">1</div>
+              <div className="w-6 text-center">1</div>
               <div className="flex flex-row gap-2">
                 <Select
                   className="w-18"
@@ -36,7 +51,7 @@ export const DiskStatusPanel = ({
               </div>
             </div>
             <div className="flex flex-row items-center w-full gap-2">
-              <div className="w-6">2</div>
+              <div className="w-6 text-center">2</div>
               <div className="flex flex-row gap-2">
                 <Select
                   className="w-18"
@@ -63,7 +78,7 @@ export const DiskStatusPanel = ({
             </div>
 
             <div className="flex flex-row items-center w-full gap-2">
-              <div className="w-6">3</div>
+              <div className="w-6 text-center">3</div>
               <div className="flex flex-row gap-2">
                 <Select
                   className="w-18"
@@ -81,11 +96,11 @@ export const DiskStatusPanel = ({
 
           <div className="flex flex-col gap-2 w-full">
             <div className="flex flex-row items-center w-full gap-2">
-              <div className="w-6">4</div>
+              <div className="w-6 text-center">6</div>
               <div className="flex flex-row gap-2">
                 <Select
                   className="w-18"
-                  value={diskStatus.slot4.rank}
+                  value={diskStatus.slot6.rank}
                   options={[
                     { value: "S", label: "S" },
                     { value: "A", label: "A" },
@@ -95,24 +110,23 @@ export const DiskStatusPanel = ({
                     onChange({
                       ...diskStatus,
                       // @ts-ignore
-                      slot4: { ...diskStatus.slot4, rank: value },
+                      slot6: { ...diskStatus.slot6, rank: value },
                     });
                   }}
                 />
 
                 <Select
                   className="w-40"
-                  value={diskStatus.slot4.type}
+                  value={diskStatus.slot6.type}
                   options={[
-                    { value: "critRate", label: "会心率" },
-                    { value: "critDamage", label: "会心ダメージ" },
                     { value: "attack", label: "攻撃力%" },
+                    { value: "none", label: "その他" },
                   ]}
                   onChange={(value) => {
                     onChange({
                       ...diskStatus,
                       // @ts-ignore
-                      slot4: { ...diskStatus.slot4, type: value },
+                      slot6: { ...diskStatus.slot6, type: value },
                     });
                   }}
                 />
@@ -120,7 +134,7 @@ export const DiskStatusPanel = ({
             </div>
 
             <div className="flex flex-row items-center w-full gap-2">
-              <div className="w-6">5</div>
+              <div className="w-6 text-center">5</div>
               <div className="flex flex-row gap-2">
                 <Select
                   className="w-18"
@@ -145,6 +159,7 @@ export const DiskStatusPanel = ({
                     { value: "attack", label: "攻撃力%" },
                     { value: "damageBuff", label: "属性ダメージ" },
                     { value: "penRate", label: "貫通率" },
+                    { value: "none", label: "その他" },
                   ]}
                   onChange={(value) => {
                     onChange({
@@ -158,11 +173,11 @@ export const DiskStatusPanel = ({
             </div>
 
             <div className="flex flex-row items-center w-full gap-2">
-              <div className="w-6">6</div>
+              <div className="w-6 text-center">4</div>
               <div className="flex flex-row gap-2">
                 <Select
                   className="w-18"
-                  value={diskStatus.slot6.rank}
+                  value={diskStatus.slot4.rank}
                   options={[
                     { value: "S", label: "S" },
                     { value: "A", label: "A" },
@@ -172,14 +187,16 @@ export const DiskStatusPanel = ({
                     onChange({
                       ...diskStatus,
                       // @ts-ignore
-                      slot6: { ...diskStatus.slot6, rank: value },
+                      slot4: { ...diskStatus.slot4, rank: value },
                     });
                   }}
                 />
                 <Select
                   className="w-40"
-                  value={diskStatus.slot6.type}
+                  value={diskStatus.slot4.type}
                   options={[
+                    { value: "critRate", label: "会心率" },
+                    { value: "critDamage", label: "会心ダメージ" },
                     { value: "attack", label: "攻撃力%" },
                     { value: "none", label: "その他" },
                   ]}
@@ -187,7 +204,7 @@ export const DiskStatusPanel = ({
                     onChange({
                       ...diskStatus,
                       // @ts-ignore
-                      slot6: { ...diskStatus.slot6, type: value },
+                      slot4: { ...diskStatus.slot4, type: value },
                     });
                   }}
                 />
@@ -198,16 +215,41 @@ export const DiskStatusPanel = ({
 
         <div className="flex flex-row gap-2 w-full mt-4">
           <div className="flex flex-col gap-2 w-full text-sm">
-            <div className="mb-2 mt-2 w-full text-sm bg-gray-800 text-center rounded-md py-1 px-2">
+            <div className="mb-2 mt-2 w-full text-sm bg-gray-800 text-center rounded-md py-1 px-2 relative">
               セット効果(2セット)
+              <div className="absolute right-2 top-0 h-full flex items-center">
+                <HelpButton
+                  title="ディスクセット効果"
+                  content={
+                    <div className="flex flex-col gap-1.5">
+                      <p>ディスクのセット効果を設定します。</p>
+                      <p>セット効果はステータスに自動的に反映されます。</p>
+                      <p>
+                        現在、2セット効果のみ対応しています。4セット効果は戦闘中バフに手動で追加してください。
+                      </p>
+                    </div>
+                  }
+                />
+              </div>
             </div>
 
             <DiskSetSelect diskStatus={diskStatus} onChange={onChange} />
           </div>
 
           <div className="flex flex-col gap-2 w-full text-sm">
-            <div className="mb-2 mt-2 w-full text-sm bg-gray-800 text-center rounded-md py-1 px-2">
+            <div className="mb-2 mt-2 w-full text-sm bg-gray-800 text-center rounded-md py-1 px-2 relative">
               サブステータス上昇回数
+              <div className="absolute right-2 top-0 h-full flex items-center">
+                <HelpButton
+                  title="ディスクサブステータス上昇回数"
+                  content={
+                    <div className="flex flex-col gap-1.5">
+                      <p>ディスクのサブステータスの上昇回数を指定できます。</p>
+                      <p>上昇量はステータスに自動的に反映されます。</p>
+                    </div>
+                  }
+                />
+              </div>
             </div>
 
             <div className="flex flex-row items-center w-full gap-2">

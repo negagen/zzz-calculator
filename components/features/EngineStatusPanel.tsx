@@ -6,6 +6,7 @@ import {
   EngineStatusType,
 } from "@/core";
 import { StatusInput } from "./StatusInput";
+import { HelpButton } from "./HelpButton";
 
 export const EngineStatusPanel = ({
   engineStatus,
@@ -16,8 +17,29 @@ export const EngineStatusPanel = ({
 }) => {
   return (
     <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4">
-      <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2">
+      <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative">
         音動機
+        <div className="absolute right-2 top-0 h-full flex items-center">
+          <HelpButton
+            title="音動機"
+            content={
+              <div className="flex flex-col gap-1.5">
+                <p>音動機のステータスを設定します。</p>
+                <p>
+                  レベルに応じた音動機のステータス、および上級ステータスは自動的にステータスへ反映されます。
+                </p>
+                <p>
+                  上級ステータスのボーナスは上限突破前のステータスです。
+                  <br />
+                  また、情報が足りずAランクおよびBランクのレベル50以下のステータスに関しては正確ではないものが含まれています。
+                </p>
+                <p className="font-bold">
+                  効果は反映されません。戦闘中バフへ手動で反映してください。
+                </p>
+              </div>
+            }
+          />
+        </div>
       </div>
 
       <div className="flex flex-col items-center w-full gap-2">

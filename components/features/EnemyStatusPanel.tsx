@@ -1,6 +1,7 @@
 import { Input, Select, Checkbox } from "antd";
 import { EnemyStatus } from "@/core";
 import { StatusInput } from "./StatusInput";
+import { HelpButton } from "./HelpButton";
 
 export const EnemyStatusPanel = ({
   enemyStatus,
@@ -11,8 +12,54 @@ export const EnemyStatusPanel = ({
 }) => {
   return (
     <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4">
-      <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2">
+      <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative">
         エネミー
+        <div className="absolute right-2 top-0 h-full flex items-center">
+          <HelpButton
+            title="エネミー設定"
+            content={
+              <div className="flex flex-col gap-1.5">
+                <p>エネミーのステータスを設定できます。</p>
+                <p>
+                  防御係数や属性係数、ブレイク弱体倍率は自動的にダメージ基礎値へと反映されます。
+                </p>
+                <p>
+                  ライカンによる属性耐性ダウンや、ニコによる防御ダウンはここに設定してください。
+                </p>
+                <p>
+                  リナの貫通率デバフなどは戦闘中バフへ手動で反映してください。
+                </p>
+                <br />
+                <p>
+                  基礎防御力はエネミーのレベルが1の時の防御力を指定します。基礎防御力からエネミーの防御力が自動的に計算されます。
+                  <br />
+                  Ver1.1現在、ボスの場合は一律で60という話もありますが、ここはゲーム側の設定によって変更される値なので参考程度にしてください。よくわからなければ60を指定するのがいいでしょう。
+                </p>
+                <br />
+                <p>防御係数は以下の式で計算しています。</p>
+                <p>
+                  <pre className="bg-gray-700 text-white p-2">
+                    防御係数 = エージェントレベル係数 / ( エージェントレベル係数
+                    + 有効防御力 )
+                  </pre>
+
+                  <pre className="bg-gray-700 text-white p-2">
+                    有効防御力 = [ 防御力 × ( 1 - 防御デバフ ) × ( 1 - 貫通率 )
+                    ] - 貫通値
+                  </pre>
+
+                  <pre className="bg-gray-700 text-white p-2">
+                    防御力 = エネミーレベル係数 * 基礎防御力 / 50
+                  </pre>
+
+                  <pre className="bg-gray-700 text-white p-2">
+                    有効防御力 ≧ 0
+                  </pre>
+                </p>
+              </div>
+            }
+          />
+        </div>
       </div>
 
       <div className="flex flex-col items-center gap-4 w-full">

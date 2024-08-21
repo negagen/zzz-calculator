@@ -1,6 +1,7 @@
 import { Select } from "antd";
 import { Agent, AgentLevel, CoreSkillLevel } from "@/core";
 import { agents } from "@/data";
+import { HelpButton } from "./HelpButton";
 
 export const AgentStatusPanel = ({
   agent,
@@ -19,8 +20,27 @@ export const AgentStatusPanel = ({
 }) => {
   return (
     <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4">
-      <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2">
+      <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative">
         エージェント
+        <div className="absolute right-2 top-0 h-full flex items-center">
+          <HelpButton
+            title="エージェント"
+            content={
+              <div className="flex flex-col gap-1.5">
+                <p>エージェントのステータスを設定します。</p>
+                <p>
+                  レベルに応じたエージェントのステータス、およびコアスキルのステータスボーナスは自動的にステータスへ反映されます。
+                </p>
+                <p>
+                  エージェントのステータスはレベル上限突破前のステータスです。
+                </p>
+                <p className="font-bold">
+                  コアスキルの効果は反映されません。戦闘中バフへ手動で反映してください。
+                </p>
+              </div>
+            }
+          />
+        </div>
       </div>
 
       <div className="flex flex-col items-center gap-2 w-full">
