@@ -1,27 +1,20 @@
 import { Select } from "antd";
-import { EngineStatus } from "@/app/types";
+import {
+  EngineStatus,
+  EngineRank,
+  EngineLevel,
+  EngineStatusType,
+} from "@/app/types";
 import { StatusInput } from "./StatusInput";
 import { useState } from "react";
 
-type EngineLevel = 10 | 20 | 30 | 40 | 50 | 60;
-type EngineRank = "S" | "A" | "B";
-type EngineStatusType =
-  | "attackRate"
-  | "critRate"
-  | "critDamage"
-  | "penRate"
-  | "other";
-
 export const EngineStatusPanel = ({
+  engineStatus,
   onChange,
 }: {
+  engineStatus: EngineStatus;
   onChange: (engineStatus: EngineStatus) => void;
 }) => {
-  const [level, setLevel] = useState<EngineLevel>(60);
-  const [attack, setAttack] = useState(713);
-  const [rank, setRank] = useState<EngineRank>("S");
-  const [statusType, setStatusType] = useState<EngineStatusType>("attackRate");
-
   return (
     <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4">
       <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2">
@@ -31,10 +24,16 @@ export const EngineStatusPanel = ({
       <div className="flex flex-col items-center w-full gap-2">
         <StatusInput
           title="攻撃力"
-          value={attack}
+          value={engineStatus.attack}
           onChange={(value) => {
-            setAttack(value);
-            onChange(changeEngine(value, level, rank, statusType));
+            onChange(
+              changeEngine(
+                value,
+                engineStatus.level,
+                engineStatus.rank,
+                engineStatus.statusType
+              )
+            );
           }}
         />
 
@@ -42,7 +41,7 @@ export const EngineStatusPanel = ({
           <div className="w-32">レベル上限</div>
           <Select
             className="w-32"
-            value={level}
+            value={engineStatus.level}
             options={[
               { value: 10, label: "10" },
               { value: 20, label: "20" },
@@ -52,10 +51,13 @@ export const EngineStatusPanel = ({
               { value: 60, label: "60" },
             ]}
             onChange={(value) => {
-              setLevel(value as EngineLevel);
-
               onChange(
-                changeEngine(attack, value as EngineLevel, rank, statusType)
+                changeEngine(
+                  engineStatus.attack,
+                  value as EngineLevel,
+                  engineStatus.rank,
+                  engineStatus.statusType
+                )
               );
             }}
           />
@@ -65,17 +67,20 @@ export const EngineStatusPanel = ({
           <div className="w-32">武器ランク</div>
           <Select
             className="w-32"
-            value={rank}
+            value={engineStatus.rank}
             options={[
               { value: "S", label: "S" },
               { value: "A", label: "A" },
               { value: "B", label: "B" },
             ]}
             onChange={(value) => {
-              setRank(value as EngineRank);
-
               onChange(
-                changeEngine(attack, level, value as EngineRank, statusType)
+                changeEngine(
+                  engineStatus.attack,
+                  engineStatus.level,
+                  value as EngineRank,
+                  engineStatus.statusType
+                )
               );
             }}
           />
@@ -85,7 +90,7 @@ export const EngineStatusPanel = ({
           <div className="w-32">上級ステータス</div>
           <Select
             className="w-32"
-            value={statusType}
+            value={engineStatus.statusType}
             options={[
               { value: "critRate", label: "会心率" },
               { value: "critDamage", label: "会心ダメージ" },
@@ -94,10 +99,13 @@ export const EngineStatusPanel = ({
               { value: "other", label: "その他" },
             ]}
             onChange={(value) => {
-              setStatusType(value as EngineStatusType);
-
               onChange(
-                changeEngine(attack, level, rank, value as EngineStatusType)
+                changeEngine(
+                  engineStatus.attack,
+                  engineStatus.level,
+                  engineStatus.rank,
+                  value as EngineStatusType
+                )
               );
             }}
           />
@@ -230,6 +238,9 @@ const changeEngine = (
   switch (statusType) {
     case "attackRate":
       return {
+        level,
+        rank,
+        statusType,
         attack: attack,
         attackRate: attackRateTable[rank][level],
         critRate: 0,
@@ -238,6 +249,9 @@ const changeEngine = (
       };
     case "critRate":
       return {
+        level,
+        rank,
+        statusType,
         attack: attack,
         attackRate: 0,
         critRate: critRateTable[rank][level],
@@ -246,6 +260,9 @@ const changeEngine = (
       };
     case "critDamage":
       return {
+        level,
+        rank,
+        statusType,
         attack: attack,
         attackRate: 0,
         critRate: 0,
@@ -254,6 +271,9 @@ const changeEngine = (
       };
     case "penRate":
       return {
+        level,
+        rank,
+        statusType,
         attack: attack,
         attackRate: 0,
         critRate: 0,
@@ -263,6 +283,9 @@ const changeEngine = (
   }
 
   return {
+    level,
+    rank,
+    statusType,
     attack: attack,
     attackRate: 0,
     critRate: 0,

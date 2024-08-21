@@ -58,7 +58,20 @@ export interface AgentStatus {
   penRate: number;
 }
 
+export type EngineRank = "S" | "A" | "B";
+export type EngineLevel = 10 | 20 | 30 | 40 | 50 | 60;
+
+export type EngineStatusType =
+  | "attackRate"
+  | "critRate"
+  | "critDamage"
+  | "penRate"
+  | "other";
+
 export interface EngineStatus {
+  level: number;
+  rank: EngineRank;
+  statusType: EngineStatusType;
   attack: number;
   attackRate: number;
   critRate: number;

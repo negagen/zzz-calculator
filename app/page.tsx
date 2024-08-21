@@ -107,21 +107,27 @@ export default function Home() {
         <div className="flex flex-col p-4 border border-3 border-gray-600 rounded-lg z-10 opacity-80">
           <div className="flex flex-col gap-2.5">
             <div className="flex flex-row gap-2.5">
-              <AgentStatusPanel
-                agent={agent}
-                level={agentLevel}
-                coreSkillLevel={agentCoreSkillLevel}
-                onChange={(
-                  agent: Agent,
-                  level: AgentLevel,
-                  coreSkillLevel: CoreSkillLevel
-                ) => {
-                  setAgent(agent);
-                  setAgentLevel(level);
-                  setAgentCoreSkillLevel(coreSkillLevel);
-                }}
-              />
-              <EngineStatusPanel onChange={setEngineStatus} />
+              <div className="flex flex-col items-center w-72 rounded-md gap-2">
+                <AgentStatusPanel
+                  agent={agent}
+                  level={agentLevel}
+                  coreSkillLevel={agentCoreSkillLevel}
+                  onChange={(
+                    agent: Agent,
+                    level: AgentLevel,
+                    coreSkillLevel: CoreSkillLevel
+                  ) => {
+                    setAgent(agent);
+                    setAgentLevel(level);
+                    setAgentCoreSkillLevel(coreSkillLevel);
+                  }}
+                />
+
+                <EngineStatusPanel
+                  engineStatus={engineStatus}
+                  onChange={setEngineStatus}
+                />
+              </div>
               <DiskStatusPanel
                 diskStatus={diskStatus}
                 onChange={setDiskStatus}

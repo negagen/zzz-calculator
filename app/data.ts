@@ -16,7 +16,10 @@ export const defaultAgentStatus: AgentStatus = {
 };
 
 export const defaultEngineStatus: EngineStatus = {
-  attack: 713,
+  level: 60,
+  rank: "S",
+  statusType: "critRate",
+  attack: 684,
   attackRate: 0,
   critRate: 24,
   critDamage: 0,
