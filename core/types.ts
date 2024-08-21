@@ -12,7 +12,8 @@ export interface Agent {
     | "critDamage"
     | "penRate"
     | "energy"
-    | "anomalyMastery";
+    | "anomalyMastery"
+    | "impact";
 }
 
 export interface Engine {

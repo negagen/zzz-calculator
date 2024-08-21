@@ -154,11 +154,7 @@ export const EnemyStatusPanel = ({
         </div>
 
         <div className="flex flex-row items-center w-full">
-          <div className="w-32">
-            ブレイク
-            <br />
-            弱体倍率
-          </div>
+          <div className="w-32">ブレイク 弱体倍率</div>
           <Input
             className="w-32"
             placeholder="ブレイク弱体倍率"
