@@ -63,7 +63,7 @@ export const DiskStatusPanel = ({
               options={[
                 { value: "critRate", label: "会心率" },
                 { value: "critDamage", label: "会心ダメージ" },
-                { value: "attack", label: "攻撃力" },
+                { value: "attack", label: "攻撃力%" },
               ]}
               onChange={(value) => {
                 onChange({
@@ -99,7 +99,7 @@ export const DiskStatusPanel = ({
               className="w-32"
               value={diskStatus.slot5.type}
               options={[
-                { value: "attack", label: "攻撃力" },
+                { value: "attack", label: "攻撃力%" },
                 { value: "damageBuff", label: "属性ダメージ" },
                 { value: "penRate", label: "貫通率" },
               ]}
@@ -137,7 +137,7 @@ export const DiskStatusPanel = ({
               className="w-32"
               value={diskStatus.slot6.type}
               options={[
-                { value: "attack", label: "攻撃力" },
+                { value: "attack", label: "攻撃力%" },
                 { value: "none", label: "その他" },
               ]}
               onChange={(value) => {
@@ -251,7 +251,7 @@ const DiskSetSelect = ({
         value={diskStatus.setBonus3.type}
         options={options}
         onChange={(value) => {
-          onChange({ ...diskStatus, setBonus2: getDiskSetBonus(value) });
+          onChange({ ...diskStatus, setBonus3: getDiskSetBonus(value) });
         }}
       />
     </div>

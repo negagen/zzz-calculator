@@ -16,52 +16,48 @@ export const EnemyStatusPanel = ({
       </div>
 
       <div className="flex flex-col items-center gap-4 w-full">
-        <div className="flex flex-row items-center w-full gap-2">
+        <div className="flex flex-row items-center w-full">
           <div className="w-32">レベル</div>
-          <div>
-            <Select
-              className="w-36"
-              value={enemyStatus.level}
-              options={[
-                { value: 10, label: "10" },
-                { value: 20, label: "20" },
-                { value: 30, label: "30" },
-                { value: 40, label: "40" },
-                { value: 50, label: "50" },
-                { value: 60, label: "60" },
-              ]}
-              onChange={(e) => {
-                onChange({
-                  ...enemyStatus,
-                  level: e,
-                });
-              }}
-            />
-          </div>
+          <Select
+            className="w-32"
+            value={enemyStatus.level}
+            options={[
+              { value: 10, label: "10" },
+              { value: 20, label: "20" },
+              { value: 30, label: "30" },
+              { value: 40, label: "40" },
+              { value: 50, label: "50" },
+              { value: 60, label: "60" },
+            ]}
+            onChange={(e) => {
+              onChange({
+                ...enemyStatus,
+                level: e,
+              });
+            }}
+          />
         </div>
 
-        <div className="flex flex-row items-center w-full gap-2">
+        <div className="flex flex-row items-center w-full">
           <div className="w-32">基礎防御力</div>
-          <div>
-            <Select
-              className="w-36"
-              value={enemyStatus.defense}
-              options={[
-                { value: 10, label: "10" },
-                { value: 20, label: "20" },
-                { value: 30, label: "30" },
-                { value: 40, label: "40" },
-                { value: 50, label: "50" },
-                { value: 60, label: "60" },
-              ]}
-              onChange={(e) => {
-                onChange({
-                  ...enemyStatus,
-                  defense: e,
-                });
-              }}
-            />
-          </div>
+          <Select
+            className="w-32"
+            value={enemyStatus.defense}
+            options={[
+              { value: 10, label: "10" },
+              { value: 20, label: "20" },
+              { value: 30, label: "30" },
+              { value: 40, label: "40" },
+              { value: 50, label: "50" },
+              { value: 60, label: "60" },
+            ]}
+            onChange={(e) => {
+              onChange({
+                ...enemyStatus,
+                defense: e,
+              });
+            }}
+          />
         </div>
 
         <StatusInput
@@ -71,21 +67,19 @@ export const EnemyStatusPanel = ({
         />
 
         <div className="flex flex-row items-center w-full">
-          <div className="w-36">属性耐性</div>
-          <div>
-            <Select
-              className="w-36"
-              defaultValue={enemyStatus.damageRes}
-              options={[
-                { value: -20, label: "弱点" },
-                { value: 0, label: "普通" },
-                { value: 20, label: "耐性" },
-              ]}
-              onChange={(value) => {
-                onChange({ ...enemyStatus, damageRes: value });
-              }}
-            />
-          </div>
+          <div className="w-32">属性耐性</div>
+          <Select
+            className="w-32"
+            defaultValue={enemyStatus.damageRes}
+            options={[
+              { value: -20, label: "弱点" },
+              { value: 0, label: "普通" },
+              { value: 20, label: "耐性" },
+            ]}
+            onChange={(value) => {
+              onChange({ ...enemyStatus, damageRes: value });
+            }}
+          />
         </div>
 
         <StatusInput
@@ -118,21 +112,19 @@ export const EnemyStatusPanel = ({
             <br />
             弱体倍率
           </div>
-          <div>
-            <Input
-              className="w-32"
-              placeholder="ブレイク弱体倍率"
-              type="number"
-              value={enemyStatus.stunDamageMultiplier}
-              disabled={!enemyStatus.isStun}
-              onChange={(e) => {
-                onChange({
-                  ...enemyStatus,
-                  stunDamageMultiplier: parseInt(e.target.value),
-                });
-              }}
-            />
-          </div>
+          <Input
+            className="w-32"
+            placeholder="ブレイク弱体倍率"
+            type="number"
+            value={enemyStatus.stunDamageMultiplier}
+            disabled={!enemyStatus.isStun}
+            onChange={(e) => {
+              onChange({
+                ...enemyStatus,
+                stunDamageMultiplier: parseInt(e.target.value),
+              });
+            }}
+          />
         </div>
       </div>
     </div>

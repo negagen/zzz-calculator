@@ -121,10 +121,7 @@ export default function Home() {
                   setAgentCoreSkillLevel(coreSkillLevel);
                 }}
               />
-              <EngineStatusPanel
-                engineStatus={engineStatus}
-                onChange={setEngineStatus}
-              />
+              <EngineStatusPanel onChange={setEngineStatus} />
               <DiskStatusPanel
                 diskStatus={diskStatus}
                 onChange={setDiskStatus}
