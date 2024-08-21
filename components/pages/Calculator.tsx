@@ -60,7 +60,7 @@ export const Calculator = () => {
   return (
     <AntdConfigProvider>
       <Layout>
-        <Header className="flex flex-row justify-between">
+        <Header className="flex flex-row justify-between h-16">
           <h1 className="flex flex-row text-2xl text-white p-3 rounded-md opacity-95">
             <Image
               width={27}
@@ -91,7 +91,7 @@ export const Calculator = () => {
                       そのため、このデータの値を保証するものではないことに注意してください。
                     </p>
                     <p>
-                      当サイトのデータを使用したことによる損害について、当サイトは一切の責任を負いません。
+                      また、当サイトのデータを使用したことによる損害について、当サイトは一切の責任を負いません。
                     </p>
 
                     <Divider />
@@ -140,38 +140,41 @@ export const Calculator = () => {
                 }
               />
             </div>
-            <div className="flex flex-row items-center hover:bg-gray-700 px-2 text-white cursor-pointer gap-1">
+            <div className="flex flex-row items-center hover:bg-gray-700 px-2 text-white cursor-pointer">
               <a
                 href="https://www.hoyolab.com/accountCenter/postList?id=306523314"
                 target="_blank"
-                className="w-full h-full flex flex-row items-center"
+                className="w-full h-full flex flex-row items-center gap-0.5"
               >
                 <Image
-                  width={24}
-                  height={24}
+                  width={18}
+                  height={18}
                   src="/images/hoyolab.png"
                   alt="Background"
                 />
-                HoYoLAB
+                作者HoYoLAB
               </a>
             </div>
           </div>
         </Header>
 
-        <Content className="flex relative min-h-screen flex-col items-center bg-slate-950 text-gray-300">
+        <Content
+          className="flex relative flex-col items-center bg-slate-950 text-gray-300"
+          style={{ minHeight: "calc(100vh - 64px)" }}
+        >
           <Image
             width={2000}
             height={540}
             src="/images/zzz1_1.png"
             alt="Background"
-            className="absolute z-0 top-0 opacity-60"
+            className="absolute z-0 top-0 opacity-35"
           />
           <div
             className="w-full bg-gradient-to-t from-slate-950 z-1 absolute"
             style={{ minHeight: "60vh" }}
           ></div>
 
-          <div className="flex flex-col p-4 border border-3 border-gray-600 rounded-lg z-10 opacity-95 relative top-2">
+          <div className="flex flex-col p-4 border border-3 border-gray-600 rounded-lg z-10 opacity-95 mt-2">
             <div className="flex flex-col gap-2.5">
               <div className="flex flex-row gap-2.5">
                 <div className="flex flex-col items-center w-72 rounded-md gap-2">
@@ -219,7 +222,7 @@ export const Calculator = () => {
             </div>
           </div>
 
-          <div className="flex flex-row gap-2.5 z-10 text-xs font-light mt-4 relative text-slate-400">
+          <div className="mt-4 h-8 flex flex-row gap-2.5 z-10 text-xs font-light text-slate-400">
             <p>
               Disclaimer© HoYoverse. All rights reserved. &#39;HoYoverse&#39;
               and &#39;Zenless Zone Zero&#39; are trademarks, services marks, or
