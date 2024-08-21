@@ -69,7 +69,7 @@ export type EngineStatusType =
   | "other";
 
 export interface EngineStatus {
-  level: number;
+  level: EngineLevel;
   rank: EngineRank;
   statusType: EngineStatusType;
   attack: number;

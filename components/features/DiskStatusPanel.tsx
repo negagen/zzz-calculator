@@ -1,5 +1,5 @@
-import { Divider, Input, Select } from "antd";
-import { DiskSetBonus, DiskStatus } from "@/app/types";
+import { Input, Select } from "antd";
+import { DiskSetBonus, DiskStatus } from "@/core";
 
 export const DiskStatusPanel = ({
   diskStatus,

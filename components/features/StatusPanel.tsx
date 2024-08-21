@@ -1,4 +1,4 @@
-import { BaseStatus } from "@/app/types";
+import { BaseStatus } from "@/core";
 
 export const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
   return (
@@ -7,7 +7,7 @@ export const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
         ステータス
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-1.5">
         <div className="flex flex-row">
           <div className="w-28">攻撃力</div>
 
@@ -35,14 +35,6 @@ export const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
         </div>
 
         <div className="flex flex-row">
-          <div className="w-28">与ダメージ%</div>
-
-          <div className="flex flex-col">
-            <div>{baseStatus.damageBuff}%</div>
-          </div>
-        </div>
-
-        <div className="flex flex-row">
           <div className="w-28">貫通率</div>
 
           <div className="flex flex-col">
@@ -55,6 +47,14 @@ export const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
 
           <div className="flex flex-col">
             <div>{baseStatus.pen}</div>
+          </div>
+        </div>
+
+        <div className="flex flex-row">
+          <div className="w-28">与ダメージ%</div>
+
+          <div className="flex flex-col">
+            <div>{baseStatus.damageBuff}%</div>
           </div>
         </div>
       </div>

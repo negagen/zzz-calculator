@@ -5,7 +5,7 @@ import {
   EnemyStatus,
   AdditionalStatus,
   Skill,
-} from "./types";
+} from "@/core";
 
 export const defaultAgentStatus: AgentStatus = {
   level: 60,

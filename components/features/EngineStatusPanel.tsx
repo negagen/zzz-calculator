@@ -4,9 +4,8 @@ import {
   EngineRank,
   EngineLevel,
   EngineStatusType,
-} from "@/app/types";
+} from "@/core";
 import { StatusInput } from "./StatusInput";
-import { useState } from "react";
 
 export const EngineStatusPanel = ({
   engineStatus,
@@ -29,7 +28,7 @@ export const EngineStatusPanel = ({
             onChange(
               changeEngine(
                 value,
-                engineStatus.level,
+                engineStatus.level as EngineLevel,
                 engineStatus.rank,
                 engineStatus.statusType
               )
@@ -77,7 +76,7 @@ export const EngineStatusPanel = ({
               onChange(
                 changeEngine(
                   engineStatus.attack,
-                  engineStatus.level,
+                  engineStatus.level as EngineLevel,
                   value as EngineRank,
                   engineStatus.statusType
                 )
@@ -102,7 +101,7 @@ export const EngineStatusPanel = ({
               onChange(
                 changeEngine(
                   engineStatus.attack,
-                  engineStatus.level,
+                  engineStatus.level as EngineLevel,
                   engineStatus.rank,
                   value as EngineStatusType
                 )

@@ -1,5 +1,4 @@
-import { DamageBase } from "@/app/types";
-import { calculateDamage, calculateExpectedDamage } from "@/app/calculator";
+import { DamageBase, calculateDamage, calculateExpectedDamage } from "@/core";
 
 interface CalculatorProps {
   damageBase: DamageBase;
@@ -9,8 +8,12 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
   return (
     <>
       <div className="flex flex-col items-center bg-yellow-700 rounded-md p-4">
+        <div className="mb-4 w-full bg-yellow-900 text-center rounded-md p-2">
+          ダメージ基礎値
+        </div>
+
         <div className="flex flex-row gap-1.5 justify-between">
-          <CalculatorCard text="攻撃力" value={damageBase.attack} />
+          <CalculatorCard text="戦闘攻撃力" value={damageBase.attack} />
           <CalculatorCard
             text="会心係数"
             value={`${damageBase.critBonusRate}%`}
@@ -20,7 +23,8 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
             value={`${damageBase.damageBuff}%`}
           />
         </div>
-        <div className="flex flex-row gap-1.5 justify-between">
+
+        <div className="flex flex-row gap-1.5 justify-between mt-1.5">
           <CalculatorCard
             text="防御係数"
             value={`${damageBase.defenseRate}%`}
@@ -35,8 +39,13 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
           />
         </div>
       </div>
-      <div className="flex flex-row gap-1.5 justify-between">
-        <div>
+
+      <div className="flex flex-col items-center bg-green-700 grow rounded-md p-4">
+        <div className="mb-4 w-full bg-green-900 text-center rounded-md p-2">
+          ダメージ
+        </div>
+
+        <div className="flex flex-row gap-1.5">
           <CalculatorCard
             text="通常ダメージ"
             value={calculateDamage(damageBase, 100, false)}
@@ -64,8 +73,8 @@ const CalculatorCard = ({
 }) => {
   return (
     <div className="flex flex-col w-40 h-20 items-center justify-center border border-gray-200 rounded-lg shadow-md">
-      <h1 className="font-bold">{text}</h1>
-      <p className="">{value}</p>
+      <div className="font-bold">{text}</div>
+      <div className="">{value}</div>
     </div>
   );
 };

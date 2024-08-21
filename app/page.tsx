@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import type {
+import { ConfigProvider } from "antd";
+
+import {
   Agent,
   EnemyStatus,
   DiskStatus,
@@ -10,7 +12,9 @@ import type {
   AdditionalStatus,
   AgentLevel,
   CoreSkillLevel,
-} from "./types";
+  calculateDamageBase,
+  calculateBaseStatus,
+} from "@/core";
 import {
   AgentStatusPanel,
   EngineStatusPanel,
@@ -19,16 +23,15 @@ import {
   StatusPanel,
   DamageBasePanel,
   AdditionalStatusPanel,
-} from "@/app/components";
-import { calculateDamageBase, calculateBaseStatus } from "@/app/calculator";
+} from "@/components/features";
 import {
   defaultEngineStatus,
   defaultDiskStatus,
   defaultEnemyStatus,
   defaultBattleStatus,
-} from "./data";
-import { ConfigProvider } from "antd";
-import { agents, calculateAgentStatus } from "./agents";
+  agents,
+  calculateAgentStatus,
+} from "@/data";
 
 export default function Home() {
   const [agent, setAgent] = useState<Agent>(agents[0]);
@@ -93,18 +96,18 @@ export default function Home() {
           height={540}
           src="/images/zzz1_1.png"
           alt="Background"
-          className="absolute z-0 top-0 opacity-40"
+          className="absolute z-0 top-0 opacity-60"
         />
         <div
           className="w-full bg-gradient-to-t from-slate-950 z-1 absolute"
-          style={{ minHeight: "65vh" }}
+          style={{ minHeight: "60vh" }}
         ></div>
 
         <h1 className="text-3xl mt-4 mb-4 h-12 z-10">
           ZZZ Damage Calculator (Beta)
         </h1>
 
-        <div className="flex flex-col p-4 border border-3 border-gray-600 rounded-lg z-10 opacity-80">
+        <div className="flex flex-col p-4 border border-3 border-gray-600 rounded-lg z-10 opacity-90">
           <div className="flex flex-col gap-2.5">
             <div className="flex flex-row gap-2.5">
               <div className="flex flex-col items-center w-72 rounded-md gap-2">
@@ -150,6 +153,12 @@ export default function Home() {
               <DamageBasePanel damageBase={damageBase} />
             </div>
           </div>
+        </div>
+
+        <div className="flex flex-row gap-2.5 z-10 text-xs font-light mt-5">
+          Disclaimer© HoYoverse. All rights reserved. &#39;HoYoverse&#39; and
+          &#39;Zenless Zone Zero&#39; are trademarks, services marks, or
+          registered trademarks of HoYoverse.
         </div>
       </main>
     </ConfigProvider>

@@ -1,5 +1,5 @@
 import { Input, Select, Checkbox } from "antd";
-import { EnemyStatus } from "@/app/types";
+import { EnemyStatus } from "@/core";
 import { StatusInput } from "./StatusInput";
 
 export const EnemyStatusPanel = ({

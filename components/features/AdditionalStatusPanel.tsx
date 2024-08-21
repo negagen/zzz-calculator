@@ -1,5 +1,4 @@
-import { Input } from "antd";
-import { AdditionalStatus } from "@/app/types";
+import { AdditionalStatus } from "@/core";
 import { StatusInput } from "./StatusInput";
 
 export const AdditionalStatusPanel = ({

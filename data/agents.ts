@@ -1,4 +1,4 @@
-import { Agent, AgentLevel, CoreSkillLevel, AgentStatus } from "./types";
+import { Agent, AgentLevel, CoreSkillLevel, AgentStatus } from "@/core";
 import Decimal from "decimal.js";
 
 export const agents: Agent[] = [

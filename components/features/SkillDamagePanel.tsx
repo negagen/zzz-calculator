@@ -1,8 +1,12 @@
 import { Table } from "antd";
 import type { TableProps } from "antd";
 import Decimal from "decimal.js";
-import { DamageBase, Skill } from "@/app/types";
-import { calculateDamage, calculateExpectedDamage } from "@/app/calculator";
+import {
+  DamageBase,
+  Skill,
+  calculateDamage,
+  calculateExpectedDamage,
+} from "@/core";
 
 interface SkillDamageDataType {
   key: string;

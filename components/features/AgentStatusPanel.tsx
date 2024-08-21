@@ -1,9 +1,6 @@
-import { useState } from "react";
-import { Input, Select } from "antd";
-import { Agent, AgentStatus, AgentLevel, CoreSkillLevel } from "@/app/types";
-import { StatusInput } from "./StatusInput";
-import { agents } from "@/app/agents";
-import Decimal from "decimal.js";
+import { Select } from "antd";
+import { Agent, AgentLevel, CoreSkillLevel } from "@/core";
+import { agents } from "@/data";
 
 export const AgentStatusPanel = ({
   agent,
