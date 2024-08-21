@@ -69,7 +69,7 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
       </div>
 
       <div className="flex flex-col items-center bg-green-700 grow rounded-md p-4">
-        <div className="mb-4 w-full bg-green-950 text-center rounded-md p-2 relative">
+        <div className="mb-2.5 w-full bg-green-950 text-center rounded-md p-2 relative">
           <div className="flex flex-col h-32 items-center justify-center rounded-lg shadow-md w-full text-lg">
             <div className="font-bold">ダメージ期待値</div>
             <div className="">{calculateExpectedDamage(damageBase, 100)}</div>
@@ -110,7 +110,7 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
           </div>
         </div>
 
-        <div className="flex flex-row gap-1.5 mt-1.5 w-full">
+        <div className="flex flex-row gap-1.5 w-full">
           <div className="flex flex-col h-24 items-center bg-green-900 justify-center border border-gray-200 rounded-lg shadow-md w-1/2">
             <div className="font-bold">通常ダメージ</div>
             <div className="">{calculateDamage(damageBase, 100, false)}</div>

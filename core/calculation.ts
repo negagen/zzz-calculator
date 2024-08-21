@@ -200,7 +200,7 @@ export const calculateDamageBase = (
   return {
     attack: attack,
     damageBuff: damageBuffRate,
-    critDamage: 100 + baseStatus.critDamage,
+    critDamage: 100 + critDamage,
     critBonusRate: critBonusRate,
     pen: baseStatus.pen,
     penRatio: penRate,
@@ -235,18 +235,20 @@ export const calculateDamage = (
   const critDamage = new Decimal(damageBase.critDamage).div(100);
 
   if (isCrit) {
-    return Math.floor(damage.times(critDamage).toNumber());
+    return damage.times(critDamage).floor().toNumber();
   }
-  return Math.floor(damage.toNumber());
+  return damage.floor().toNumber();
 };
 
 export const calculateExpectedDamage = (
   damageBase: DamageBase,
   skillDamageRate: number
 ) => {
-  const damage = Math.floor(
-    calculateDamage(damageBase, skillDamageRate, false) *
-      (damageBase.critBonusRate / 100)
-  );
+  const damage = new Decimal(
+    calculateDamage(damageBase, skillDamageRate, false)
+  )
+    .times(damageBase.critBonusRate / 100)
+    .floor()
+    .toNumber();
   return damage;
 };

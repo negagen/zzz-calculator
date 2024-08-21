@@ -223,7 +223,8 @@ export const Calculator = () => {
             <p>
               Disclaimer© HoYoverse. All rights reserved. &#39;HoYoverse&#39;
               and &#39;Zenless Zone Zero&#39; are trademarks, services marks, or
-              registered trademarks of HoYoverse.
+              registered trademarks of HoYoverse, and game content and
+              resources.
             </p>
           </div>
         </Content>
