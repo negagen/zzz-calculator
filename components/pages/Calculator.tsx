@@ -128,7 +128,7 @@ export const Calculator = () => {
                     <p>
                       開発に貢献したい方は
                       <a
-                        href="https://github.com/yuemori/zzz-damage-calculator"
+                        href="https://github.com/yuemori/zzz-calculator"
                         target="_blank"
                         className="text-blue-400 underline"
                       >
