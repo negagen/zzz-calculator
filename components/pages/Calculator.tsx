@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { ConfigProvider, Divider, Layout, Space } from "antd";
 import { HelpButton } from "@/components/features";
+import { Analytics } from "@vercel/analytics/react";
 
 const { Header, Footer, Content } = Layout;
 
@@ -59,6 +60,8 @@ export const Calculator = () => {
 
   return (
     <AntdConfigProvider>
+      <Analytics />
+
       <Layout>
         <Header className="flex flex-row justify-between h-16">
           <h1 className="flex flex-row text-2xl text-white p-3 rounded-md opacity-95">
