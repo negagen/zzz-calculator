@@ -95,7 +95,17 @@ export const EnemyStatusPanel = ({
               { value: 20, label: "20" },
               { value: 30, label: "30" },
               { value: 40, label: "40" },
+              { value: 45, label: "45" },
               { value: 50, label: "50" },
+              { value: 51, label: "51" },
+              { value: 52, label: "52" },
+              { value: 53, label: "53" },
+              { value: 54, label: "54" },
+              { value: 55, label: "55" },
+              { value: 56, label: "56" },
+              { value: 57, label: "57" },
+              { value: 58, label: "58" },
+              { value: 59, label: "59" },
               { value: 60, label: "60" },
             ]}
             onChange={(e) => {

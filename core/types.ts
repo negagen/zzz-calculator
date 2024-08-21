@@ -132,6 +132,7 @@ export interface BaseStatus {
 
 export interface DamageBase {
   attack: number;
+  skillDamageRate: number;
   damageBuff: number;
   critDamage: number;
   critBonusRate: number;
@@ -146,6 +147,7 @@ export interface DamageBase {
 export interface AdditionalStatus {
   attackBonus: number;
   attackRateBonus: number;
+  skillDamageRate: number;
   critRateBonus: number;
   critDamageBonus: number;
   damageBuffBonus: number;

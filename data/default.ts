@@ -66,6 +66,7 @@ export const defaultSkills: Skill[] = [
 
 export const defaultBattleStatus: AdditionalStatus = {
   attackBonus: 0,
+  skillDamageRate: 100,
   attackRateBonus: 0,
   critRateBonus: 0,
   critDamageBonus: 0,

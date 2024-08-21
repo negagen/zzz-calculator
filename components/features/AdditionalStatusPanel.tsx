@@ -12,6 +12,18 @@ export const AdditionalStatusPanel = ({
   return (
     <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4">
       <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative">
+        スキルダメージ倍率
+      </div>
+
+      <StatusInput
+        title="ダメージ倍率"
+        value={battleStatus.skillDamageRate}
+        onChange={(value) =>
+          onChange({ ...battleStatus, skillDamageRate: value })
+        }
+      />
+
+      <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative mt-4">
         戦闘中バフ
         <div className="absolute right-2 top-0 h-full flex items-center">
           <HelpButton

@@ -19,20 +19,28 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
                   <p>
                     ダメージの計算式に最終的に利用される値を表示しています。
                   </p>
-                  <p>ダメージは以下の式で計算されます。</p>
+                  <p>
+                    ブレイク弱体倍率を有効にしたい場合はエネミーステータスの「ブレイク状態にする」のチェックを入れてください。
+                  </p>
                   <br />
+                  <p>ダメージは以下の式で計算されます。</p>
                   <p>
                     <pre className="bg-gray-700 text-white p-2">
-                      ダメージ = 攻撃力 * 会心係数 * 与ダメ係数 * スキル倍率 *
-                      防御係数 * ブレイク弱体倍率 * 属性係数
+                      ダメージ = 攻撃力 * 会心係数 * 与ダメ係数 *
+                      スキルダメージ倍率 * 防御係数 * ブレイク弱体倍率 *
+                      属性係数
                     </pre>
                   </p>
-                  <br />
                   <p>
-                    スキル倍率は通常スキルや特殊スキルなどに表示されている倍率そのものになります。
+                    <pre className="bg-gray-700 text-white p-2">
+                      会心係数 = 100 + 会心ダメージ * 会心率
+                    </pre>
                   </p>
                   <p>
-                    この計算機では、スキル倍率が100%の場合を基準として計算しています。
+                    <pre className="bg-gray-700 text-white p-2">
+                      属性係数 = 100 + 属性耐性補正 + 属性耐性ダウン
+                    </pre>
+                    属性耐性補正は弱点なら20%、耐性なら-20%です。
                   </p>
                 </div>
               }
@@ -40,31 +48,43 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
           </div>
         </div>
 
-        <div className="flex flex-row gap-1.5 justify-between">
-          <CalculatorCard text="戦闘攻撃力" value={damageBase.attack} />
-          <CalculatorCard
-            text="会心係数"
-            value={`${damageBase.critBonusRate}%`}
-          />
-          <CalculatorCard
-            text="与ダメ係数"
-            value={`${damageBase.damageBuff}%`}
-          />
-        </div>
+        <div className="flex flex-row items-center justify-center gap-2">
+          <div className="flex flex-col items-center bg-yellow-700 rounded-md4 text-slate-200">
+            <div className="flex flex-row gap-1.5 justify-between">
+              <CalculatorCard text="戦闘攻撃力" value={damageBase.attack} />
+              <CalculatorCard
+                text="会心係数"
+                value={`${damageBase.critBonusRate}%`}
+              />
+              <CalculatorCard
+                text="与ダメ係数"
+                value={`${damageBase.damageBuff}%`}
+              />
+            </div>
 
-        <div className="flex flex-row gap-1.5 justify-between mt-1.5">
-          <CalculatorCard
-            text="防御係数"
-            value={`${damageBase.defenseRate}%`}
-          />
-          <CalculatorCard
-            text="属性係数"
-            value={`${damageBase.registanceRate}%`}
-          />
-          <CalculatorCard
-            text="ブレイク弱体倍率"
-            value={damageBase.isStun ? `${damageBase.stunBonusRate}%` : "-"}
-          />
+            <div className="flex flex-row gap-1.5 justify-between mt-1.5">
+              <CalculatorCard
+                text="防御係数"
+                value={`${damageBase.defenseRate}%`}
+              />
+              <CalculatorCard
+                text="属性係数"
+                value={`${damageBase.registanceRate}%`}
+              />
+              <CalculatorCard
+                text="ブレイク弱体倍率"
+                value={damageBase.isStun ? `${damageBase.stunBonusRate}%` : "-"}
+              />
+            </div>
+          </div>
+
+          <div
+            className="flex flex-col w-48 items-center justify-center bg-yellow-950 rounded-md text-slate-200"
+            style={{ height: "200px" }}
+          >
+            <div className="font-bold">スキルダメージ倍率</div>
+            <div className="">{damageBase.skillDamageRate}%</div>
+          </div>
         </div>
       </div>
 
@@ -72,7 +92,7 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
         <div className="mb-2.5 w-full bg-green-950 text-center rounded-md p-2 relative">
           <div className="flex flex-col h-32 items-center justify-center rounded-lg shadow-md w-full text-lg">
             <div className="font-bold">ダメージ期待値</div>
-            <div className="">{calculateExpectedDamage(damageBase, 100)}</div>
+            <div className="">{calculateExpectedDamage(damageBase)}</div>
             <div className="absolute right-2 top-2 flex items-center">
               <HelpButton
                 title="ダメージ期待値"
@@ -81,27 +101,17 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
                     <p>
                       ダメージ基礎値に基づいて、ダメージの期待値を計算しています。
                     </p>
-                    <p>ダメージは以下の式で計算されます。</p>
                     <br />
                     <p>
-                      <pre className="bg-gray-700 text-white p-2">
-                        ダメージ = 攻撃力 * 会心係数 * 与ダメ係数 * スキル倍率 *
-                        防御係数 * ブレイク弱体倍率 * 属性係数
-                      </pre>
+                      ダメージは仕様が推定に基づくものであることや、小数点の端数処理などの理由で、実際のゲーム内のダメージとは異なる可能性があります。
+                    </p>
+                    <p>
+                      検証を行った範囲では、誤差は±5%の範囲に収まっていました。もし大きなずれがある場合は報告してもらえると助かります。
                     </p>
                     <br />
+                    <p>期待値の算出には会心係数を使用しています。</p>
                     <p>
-                      スキル倍率は通常スキルや特殊スキルなどに表示されている倍率そのものになります。
-                    </p>
-                    <p>
-                      この計算機では、スキル倍率が100%の場合を基準として計算しています。
-                    </p>
-                    <p>
-                      実際のダメージを計算する際は、計算結果に対してスキル倍率を掛けてください。
-                    </p>
-                    <br />
-                    <p>
-                      ここに表示される値は期待値です。実際のダメージは下部の通常ダメージ、および会心ダメージを参照してください。
+                      下部に表示されているものは通常ダメージと会心ダメージのそれぞれの実際のダメージです。
                     </p>
                   </div>
                 }
@@ -113,12 +123,12 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
         <div className="flex flex-row gap-1.5 w-full">
           <div className="flex flex-col h-24 items-center bg-green-900 justify-center border border-gray-200 rounded-lg shadow-md w-1/2">
             <div className="font-bold">通常ダメージ</div>
-            <div className="">{calculateDamage(damageBase, 100, false)}</div>
+            <div className="">{calculateDamage(damageBase, false)}</div>
           </div>
 
           <div className="flex flex-col h-24 items-center bg-green-900 justify-center border border-gray-200 rounded-lg shadow-md w-1/2">
             <div className="font-bold">会心ダメージ</div>
-            <div className="">{calculateDamage(damageBase, 100, true)}</div>
+            <div className="">{calculateDamage(damageBase, true)}</div>
           </div>
         </div>
       </div>

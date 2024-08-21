@@ -146,8 +146,17 @@ const damageLevel: Record<number, number> = {
   20: 172,
   30: 281,
   40: 421,
+  45: 502,
   50: 592,
+  51: 610,
+  52: 629,
+  53: 649,
+  54: 669,
   55: 689,
+  56: 709,
+  57: 730,
+  58: 751,
+  59: 772,
   60: 794,
 };
 
@@ -202,6 +211,7 @@ export const calculateDamageBase = (
 
   return {
     attack: attack,
+    skillDamageRate: battleStatus.skillDamageRate,
     damageBuff: damageBuffRate,
     critDamage: 100 + critDamage,
     critBonusRate: critBonusRate,
@@ -214,13 +224,9 @@ export const calculateDamageBase = (
   };
 };
 
-export const calculateDamage = (
-  damageBase: DamageBase,
-  skillDamageRate: number,
-  isCrit: boolean
-) => {
+export const calculateDamage = (damageBase: DamageBase, isCrit: boolean) => {
   const attack = new Decimal(damageBase.attack);
-  const skillDamage = new Decimal(skillDamageRate).div(100);
+  const skillDamage = new Decimal(damageBase.skillDamageRate).div(100);
   const damageBuff = new Decimal(damageBase.damageBuff).div(100);
   const defenseRate = new Decimal(damageBase.defenseRate).div(100);
   const registanceRate = new Decimal(damageBase.registanceRate).div(100);
@@ -243,13 +249,8 @@ export const calculateDamage = (
   return damage.floor().toNumber();
 };
 
-export const calculateExpectedDamage = (
-  damageBase: DamageBase,
-  skillDamageRate: number
-) => {
-  const damage = new Decimal(
-    calculateDamage(damageBase, skillDamageRate, false)
-  )
+export const calculateExpectedDamage = (damageBase: DamageBase) => {
+  const damage = new Decimal(calculateDamage(damageBase, false))
     .times(damageBase.critBonusRate / 100)
     .floor()
     .toNumber();

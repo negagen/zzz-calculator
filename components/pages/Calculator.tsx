@@ -225,7 +225,7 @@ export const Calculator = () => {
             </div>
           </div>
 
-          <div className="mt-4 h-8 flex flex-row gap-2.5 z-10 text-xs font-light text-slate-400">
+          <div className="mt-2 flex flex-row gap-2.5 z-10 text-xs font-light text-slate-400">
             <p>
               Disclaimer© HoYoverse. All rights reserved. &#39;HoYoverse&#39;
               and &#39;Zenless Zone Zero&#39; are trademarks, services marks, or
