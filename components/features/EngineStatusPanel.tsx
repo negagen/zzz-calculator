@@ -16,7 +16,7 @@ export const EngineStatusPanel = ({
   onChange: (engineStatus: EngineStatus) => void;
 }) => {
   return (
-    <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4">
+    <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4 h-full">
       <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative">
         音動機
         <div className="absolute right-2 top-0 h-full flex items-center">

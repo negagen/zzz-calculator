@@ -51,19 +51,6 @@ export const defaultEnemyStatus: EnemyStatus = {
   isStun: false,
 };
 
-export const defaultSkills: Skill[] = [
-  {
-    name: "Basic(Physical)",
-    damages: [101.1, 111.1, 250.6],
-    type: "basic",
-  },
-  {
-    name: "Basic(Ice)",
-    damages: [99.6, 184.0, 496.2],
-    type: "basic",
-  },
-];
-
 export const defaultBattleStatus: AdditionalStatus = {
   attackBonus: 0,
   skillDamageRate: 100,
