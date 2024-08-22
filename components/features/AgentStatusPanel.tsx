@@ -19,7 +19,7 @@ export const AgentStatusPanel = ({
   ) => void;
 }) => {
   return (
-    <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4">
+    <div className="flex flex-col items-center bg-gray-700 rounded-md p-4 max-md:w-full lg:w-72">
       <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative">
         エージェント
         <div className="absolute right-2 top-0 h-full flex items-center">
@@ -45,9 +45,9 @@ export const AgentStatusPanel = ({
 
       <div className="flex flex-col items-center gap-2 w-full">
         <div className="flex flex-row items-center w-full gap-2">
-          <div>
+          <div className="w-full">
             <Select
-              className="w-64"
+              className="lg:w-64 max-md:w-full"
               value={agents.indexOf(agent)}
               options={agents.map((agent, i) => ({
                 value: i,
@@ -62,9 +62,9 @@ export const AgentStatusPanel = ({
 
         <div className="flex flex-row items-center w-full gap-2">
           <div className="w-36">レベル</div>
-          <div>
+          <div className="grow">
             <Select
-              className="w-32"
+              className="w-32 max-md:w-full"
               value={level}
               options={[
                 { value: 1, label: "1" },
@@ -84,9 +84,9 @@ export const AgentStatusPanel = ({
 
         <div className="flex flex-row items-center w-full gap-2">
           <div className="w-36">コアスキル強化</div>
-          <div>
+          <div className="grow">
             <Select
-              className="w-32"
+              className="w-32 max-md:w-full"
               value={coreSkillLevel}
               options={[
                 { value: 1, label: "なし" },

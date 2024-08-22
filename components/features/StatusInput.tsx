@@ -13,9 +13,9 @@ export const StatusInput = ({
 }) => {
   return (
     <div className="flex flex-row items-center w-full">
-      <div className="w-32">{title}</div>
+      <div className="w-36">{title}</div>
       <Input
-        className="w-32"
+        className="w-32 grow"
         type="number"
         disabled={disabled || false}
         value={value}

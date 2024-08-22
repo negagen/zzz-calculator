@@ -10,7 +10,7 @@ export const AdditionalStatusPanel = ({
   onChange: (battleStatus: AdditionalStatus) => void;
 }) => {
   return (
-    <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4">
+    <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4 max-md:w-full">
       <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative">
         スキルダメージ倍率
       </div>
@@ -47,7 +47,7 @@ export const AdditionalStatusPanel = ({
         </div>
       </div>
 
-      <div className="flex flex-col items-center w-full gap-4">
+      <div className="flex flex-col items-center w-full gap-2">
         <StatusInput
           title="攻撃力実数"
           value={battleStatus.attackBonus}

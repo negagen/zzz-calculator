@@ -25,19 +25,19 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
                   <br />
                   <p>ダメージは以下の式で計算されます。</p>
                   <p>
-                    <pre className="bg-gray-700 text-white p-2">
+                    <pre className="bg-gray-700 text-white p-2 text-wrap">
                       ダメージ = 攻撃力 * 会心係数 * 与ダメ係数 *
                       スキルダメージ倍率 * 防御係数 * ブレイク弱体倍率 *
                       属性係数
                     </pre>
                   </p>
                   <p>
-                    <pre className="bg-gray-700 text-white p-2">
+                    <pre className="bg-gray-700 text-white p-2 text-wrap">
                       会心係数 = 100 + 会心ダメージ * 会心率
                     </pre>
                   </p>
                   <p>
-                    <pre className="bg-gray-700 text-white p-2">
+                    <pre className="bg-gray-700 text-white p-2 text-wrap">
                       属性係数 = 100 + 属性耐性補正 + 属性耐性ダウン
                     </pre>
                     属性耐性補正は弱点なら20%、耐性なら-20%です。
@@ -48,40 +48,32 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
           </div>
         </div>
 
-        <div className="flex flex-row items-center justify-center gap-2">
-          <div className="flex flex-col items-center bg-yellow-700 rounded-md4 text-slate-200">
-            <div className="flex flex-row gap-1.5 justify-between">
-              <CalculatorCard text="戦闘攻撃力" value={damageBase.attack} />
-              <CalculatorCard
-                text="会心係数"
-                value={`${damageBase.critBonusRate}%`}
-              />
-              <CalculatorCard
-                text="与ダメ係数"
-                value={`${damageBase.damageBuff}%`}
-              />
-            </div>
-
-            <div className="flex flex-row gap-1.5 justify-between mt-1.5">
-              <CalculatorCard
-                text="防御係数"
-                value={`${damageBase.defenseRate}%`}
-              />
-              <CalculatorCard
-                text="属性係数"
-                value={`${damageBase.registanceRate}%`}
-              />
-              <CalculatorCard
-                text="ブレイク弱体倍率"
-                value={damageBase.isStun ? `${damageBase.stunBonusRate}%` : "-"}
-              />
-            </div>
+        <div className="flex lg:flex-row max-md:flex-col items-center justify-center gap-2 w-full">
+          <div className="grid max-md:grid-cols-2 lg:grid-cols-3 gap-2 items-center bg-yellow-700 rounded-md text-slate-200 w-full">
+            <CalculatorCard text="戦闘攻撃力" value={damageBase.attack} />
+            <CalculatorCard
+              text="会心係数"
+              value={`${damageBase.critBonusRate}%`}
+            />
+            <CalculatorCard
+              text="与ダメ係数"
+              value={`${damageBase.damageBuff}%`}
+            />
+            <CalculatorCard
+              text="防御係数"
+              value={`${damageBase.defenseRate}%`}
+            />
+            <CalculatorCard
+              text="属性係数"
+              value={`${damageBase.registanceRate}%`}
+            />
+            <CalculatorCard
+              text="ブレイク弱体倍率"
+              value={damageBase.isStun ? `${damageBase.stunBonusRate}%` : "-"}
+            />
           </div>
 
-          <div
-            className="flex flex-col w-48 items-center justify-center bg-yellow-950 rounded-md text-slate-200"
-            style={{ height: "200px" }}
-          >
+          <div className="flex flex-col w-56 items-center justify-center bg-yellow-950 rounded-md text-slate-200 max-md:w-full max-md:py-4 h-full">
             <div className="font-bold">スキルダメージ倍率</div>
             <div className="">{damageBase.skillDamageRate}%</div>
           </div>
@@ -144,7 +136,7 @@ const CalculatorCard = ({
   value: string | number;
 }) => {
   return (
-    <div className="flex flex-col w-40 h-24 items-center justify-center bg-yellow-950 rounded-lg shadow-md text-slate-200">
+    <div className="flex flex-col h-24 items-center justify-center bg-yellow-950 rounded-lg shadow-md text-slate-200 w-full">
       <div className="font-bold">{text}</div>
       <div className="">{value}</div>
     </div>

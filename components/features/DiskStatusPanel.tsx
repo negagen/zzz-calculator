@@ -10,7 +10,7 @@ export const DiskStatusPanel = ({
   onChange: (diskStatus: DiskStatus) => void;
 }) => {
   return (
-    <div className="flex flex-col items-center bg-gray-700 rounded-md p-4">
+    <div className="flex flex-col items-center bg-gray-700 rounded-md p-4 max-md:w-full">
       <div className="mb-2 w-full bg-gray-900 text-center rounded-md p-2">
         ディスク
       </div>
@@ -33,26 +33,26 @@ export const DiskStatusPanel = ({
             />
           </div>
         </div>
-        <div className="flex flex-row gap-2 w-full">
+        <div className="flex lg:flex-row max-md:flex-col gap-2 w-full">
           <div className="flex flex-col gap-2 w-full">
             <div className="flex flex-row items-center w-full gap-2">
               <div className="w-6 text-center">1</div>
-              <div className="flex flex-row gap-2">
+              <div className="flex flex-row gap-2 w-full">
                 <Select
                   className="w-18"
                   value={"S"}
                   options={[{ value: "S", label: "S" }]}
                 />
                 <Select
-                  className="w-40"
+                  className="w-40 grow"
                   value={"default"}
                   options={[{ value: "default", label: "HP" }]}
                 />
               </div>
             </div>
-            <div className="flex flex-row items-center w-full gap-2">
+            <div className="flex flex-row items-center w-full gap-2 w-full">
               <div className="w-6 text-center">2</div>
-              <div className="flex flex-row gap-2">
+              <div className="flex flex-row gap-2 w-full">
                 <Select
                   className="w-18"
                   value={diskStatus.slot2.rank}
@@ -70,7 +70,7 @@ export const DiskStatusPanel = ({
                   }}
                 />
                 <Select
-                  className="w-40"
+                  className="w-40 grow"
                   value={"default"}
                   options={[{ value: "default", label: "攻撃力" }]}
                 />
@@ -79,14 +79,14 @@ export const DiskStatusPanel = ({
 
             <div className="flex flex-row items-center w-full gap-2">
               <div className="w-6 text-center">3</div>
-              <div className="flex flex-row gap-2">
+              <div className="flex flex-row gap-2 w-full">
                 <Select
                   className="w-18"
                   value={"S"}
                   options={[{ value: "S", label: "S" }]}
                 />
                 <Select
-                  className="w-40"
+                  className="w-40 grow"
                   value={"default"}
                   options={[{ value: "default", label: "防御力" }]}
                 />
@@ -97,7 +97,7 @@ export const DiskStatusPanel = ({
           <div className="flex flex-col gap-2 w-full">
             <div className="flex flex-row items-center w-full gap-2">
               <div className="w-6 text-center">6</div>
-              <div className="flex flex-row gap-2">
+              <div className="flex flex-row gap-2 w-full">
                 <Select
                   className="w-18"
                   value={diskStatus.slot6.rank}
@@ -116,7 +116,7 @@ export const DiskStatusPanel = ({
                 />
 
                 <Select
-                  className="w-40"
+                  className="w-40 grow"
                   value={diskStatus.slot6.type}
                   options={[
                     { value: "attack", label: "攻撃力%" },
@@ -135,7 +135,7 @@ export const DiskStatusPanel = ({
 
             <div className="flex flex-row items-center w-full gap-2">
               <div className="w-6 text-center">5</div>
-              <div className="flex flex-row gap-2">
+              <div className="flex flex-row gap-2 w-full">
                 <Select
                   className="w-18"
                   value={diskStatus.slot5.rank}
@@ -153,7 +153,7 @@ export const DiskStatusPanel = ({
                   }}
                 />
                 <Select
-                  className="w-40"
+                  className="w-40 grow"
                   value={diskStatus.slot5.type}
                   options={[
                     { value: "attack", label: "攻撃力%" },
@@ -174,7 +174,7 @@ export const DiskStatusPanel = ({
 
             <div className="flex flex-row items-center w-full gap-2">
               <div className="w-6 text-center">4</div>
-              <div className="flex flex-row gap-2">
+              <div className="flex flex-row gap-2 w-full">
                 <Select
                   className="w-18"
                   value={diskStatus.slot4.rank}
@@ -192,7 +192,7 @@ export const DiskStatusPanel = ({
                   }}
                 />
                 <Select
-                  className="w-40"
+                  className="w-40 grow"
                   value={diskStatus.slot4.type}
                   options={[
                     { value: "critRate", label: "会心率" },
@@ -213,7 +213,7 @@ export const DiskStatusPanel = ({
           </div>
         </div>
 
-        <div className="flex flex-row gap-2 w-full mt-4">
+        <div className="flex lg:flex-row max-md:flex-col gap-2 w-full mt-4">
           <div className="flex flex-col gap-2 w-full text-sm">
             <div className="mb-2 mt-2 w-full text-sm bg-gray-800 text-center rounded-md py-1 px-2 relative">
               セット効果(2セット)

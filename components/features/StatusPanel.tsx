@@ -3,7 +3,7 @@ import { HelpButton } from "./HelpButton";
 
 export const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
   return (
-    <div className="flex flex-col items-center w-80 bg-yellow-700 rounded-md p-4 text-slate-300">
+    <div className="flex flex-col items-center w-80 bg-yellow-700 rounded-md p-4 text-slate-300 max-md:w-full">
       <div className="mb-4 w-full bg-yellow-950 text-center rounded-md p-2 relative">
         ステータス
         <div className="absolute right-2 top-0 h-full flex items-center">

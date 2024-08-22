@@ -11,14 +11,14 @@ export const EnemyStatusPanel = ({
   onChange: (enemyStatus: EnemyStatus) => void;
 }) => {
   return (
-    <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4">
+    <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4 max-md:w-full">
       <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative">
         エネミー
         <div className="absolute right-2 top-0 h-full flex items-center">
           <HelpButton
             title="エネミー設定"
             content={
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-col gap-1.5 text-wrap">
                 <p>エネミーのステータスを設定できます。</p>
                 <p>
                   防御係数や属性係数、ブレイク弱体倍率は自動的にダメージ基礎値へと反映されます。
@@ -38,21 +38,21 @@ export const EnemyStatusPanel = ({
                 <br />
                 <p>防御係数は以下の式で計算しています。</p>
                 <p>
-                  <pre className="bg-gray-700 text-white p-2">
+                  <pre className="bg-gray-700 text-white p-2 text-wrap">
                     防御係数 = エージェントレベル係数 / ( エージェントレベル係数
                     + 有効防御力 )
                   </pre>
 
-                  <pre className="bg-gray-700 text-white p-2">
+                  <pre className="bg-gray-700 text-white p-2 text-wrap">
                     有効防御力 = [ 防御力 × ( 1 - 防御デバフ ) × ( 1 - 貫通率 )
                     ] - 貫通値
                   </pre>
 
-                  <pre className="bg-gray-700 text-white p-2">
+                  <pre className="bg-gray-700 text-white p-2 text-wrap">
                     防御力 = エネミーレベル係数 * 基礎防御力 / 50
                   </pre>
 
-                  <pre className="bg-gray-700 text-white p-2">
+                  <pre className="bg-gray-700 text-white p-2 text-wrap">
                     有効防御力 ≧ 0
                   </pre>
                 </p>
@@ -62,11 +62,11 @@ export const EnemyStatusPanel = ({
         </div>
       </div>
 
-      <div className="flex flex-col items-center gap-4 w-full">
+      <div className="flex flex-col items-center gap-2 w-full">
         <div className="flex flex-row items-center w-full">
-          <div className="w-32">レベル</div>
+          <div className="w-36">レベル</div>
           <Select
-            className="w-32"
+            className="w-32 grow"
             value={enemyStatus.level}
             options={[
               { value: 10, label: "10" },
@@ -86,9 +86,9 @@ export const EnemyStatusPanel = ({
         </div>
 
         <div className="flex flex-row items-center w-full">
-          <div className="w-32">基礎防御力</div>
+          <div className="w-36">基礎防御力</div>
           <Select
-            className="w-32"
+            className="w-32 grow"
             value={enemyStatus.defense}
             options={[
               { value: 10, label: "10" },
@@ -124,9 +124,9 @@ export const EnemyStatusPanel = ({
         />
 
         <div className="flex flex-row items-center w-full">
-          <div className="w-32">属性耐性</div>
+          <div className="w-36">属性耐性</div>
           <Select
-            className="w-32"
+            className="w-32 grow"
             defaultValue={enemyStatus.damageRes}
             options={[
               { value: -20, label: "弱点" },
@@ -164,9 +164,9 @@ export const EnemyStatusPanel = ({
         </div>
 
         <div className="flex flex-row items-center w-full">
-          <div className="w-32">ブレイク弱体倍率</div>
+          <div className="w-36">ブレイク弱体倍率</div>
           <Input
-            className="w-32"
+            className="w-32 grow"
             placeholder="ブレイク弱体倍率"
             type="number"
             value={enemyStatus.stunDamageMultiplier}

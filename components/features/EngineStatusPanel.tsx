@@ -16,7 +16,7 @@ export const EngineStatusPanel = ({
   onChange: (engineStatus: EngineStatus) => void;
 }) => {
   return (
-    <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4 h-full">
+    <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4 h-full max-md:w-full">
       <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative">
         音動機
         <div className="absolute right-2 top-0 h-full flex items-center">
@@ -59,9 +59,9 @@ export const EngineStatusPanel = ({
         />
 
         <div className="flex flex-row items-center w-full">
-          <div className="w-32">レベル上限</div>
+          <div className="w-36">レベル上限</div>
           <Select
-            className="w-32"
+            className="w-32 grow"
             value={engineStatus.level}
             options={[
               { value: 10, label: "10" },
@@ -85,9 +85,9 @@ export const EngineStatusPanel = ({
         </div>
 
         <div className="flex flex-row items-center w-full">
-          <div className="w-32">武器ランク</div>
+          <div className="w-36">武器ランク</div>
           <Select
-            className="w-32"
+            className="w-32 grow"
             value={engineStatus.rank}
             options={[
               { value: "S", label: "S" },
@@ -108,9 +108,9 @@ export const EngineStatusPanel = ({
         </div>
 
         <div className="flex flex-row items-center w-full">
-          <div className="w-32">上級ステータス</div>
+          <div className="w-36">上級ステータス</div>
           <Select
-            className="w-32"
+            className="w-32 grow"
             value={engineStatus.statusType}
             options={[
               { value: "critRate", label: "会心率" },
