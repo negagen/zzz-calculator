@@ -1,14 +1,15 @@
 import { Select } from "antd";
 import { Engine, EngineLevel } from "@/types";
 import { HelpButton } from "./HelpButton";
-import { engines } from "@/data";
 
 export const EngineStatusPanel = ({
   engine,
+  engines,
   level,
   onChange,
 }: {
   engine: Engine;
+  engines: Engine[];
   level: EngineLevel;
   onChange: (engine: Engine, level: EngineLevel) => void;
 }) => {

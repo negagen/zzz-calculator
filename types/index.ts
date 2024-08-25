@@ -44,11 +44,6 @@ export interface Engine {
   statusType: EngineStatusType;
 }
 
-export interface Character {
-  agent: Agent;
-  engine: Engine;
-}
-
 export interface Skill {
   name: string;
   damages: number[];
@@ -64,8 +59,6 @@ export interface Skill {
     | "chainAttack"
     | "ultimate";
 }
-
-export type Team = Character[];
 
 export type DiskRank = "S" | "A" | "B";
 export const Drives = [

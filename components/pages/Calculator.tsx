@@ -32,6 +32,12 @@ import {
 } from "@/data";
 import { calculateStatusDetail, calculateDamageBase } from "@/core";
 
+const selectEngines = (agent: Agent) => {
+  return engines.filter((engine) => {
+    return engine.speciality === agent.speciality;
+  });
+};
+
 export const Calculator = () => {
   const [agentConfig, setAgentConfig] = useState<AgentConfig>({
     agent: agents[0],
@@ -40,7 +46,7 @@ export const Calculator = () => {
   });
 
   const [engineConfig, setEngineConfig] = useState<EngineConfig>({
-    engine: engines[0],
+    engine: selectEngines(agents[0])[0],
     level: 60,
   });
   const [diskConfig, setDiskConfig] = useState<DiskConfig>(defaultDiskStatus);
@@ -70,11 +76,18 @@ export const Calculator = () => {
               coreSkillLevel: CoreSkillLevel
             ) => {
               setAgentConfig({ agent, level, coreSkillLevel });
+              if (agent.speciality !== engineConfig.engine.speciality) {
+                setEngineConfig({
+                  engine: selectEngines(agent)[0],
+                  level: 60,
+                });
+              }
             }}
           />
 
           <EngineStatusPanel
             engine={engineConfig.engine}
+            engines={selectEngines(agentConfig.agent)}
             level={engineConfig.level}
             onChange={(engine: Engine, level: EngineLevel) => {
               setEngineConfig({ engine, level });
