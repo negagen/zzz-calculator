@@ -6,3 +6,4 @@ export * from "./EnemyStatusPanel";
 export * from "./EngineStatusPanel";
 export * from "./StatusPanel";
 export * from "./HelpButton";
+export * from "./Layout";
