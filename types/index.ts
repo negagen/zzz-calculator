@@ -43,8 +43,6 @@ export interface Engine {
   statusType: EngineStatusType;
 }
 
-export interface DiskConfig {}
-
 export interface Character {
   agent: Agent;
   engine: Engine;
@@ -68,51 +66,96 @@ export interface Skill {
 
 export type Team = Character[];
 
-export interface AgentStatus {
-  level: number;
-  attack: number;
-  critRate: number;
-  critDamage: number;
-  penRate: number;
+export type DiskRank = "S" | "A" | "B";
+export const Drives = [
+  "none",
+  "FangedMetal",
+  "PolarMetal",
+  "ThunderMetal",
+  "ChaoticMetal",
+  "InfernoMetal",
+  "SoulRock",
+  "HormonePunk",
+  "FreedomBlues",
+  "ShockstarDisco",
+  "PufferElectro",
+  "WoodpeckerElectro",
+  "SwingJazz",
+] as const;
+export type Drive = (typeof Drives)[number];
+
+export interface DiskSlotConfig {
+  rank: DiskRank;
+  drive: Drive;
+  mainStatus:
+    | "hp"
+    | "attack"
+    | "defense"
+    | "attackRate"
+    | "defenseRate"
+    | "critRate"
+    | "critDamage"
+    | "penRate"
+    | "damageBuff"
+    | "impact"
+    | "energy"
+    | "anomalyProficiency"
+    | "anomalyMastery";
+  subStatusUp: {
+    hp: number;
+    hpRate: number;
+    attack: number;
+    attackRate: number;
+    defense: number;
+    defenseRate: number;
+    critRate: number;
+    critDamage: number;
+    anomalyProficiency: number;
+    pen: number;
+  };
 }
 
-export interface EngineStatus {
-  level: EngineLevel;
-  rank: EngineRank;
-  statusType: EngineStatusType;
+export interface Status {
+  hp: number;
   attack: number;
-  attackRate: number;
+  defense: number;
   critRate: number;
   critDamage: number;
-  penRatio: number;
+  pen: number;
+  penRate: number;
+  damageBuff: number;
+  anomalyProficiency: number;
+  impact: number;
+  energy: number;
 }
 
 export interface DiskConfig {
-  rank: "S" | "A" | "B";
-  type: "attack" | "critRate" | "critDamage" | "penRate" | "damageBuff";
+  slot1: DiskSlotConfig;
+  slot2: DiskSlotConfig;
+  slot3: DiskSlotConfig;
+  slot4: DiskSlotConfig;
+  slot5: DiskSlotConfig;
+  slot6: DiskSlotConfig;
 }
 
-export interface DiskStatus {
-  slot2: DiskConfig;
-  slot4: DiskConfig;
-  slot5: DiskConfig;
-  slot6: DiskConfig;
-  attackCount: number;
-  attackRateCount: number;
-  critRateCount: number;
-  critDamageCount: number;
-  setBonus1: DiskSetBonus;
-  setBonus2: DiskSetBonus;
-  setBonus3: DiskSetBonus;
-  penCount: number;
-}
-
-export interface DiskSetBonus {
-  type: "none" | "attackRate" | "critRate" | "penRate" | "damageBuff";
+export interface DiskSetBonus1 {
+  type:
+    | "none"
+    | "attackRate"
+    | "critRate"
+    | "penRate"
+    | "damageBuff"
+    | "defense"
+    | "energy"
+    | "anomalyProficiency"
+    | "impact";
   attackRate?: number;
   critRate?: number;
   penRate?: number;
   damageBuff?: number;
+  defense?: number;
+  energy?: number;
+  anomalyProficiency?: number;
 }
 
 export interface EnemyStatus {
@@ -125,16 +168,54 @@ export interface EnemyStatus {
   isStun: boolean;
 }
 
-export interface BaseStatus {
-  level: number;
+export interface Status {
+  hp: number;
   attack: number;
-  baseAttack: number;
-  attackBonus: number;
+  defense: number;
   critRate: number;
   critDamage: number;
   pen: number;
   penRate: number;
   damageBuff: number;
+  anomalyProficiency: number;
+  impact: number;
+  energy: number;
+}
+
+export interface StatusBase {
+  hp: number;
+  hpRate: number;
+  attack: number;
+  attackBonus: number;
+  attackRate: number;
+  defense: number;
+  defenseRate: number;
+  critRate: number;
+  critDamage: number;
+  pen: number;
+  penRate: number;
+  damageBuff: number;
+  anomalyProficiency: number;
+  impact: number;
+  energy: number;
+}
+
+export interface AgentConfig {
+  agent: Agent;
+  level: AgentLevel;
+  coreSkillLevel: CoreSkillLevel;
+}
+
+export interface EngineConfig {
+  engine: Engine;
+  level: EngineLevel;
+}
+
+export interface StatusDetail {
+  agentConfig: AgentConfig;
+  engineConfig: EngineConfig;
+  diskConfig: DiskConfig;
+  base: StatusBase;
 }
 
 export interface DamageBase {
@@ -153,7 +234,7 @@ export interface DamageBase {
 
 export interface AdditionalStatus {
   attackBonus: number;
-  attackRateBonus: number;
+  attackBuff: number;
   skillDamageRate: number;
   critRateBonus: number;
   critDamageBonus: number;

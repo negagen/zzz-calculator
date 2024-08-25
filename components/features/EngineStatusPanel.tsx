@@ -1,5 +1,5 @@
 import { Select } from "antd";
-import { Engine, EngineRank, EngineLevel } from "@/core";
+import { Engine, EngineLevel } from "@/types";
 import { HelpButton } from "./HelpButton";
 import { engines } from "@/data";
 

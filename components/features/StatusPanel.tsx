@@ -1,9 +1,17 @@
-import { BaseStatus } from "@/core";
+import { StatusDetail } from "@/types";
+import { calculateStatus } from "@/core";
 import { HelpButton } from "./HelpButton";
 
-export const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
+export const StatusPanel = ({
+  baseStatus: detail,
+}: {
+  baseStatus: StatusDetail;
+}) => {
+  const baseStatus = detail.base;
+  const status = calculateStatus(baseStatus);
+
   return (
-    <div className="flex flex-col items-center w-80 bg-yellow-700 rounded-md p-4 text-slate-300 max-md:w-full">
+    <div className="flex flex-col items-center w-84 bg-yellow-700 rounded-md p-4 text-slate-300 max-md:w-full">
       <div className="mb-4 w-full bg-yellow-950 text-center rounded-md p-2 relative">
         ステータス
         <div className="absolute right-2 top-0 h-full flex items-center">
@@ -36,7 +44,7 @@ export const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
 
           <div className="flex flex-col">
             <div>
-              {`${baseStatus.attack} (${baseStatus.baseAttack} + ${baseStatus.attackBonus})`}
+              {`${status.attack} (${baseStatus.attack} + ${status.attack - baseStatus.attack})`}
             </div>
           </div>
         </div>
@@ -45,7 +53,7 @@ export const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
           <div className="w-28">会心率</div>
 
           <div className="flex flex-col">
-            <div>{baseStatus.critRate}%</div>
+            <div>{status.critRate}%</div>
           </div>
         </div>
 
@@ -53,7 +61,7 @@ export const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
           <div className="w-28">会心ダメージ</div>
 
           <div className="flex flex-col">
-            <div>{baseStatus.critDamage}%</div>
+            <div>{status.critDamage}%</div>
           </div>
         </div>
 
@@ -61,7 +69,7 @@ export const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
           <div className="w-28">貫通率</div>
 
           <div className="flex flex-col">
-            <div>{baseStatus.penRate}%</div>
+            <div>{status.penRate}%</div>
           </div>
         </div>
 
@@ -69,15 +77,15 @@ export const StatusPanel = ({ baseStatus }: { baseStatus: BaseStatus }) => {
           <div className="w-28">貫通値</div>
 
           <div className="flex flex-col">
-            <div>{baseStatus.pen}</div>
+            <div>{status.pen}</div>
           </div>
         </div>
 
         <div className="flex flex-row">
-          <div className="w-28">与ダメージ%</div>
+          <div className="w-28">属性ダメージ</div>
 
           <div className="flex flex-col">
-            <div>{baseStatus.damageBuff}%</div>
+            <div>{status.damageBuff}%</div>
           </div>
         </div>
       </div>

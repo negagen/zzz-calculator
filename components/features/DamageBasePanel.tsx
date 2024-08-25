@@ -1,4 +1,5 @@
-import { DamageBase, calculateDamage, calculateExpectedDamage } from "@/core";
+import { calculateDamage, calculateExpectedDamage } from "@/core";
+import { DamageBase } from "@/types";
 import { HelpButton } from "./HelpButton";
 
 interface CalculatorProps {

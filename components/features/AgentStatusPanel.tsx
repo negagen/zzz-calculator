@@ -1,5 +1,5 @@
 import { Select } from "antd";
-import { Agent, AgentLevel, CoreSkillLevel } from "@/core";
+import { Agent, AgentLevel, CoreSkillLevel } from "@/types";
 import { agents } from "@/data";
 import { HelpButton } from "./HelpButton";
 

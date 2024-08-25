@@ -1,5 +1,5 @@
 import { Input, Select, Checkbox } from "antd";
-import { EnemyStatus } from "@/core";
+import { EnemyStatus } from "@/types";
 import { StatusInput } from "./StatusInput";
 import { HelpButton } from "./HelpButton";
 

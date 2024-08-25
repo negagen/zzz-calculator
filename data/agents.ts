@@ -1,5 +1,4 @@
-import { Agent, AgentLevel, CoreSkillLevel, AgentStatus } from "@/core";
-import Decimal from "decimal.js";
+import { Agent, AgentLevel, CoreSkillLevel } from "@/types";
 
 export const agents: Agent[] = [
   {
@@ -273,34 +272,3 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "energy",
   },
 ];
-
-export const calculateAgentStatus = (
-  agent: Agent,
-  level: AgentLevel,
-  coreSkillLevel: CoreSkillLevel
-): AgentStatus => {
-  let attack = agent.attackTable[level];
-  let critRate = 5;
-  let critDamage = 50;
-  let penRate = 0;
-
-  for (let i = 1; i < coreSkillLevel; i++) {
-    if (i % 2 === 0) {
-      switch (agent.coreSkillLevelBonusType) {
-        case "critRate":
-          critRate = new Decimal(critRate).add(4.8).toNumber();
-          break;
-        case "critDamage":
-          critDamage = new Decimal(critDamage).add(9.6).toNumber();
-          break;
-        case "penRate":
-          penRate = new Decimal(penRate).add(4.8).toNumber();
-          break;
-      }
-    } else {
-      attack += 25;
-    }
-  }
-
-  return { level, attack, critRate, critDamage, penRate };
-};

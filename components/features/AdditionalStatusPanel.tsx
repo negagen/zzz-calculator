@@ -1,4 +1,4 @@
-import { AdditionalStatus } from "@/core";
+import { AdditionalStatus } from "@/types";
 import { StatusInput } from "./StatusInput";
 import { HelpButton } from "./HelpButton";
 
@@ -58,9 +58,9 @@ export const AdditionalStatusPanel = ({
 
         <StatusInput
           title="戦闘攻撃力%"
-          value={battleStatus.attackRateBonus}
+          value={battleStatus.attackBuff}
           onChange={(value) =>
-            onChange({ ...battleStatus, attackRateBonus: value })
+            onChange({ ...battleStatus, attackBuff: value })
           }
         />
 

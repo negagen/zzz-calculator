@@ -1,10 +1,4 @@
-import {
-  Engine,
-  EngineLevel,
-  EngineBaseAttack,
-  EngineRank,
-  EngineStatus,
-} from "@/core";
+import { Engine, EngineLevel, EngineBaseAttack, EngineRank } from "@/types";
 
 export const engines: Engine[] = [
   {
@@ -525,67 +519,4 @@ export const engineAttackRateTable: Record<
     50: 17.6, // unknown data
     60: 20,
   },
-};
-
-export const calculateEngineStatus = (
-  engine: Engine,
-  level: EngineLevel
-): EngineStatus => {
-  switch (engine.statusType) {
-    case "attackRate":
-      return {
-        level,
-        rank: engine.rank,
-        statusType: engine.statusType,
-        attack: engineAttackTable[engine.baseAttack][level],
-        attackRate: engineAttackRateTable[engine.rank][level],
-        critRate: 0,
-        critDamage: 0,
-        penRatio: 0,
-      };
-    case "critRate":
-      return {
-        level,
-        rank: engine.rank,
-        statusType: engine.statusType,
-        attack: engineAttackTable[engine.baseAttack][level],
-        attackRate: 0,
-        critRate: engineCritRateTable[engine.rank][level],
-        critDamage: 0,
-        penRatio: 0,
-      };
-    case "critDamage":
-      return {
-        level,
-        rank: engine.rank,
-        statusType: engine.statusType,
-        attack: engineAttackTable[engine.baseAttack][level],
-        attackRate: 0,
-        critRate: 0,
-        critDamage: engineCritDamageTable[engine.rank][level],
-        penRatio: 0,
-      };
-    case "penRate":
-      return {
-        level,
-        rank: engine.rank,
-        statusType: engine.statusType,
-        attack: engineAttackTable[engine.baseAttack][level],
-        attackRate: 0,
-        critRate: 0,
-        critDamage: 0,
-        penRatio: enginePenRateTable[engine.rank][level],
-      };
-    default:
-      return {
-        level,
-        rank: engine.rank,
-        statusType: engine.statusType,
-        attack: engineAttackTable[engine.baseAttack][level],
-        attackRate: 0,
-        critRate: 0,
-        critDamage: 0,
-        penRatio: 0,
-      };
-  }
 };

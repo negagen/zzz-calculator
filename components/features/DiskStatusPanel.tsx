@@ -1,13 +1,13 @@
 import { Input, Select } from "antd";
-import { DiskSetBonus, DiskStatus } from "@/core";
+import { DiskSetBonus1, DiskConfig } from "@/types";
 import { HelpButton } from "./HelpButton";
 
 export const DiskStatusPanel = ({
   diskStatus,
   onChange,
 }: {
-  diskStatus: DiskStatus;
-  onChange: (diskStatus: DiskStatus) => void;
+  diskStatus: DiskConfig;
+  onChange: (diskStatus: DiskConfig) => void;
 }) => {
   return (
     <div className="flex flex-col items-center bg-gray-700 rounded-md p-4 max-md:w-full">
@@ -45,8 +45,8 @@ export const DiskStatusPanel = ({
                 />
                 <Select
                   className="w-40 grow"
-                  value={"default"}
-                  options={[{ value: "default", label: "HP" }]}
+                  value={"hp"}
+                  options={[{ value: "hp", label: "HP" }]}
                 />
               </div>
             </div>
@@ -71,8 +71,8 @@ export const DiskStatusPanel = ({
                 />
                 <Select
                   className="w-40 grow"
-                  value={"default"}
-                  options={[{ value: "default", label: "攻撃力" }]}
+                  value={"attack"}
+                  options={[{ value: "attack", label: "攻撃力" }]}
                 />
               </div>
             </div>
@@ -87,8 +87,8 @@ export const DiskStatusPanel = ({
                 />
                 <Select
                   className="w-40 grow"
-                  value={"default"}
-                  options={[{ value: "default", label: "防御力" }]}
+                  value={"defense"}
+                  options={[{ value: "defense", label: "防御力" }]}
                 />
               </div>
             </div>
@@ -117,16 +117,16 @@ export const DiskStatusPanel = ({
 
                 <Select
                   className="w-40 grow"
-                  value={diskStatus.slot6.type}
+                  value={diskStatus.slot6.mainStatus}
                   options={[
-                    { value: "attack", label: "攻撃力%" },
+                    { value: "attackRate", label: "攻撃力%" },
                     { value: "none", label: "その他" },
                   ]}
                   onChange={(value) => {
                     onChange({
                       ...diskStatus,
                       // @ts-ignore
-                      slot6: { ...diskStatus.slot6, type: value },
+                      slot6: { ...diskStatus.slot6, mainStatus: value },
                     });
                   }}
                 />
@@ -154,9 +154,9 @@ export const DiskStatusPanel = ({
                 />
                 <Select
                   className="w-40 grow"
-                  value={diskStatus.slot5.type}
+                  value={diskStatus.slot5.mainStatus}
                   options={[
-                    { value: "attack", label: "攻撃力%" },
+                    { value: "attackRate", label: "攻撃力%" },
                     { value: "damageBuff", label: "属性ダメージ" },
                     { value: "penRate", label: "貫通率" },
                     { value: "none", label: "その他" },
@@ -165,7 +165,7 @@ export const DiskStatusPanel = ({
                     onChange({
                       ...diskStatus,
                       // @ts-ignore
-                      slot5: { ...diskStatus.slot5, type: value },
+                      slot5: { ...diskStatus.slot5, mainStatus: value },
                     });
                   }}
                 />
@@ -193,18 +193,18 @@ export const DiskStatusPanel = ({
                 />
                 <Select
                   className="w-40 grow"
-                  value={diskStatus.slot4.type}
+                  value={diskStatus.slot4.mainStatus}
                   options={[
                     { value: "critRate", label: "会心率" },
                     { value: "critDamage", label: "会心ダメージ" },
-                    { value: "attack", label: "攻撃力%" },
+                    { value: "attackRate", label: "攻撃力%" },
                     { value: "none", label: "その他" },
                   ]}
                   onChange={(value) => {
                     onChange({
                       ...diskStatus,
                       // @ts-ignore
-                      slot4: { ...diskStatus.slot4, type: value },
+                      slot4: { ...diskStatus.slot4, mainStatus: value },
                     });
                   }}
                 />
@@ -255,47 +255,89 @@ export const DiskStatusPanel = ({
             <div className="flex flex-row items-center w-full gap-2">
               <SubStatusInput
                 title="攻撃力"
-                base="19"
-                value={diskStatus.attackCount}
+                value={diskStatus.slot1.subStatusUp.attack}
                 onChange={(value) =>
-                  onChange({ ...diskStatus, attackCount: value })
+                  onChange({
+                    ...diskStatus,
+                    slot1: {
+                      ...diskStatus.slot1,
+                      subStatusUp: {
+                        ...diskStatus.slot1.subStatusUp,
+                        attack: value,
+                      },
+                    },
+                  })
                 }
               />
 
               <SubStatusInput
                 title="攻撃力%"
-                base="3%"
-                value={diskStatus.attackRateCount}
+                value={diskStatus.slot1.subStatusUp.attackRate}
                 onChange={(value) =>
-                  onChange({ ...diskStatus, attackRateCount: value })
+                  onChange({
+                    ...diskStatus,
+                    slot1: {
+                      ...diskStatus.slot1,
+                      subStatusUp: {
+                        ...diskStatus.slot1.subStatusUp,
+                        attackRate: value,
+                      },
+                    },
+                  })
                 }
               />
             </div>
             <div className="flex flex-row items-center w-full gap-2">
               <SubStatusInput
                 title="会心率"
-                base="2.4%"
-                value={diskStatus.critRateCount}
+                value={diskStatus.slot1.subStatusUp.critRate}
                 onChange={(value) =>
-                  onChange({ ...diskStatus, critRateCount: value })
+                  onChange({
+                    ...diskStatus,
+                    slot1: {
+                      ...diskStatus.slot1,
+                      subStatusUp: {
+                        ...diskStatus.slot1.subStatusUp,
+                        critRate: value,
+                      },
+                    },
+                  })
                 }
               />
 
               <SubStatusInput
                 title="会心DMG"
-                base="4.8%"
-                value={diskStatus.critDamageCount}
+                value={diskStatus.slot1.subStatusUp.critDamage}
                 onChange={(value) =>
-                  onChange({ ...diskStatus, critDamageCount: value })
+                  onChange({
+                    ...diskStatus,
+                    slot1: {
+                      ...diskStatus.slot1,
+                      subStatusUp: {
+                        ...diskStatus.slot1.subStatusUp,
+                        critDamage: value,
+                      },
+                    },
+                  })
                 }
               />
             </div>
 
             <SubStatusInput
               title="貫通値"
-              base="9"
-              value={diskStatus.penCount}
-              onChange={(value) => onChange({ ...diskStatus, penCount: value })}
+              value={diskStatus.slot1.subStatusUp.pen}
+              onChange={(value) =>
+                onChange({
+                  ...diskStatus,
+                  slot1: {
+                    ...diskStatus.slot1,
+                    subStatusUp: {
+                      ...diskStatus.slot1.subStatusUp,
+                      pen: value,
+                    },
+                  },
+                })
+              }
             />
           </div>
         </div>
@@ -308,69 +350,88 @@ const DiskSetSelect = ({
   diskStatus,
   onChange,
 }: {
-  diskStatus: DiskStatus;
-  onChange: (diskStatus: DiskStatus) => void;
+  diskStatus: DiskConfig;
+  onChange: (diskStatus: DiskConfig) => void;
 }) => {
   const options = [
     { value: "none", label: "なし" },
-    { value: "critRate", label: "ウッドペッカー (会心率+8%)" },
-    { value: "attackRate", label: "ホルモン・パンク (攻撃力+10%)" },
-    { value: "penRate", label: "パファー・エレクトロ (貫通率+8%)" },
-    { value: "damageBuff", label: "ヘヴィメタル (属性ダメージ+10%)" },
+    {
+      value: "WoodpeckerElectro",
+      label: "ウッドペッカー・エレクトロ x 2",
+    },
+    { value: "HormonePunk", label: "ホルモン・パンク x 2" },
+    { value: "PufferElectro", label: "パファー・エレクトロ x 2" },
+    {
+      value: "FangedMetal",
+      label: "獣牙のヘヴィメタル: 2セット",
+    },
+    { value: "InfernoMetal", label: "炎獄のヘヴィメタル x 2" },
+    {
+      value: "ThunderMetal",
+      label: "雷鳴のヘヴィメタル",
+    },
+    {
+      value: "ChaoticMetal",
+      label: "混沌のヘヴィメタル ",
+    },
+    { value: "PolarMetal", label: "極地のヘヴィメタル x 2" },
+    {
+      value: "FreedomBlues",
+      label: "フリーダム・ブルース x 2",
+    },
+    {
+      value: "SwingJazz",
+      label: "スウィング・ジャズ x 2",
+    },
+    { value: "ShockstarDisco", label: "ショックスター・ディスコ x 2" },
+    { value: "SoulRock", label: "ソウルロック x 2" },
   ];
 
   return (
     <div className="flex flex-col items-center w-full gap-2">
       <Select
         className="w-full"
-        value={diskStatus.setBonus1.type}
+        value={diskStatus.slot1.drive}
+        options={options}
+        onChange={(value) =>
+          onChange({
+            ...diskStatus,
+            slot1: { ...diskStatus.slot1, drive: value },
+          })
+        }
+      />
+      <Select
+        className="w-full"
+        value={diskStatus.slot2.drive}
         options={options}
         onChange={(value) => {
-          onChange({ ...diskStatus, setBonus1: getDiskSetBonus(value) });
+          onChange({
+            ...diskStatus,
+            slot2: { ...diskStatus.slot2, drive: value },
+          });
         }}
       />
       <Select
         className="w-full"
-        value={diskStatus.setBonus2.type}
+        value={diskStatus.slot3.drive}
         options={options}
         onChange={(value) => {
-          onChange({ ...diskStatus, setBonus2: getDiskSetBonus(value) });
-        }}
-      />
-      <Select
-        className="w-full"
-        value={diskStatus.setBonus3.type}
-        options={options}
-        onChange={(value) => {
-          onChange({ ...diskStatus, setBonus3: getDiskSetBonus(value) });
+          onChange({
+            ...diskStatus,
+            slot3: { ...diskStatus.slot3, drive: value },
+          });
         }}
       />
     </div>
   );
 };
 
-const getDiskSetBonus = (value: string): DiskSetBonus => {
-  if (value == "critRate") {
-    return { type: "critRate", critRate: 8 };
-  } else if (value == "attackRate") {
-    return { type: "attackRate", attackRate: 10 };
-  } else if (value == "penRate") {
-    return { type: "penRate", penRate: 8 };
-  } else if (value == "damageBuff") {
-    return { type: "damageBuff", damageBuff: 10 };
-  }
-
-  return { type: "none" };
-};
-
 const SubStatusInput = ({
   title,
-  base,
   value,
   onChange,
 }: {
   title: string;
-  base: string;
   value: number;
   onChange: (value: number) => void;
 }) => {
