@@ -518,7 +518,7 @@ const calculateDiskSetBonus = (
   let battleBonus: BattleStatus = { ...emptyBattleStatus };
 
   drives.forEach((count, drive) => {
-    if (count == 2) {
+    if (count === 2 || count === 4) {
       status = applyDiskSet1Bonus(status, diskSetBonuses[drive][2]);
     }
     if (count == 4) {
