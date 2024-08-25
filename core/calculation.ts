@@ -1,18 +1,14 @@
-import {
-  StatusDetail,
-  EnemyStatus,
-  DamageBase,
-  AdditionalStatus,
-} from "@/types";
+import { StatusDetail, EnemyStatus, DamageBase, BattleStatus } from "@/types";
 
 import Decimal from "decimal.js";
-import { calculateStatus } from "./status";
+import { calculateStatus, mergeBattleStatus } from "./status";
 
 export const calculateDamageBase = (
   detail: StatusDetail,
   enemyStatus: EnemyStatus,
-  battleStatus: AdditionalStatus
+  buffStatus: BattleStatus
 ): DamageBase => {
+  const battleStatus = mergeBattleStatus(buffStatus, detail.statusBonus);
   const status = calculateStatus(detail.base);
   const critRate = Math.min(status.critRate + battleStatus.critRateBonus, 100);
   const critDamage = status.critDamage + battleStatus.critDamageBonus;

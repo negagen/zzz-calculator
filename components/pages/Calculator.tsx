@@ -8,7 +8,7 @@ import {
   EnemyStatus,
   DiskConfig,
   EngineLevel,
-  AdditionalStatus,
+  BattleStatus,
   AgentLevel,
   CoreSkillLevel,
   AgentConfig,
@@ -47,7 +47,7 @@ export const Calculator = () => {
   const [enemyStatus, setEnemyStatus] =
     useState<EnemyStatus>(defaultEnemyStatus);
   const [battleStatus, setBattleStatus] =
-    useState<AdditionalStatus>(defaultBattleStatus);
+    useState<BattleStatus>(defaultBattleStatus);
 
   const baseStatus = calculateStatusDetail(
     agentConfig,
@@ -85,6 +85,7 @@ export const Calculator = () => {
         <EnemyStatusPanel enemyStatus={enemyStatus} onChange={setEnemyStatus} />
 
         <AdditionalStatusPanel
+          status={baseStatus}
           battleStatus={battleStatus}
           onChange={setBattleStatus}
         />

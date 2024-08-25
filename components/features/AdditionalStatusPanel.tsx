@@ -1,13 +1,15 @@
-import { AdditionalStatus } from "@/types";
+import { BattleStatus, DiskConfig, StatusDetail } from "@/types";
 import { StatusInput } from "./StatusInput";
 import { HelpButton } from "./HelpButton";
 
 export const AdditionalStatusPanel = ({
   battleStatus,
+  status,
   onChange,
 }: {
-  battleStatus: AdditionalStatus;
-  onChange: (battleStatus: AdditionalStatus) => void;
+  battleStatus: BattleStatus;
+  status: StatusDetail;
+  onChange: (battleStatus: BattleStatus) => void;
 }) => {
   return (
     <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4 max-md:w-full">
@@ -18,6 +20,7 @@ export const AdditionalStatusPanel = ({
       <StatusInput
         title="ダメージ倍率"
         value={battleStatus.skillDamageRate}
+        unit="%"
         onChange={(value) =>
           onChange({ ...battleStatus, skillDamageRate: value })
         }
@@ -58,15 +61,17 @@ export const AdditionalStatusPanel = ({
 
         <StatusInput
           title="戦闘攻撃力%"
+          unit="%"
+          base={status.statusBonus.attackBuff}
           value={battleStatus.attackBuff}
-          onChange={(value) =>
-            onChange({ ...battleStatus, attackBuff: value })
-          }
+          onChange={(value) => onChange({ ...battleStatus, attackBuff: value })}
         />
 
         <StatusInput
           title="会心率"
+          base={status.statusBonus.critRateBonus}
           value={battleStatus.critRateBonus}
+          unit="%"
           onChange={(value) =>
             onChange({ ...battleStatus, critRateBonus: value })
           }
@@ -74,7 +79,9 @@ export const AdditionalStatusPanel = ({
 
         <StatusInput
           title="会心ダメージ"
+          base={status.statusBonus.critDamageBonus}
           value={battleStatus.critDamageBonus}
+          unit="%"
           onChange={(value) =>
             onChange({ ...battleStatus, critDamageBonus: value })
           }
@@ -82,7 +89,9 @@ export const AdditionalStatusPanel = ({
 
         <StatusInput
           title="貫通率"
+          base={status.statusBonus.penRateBonus}
           value={battleStatus.penRateBonus}
+          unit="%"
           onChange={(value) =>
             onChange({ ...battleStatus, penRateBonus: value })
           }
@@ -90,7 +99,9 @@ export const AdditionalStatusPanel = ({
 
         <StatusInput
           title="与ダメージ%"
+          base={status.statusBonus.damageBuffBonus}
           value={battleStatus.damageBuffBonus}
+          unit="%"
           onChange={(value) =>
             onChange({ ...battleStatus, damageBuffBonus: value })
           }

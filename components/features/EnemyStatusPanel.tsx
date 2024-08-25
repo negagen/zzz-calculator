@@ -63,10 +63,10 @@ export const EnemyStatusPanel = ({
       </div>
 
       <div className="flex flex-col items-center gap-2 w-full">
-        <div className="flex flex-row items-center w-full">
-          <div className="w-36">レベル</div>
+        <div className="flex flex-row items-center w-full gap-1">
+          <div className="w-38 max-md:w-48">レベル</div>
           <Select
-            className="w-32 grow"
+            className="w-20 grow mr-5 ml-1"
             value={enemyStatus.level}
             options={[
               { value: 10, label: "10" },
@@ -85,10 +85,10 @@ export const EnemyStatusPanel = ({
           />
         </div>
 
-        <div className="flex flex-row items-center w-full">
-          <div className="w-36">基礎防御力</div>
+        <div className="flex flex-row items-center w-full gap-1">
+          <div className="w-38 max-md:w-48">基礎防御力</div>
           <Select
-            className="w-32 grow"
+            className="w-20 grow mr-5 ml-1"
             value={enemyStatus.defense}
             options={[
               { value: 10, label: "10" },
@@ -120,13 +120,14 @@ export const EnemyStatusPanel = ({
         <StatusInput
           title="防御ダウン%"
           value={enemyStatus.defenseDown}
+          unit="%"
           onChange={(value) => onChange({ ...enemyStatus, defenseDown: value })}
         />
 
-        <div className="flex flex-row items-center w-full">
-          <div className="w-36">属性耐性</div>
+        <div className="flex flex-row items-center w-full gap-1">
+          <div className="w-38 max-md:w-48">属性耐性</div>
           <Select
-            className="w-32 grow"
+            className="w-20 grow mr-5 ml-1"
             defaultValue={enemyStatus.damageRes}
             options={[
               { value: -20, label: "弱点" },
@@ -142,6 +143,7 @@ export const EnemyStatusPanel = ({
         <StatusInput
           title="耐性ダウン%"
           value={enemyStatus.registanceDown}
+          unit="%"
           onChange={(value) =>
             onChange({ ...enemyStatus, registanceDown: value })
           }
@@ -163,10 +165,10 @@ export const EnemyStatusPanel = ({
           </div>
         </div>
 
-        <div className="flex flex-row items-center w-full">
-          <div className="w-36">ブレイク弱体倍率</div>
+        <div className="flex flex-row items-center w-full gap-1">
+          <div className="w-38 max-md:w-48">ブレイク弱体倍率</div>
           <Input
-            className="w-32 grow"
+            className="w-20 grow ml-1"
             placeholder="ブレイク弱体倍率"
             type="number"
             value={enemyStatus.stunDamageMultiplier}
@@ -178,6 +180,7 @@ export const EnemyStatusPanel = ({
               });
             }}
           />
+          <div className="w-4">%</div>
         </div>
       </div>
     </div>

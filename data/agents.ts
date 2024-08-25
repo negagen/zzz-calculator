@@ -3,6 +3,7 @@ import { Agent, AgentLevel, CoreSkillLevel } from "@/types";
 export const agents: Agent[] = [
   {
     name: "猫宮又奈",
+    attribute: "Physical",
     rank: "S",
     speciality: "Attack",
     attackTable: {
@@ -18,6 +19,7 @@ export const agents: Agent[] = [
   },
   {
     name: "エレン・ジョー",
+    attribute: "Ice",
     rank: "S",
     speciality: "Attack",
     attackTable: {
@@ -33,6 +35,7 @@ export const agents: Agent[] = [
   },
   {
     name: "朱鳶",
+    attribute: "Ether",
     rank: "S",
     speciality: "Attack",
     attackTable: {
@@ -48,6 +51,7 @@ export const agents: Agent[] = [
   },
   {
     name: "11号",
+    attribute: "Fire",
     rank: "S",
     speciality: "Attack",
     attackTable: {
@@ -63,6 +67,7 @@ export const agents: Agent[] = [
   },
   {
     name: "アンドー・イワノフ",
+    attribute: "Electric",
     rank: "A",
     speciality: "Attack",
     attackTable: {
@@ -78,6 +83,7 @@ export const agents: Agent[] = [
   },
   {
     name: "カリン・ウィクス",
+    attribute: "Physical",
     rank: "A",
     speciality: "Attack",
     attackTable: {
@@ -93,6 +99,7 @@ export const agents: Agent[] = [
   },
   {
     name: "ビリー・キッド",
+    attribute: "Physical",
     rank: "A",
     speciality: "Attack",
     attackTable: {
@@ -108,6 +115,7 @@ export const agents: Agent[] = [
   },
   {
     name: "青衣",
+    attribute: "Electric",
     rank: "S",
     speciality: "Stun",
     attackTable: {
@@ -123,6 +131,7 @@ export const agents: Agent[] = [
   },
   {
     name: "フォン・ライカン",
+    attribute: "Ice",
     rank: "S",
     speciality: "Stun",
     attackTable: {
@@ -138,6 +147,7 @@ export const agents: Agent[] = [
   },
   {
     name: "クレタ・ベロボーグ",
+    attribute: "Fire",
     rank: "S",
     speciality: "Stun",
     attackTable: {
@@ -153,6 +163,7 @@ export const agents: Agent[] = [
   },
   {
     name: "アンビー・デマラ",
+    attribute: "Electric",
     rank: "A",
     speciality: "Stun",
     attackTable: {
@@ -168,6 +179,7 @@ export const agents: Agent[] = [
   },
   {
     name: "グレース・ハワード",
+    attribute: "Electric",
     rank: "S",
     speciality: "Anomaly",
     attackTable: {
@@ -183,6 +195,7 @@ export const agents: Agent[] = [
   },
   {
     name: "パイパー・ウィール",
+    attribute: "Physical",
     rank: "A",
     speciality: "Anomaly",
     attackTable: {
@@ -198,6 +211,7 @@ export const agents: Agent[] = [
   },
   {
     name: "アレクサンドリナ・セバスチャン",
+    attribute: "Electric",
     rank: "S",
     speciality: "Support",
     attackTable: {
@@ -213,6 +227,7 @@ export const agents: Agent[] = [
   },
   {
     name: "ニコ・デマラ",
+    attribute: "Ether",
     rank: "A",
     speciality: "Support",
     attackTable: {
@@ -228,6 +243,7 @@ export const agents: Agent[] = [
   },
   {
     name: "ルシアーナ・デ・モンテフィーノ",
+    attribute: "Fire",
     rank: "A",
     speciality: "Support",
     attackTable: {
@@ -243,6 +259,7 @@ export const agents: Agent[] = [
   },
   {
     name: "蒼角",
+    attribute: "Ice",
     rank: "A",
     speciality: "Support",
     attackTable: {
@@ -258,6 +275,7 @@ export const agents: Agent[] = [
   },
   {
     name: "ベン・ビガー",
+    attribute: "Fire",
     rank: "A",
     speciality: "Defense",
     attackTable: {

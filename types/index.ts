@@ -8,6 +8,7 @@ export type CoreSkillLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 export interface Agent {
   name: string;
   rank: AgentRank;
+  attribute: Attribute;
   speciality: Speciality;
   attackTable: Record<AgentLevel, number>;
   coreSkillLevelBonusType:
@@ -139,23 +140,14 @@ export interface DiskConfig {
 }
 
 export interface DiskSetBonus1 {
-  type:
-    | "none"
-    | "attackRate"
-    | "critRate"
-    | "penRate"
-    | "damageBuff"
-    | "defense"
-    | "energy"
-    | "anomalyProficiency"
-    | "impact";
-  attackRate?: number;
-  critRate?: number;
-  penRate?: number;
-  damageBuff?: number;
-  defense?: number;
-  energy?: number;
-  anomalyProficiency?: number;
+  attackRate: number;
+  critRate: number;
+  penRate: number;
+  damageBuff: number;
+  defenseRate: number;
+  energy: number;
+  anomalyProficiency: number;
+  impact: number;
 }
 
 export interface EnemyStatus {
@@ -215,6 +207,7 @@ export interface StatusDetail {
   agentConfig: AgentConfig;
   engineConfig: EngineConfig;
   diskConfig: DiskConfig;
+  statusBonus: BattleStatus;
   base: StatusBase;
 }
 
@@ -232,7 +225,7 @@ export interface DamageBase {
   isStun: boolean;
 }
 
-export interface AdditionalStatus {
+export interface BattleStatus {
   attackBonus: number;
   attackBuff: number;
   skillDamageRate: number;

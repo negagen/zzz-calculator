@@ -11,6 +11,10 @@ import {
   AgentConfig,
   EngineConfig,
   StatusBase,
+  Drive,
+  DiskSetBonus1,
+  BattleStatus,
+  Attribute,
 } from "@/types";
 import {
   engineAttackTable,
@@ -60,14 +64,19 @@ export const calculateStatusDetail = (
 ): StatusDetail => {
   const agentStatus = calculateAgentStatus(agentConfig);
   const engineStatus = calculateEngineStatus(engineConfig);
-  const diskStatus = calculateDiskStatus(diskStatusConfig);
+  const diskStatus = calculateDiskStatus(diskStatusConfig, agentConfig.agent);
 
-  const statusBase = combineStatus([agentStatus, engineStatus, diskStatus]);
+  const statusBase = combineStatus([
+    agentStatus,
+    engineStatus,
+    diskStatus.status,
+  ]);
 
   return {
     agentConfig: agentConfig,
     engineConfig: engineConfig,
     diskConfig: diskStatusConfig,
+    statusBonus: diskStatus.bonus,
     base: statusBase,
   };
 };
@@ -201,7 +210,12 @@ export const calculateEngineStatus = ({
   }
 };
 
-export const calculateDiskStatus = (config: DiskConfig): StatusBase => {
+export const calculateDiskStatus = (
+  config: DiskConfig,
+  agent: Agent
+): { status: StatusBase; bonus: BattleStatus } => {
+  const bonus = calculateDiskSetBonus(config, agent);
+
   const statuses = [
     calculateDiskSlotStatus(config.slot1),
     calculateDiskSlotStatus(config.slot2),
@@ -209,10 +223,10 @@ export const calculateDiskStatus = (config: DiskConfig): StatusBase => {
     calculateDiskSlotStatus(config.slot4),
     calculateDiskSlotStatus(config.slot5),
     calculateDiskSlotStatus(config.slot6),
-    calculateDiskSetBonus(config),
+    bonus.status,
   ];
 
-  return combineStatus(statuses);
+  return { status: combineStatus(statuses), bonus: bonus.bonus };
 };
 
 const calculateDiskSlotStatus = (config: DiskSlotConfig): StatusBase => {
@@ -397,50 +411,166 @@ const calculateDiskSlotStatus = (config: DiskSlotConfig): StatusBase => {
   return combineStatus([status, subStatus]);
 };
 
-const calculateDiskSetBonus = (config: DiskConfig): StatusBase => {
-  const status = {
-    ...emptyStatus,
-  };
+interface DiskSetBonus {
+  attribute?: Attribute;
+  2: DiskSetBonus1;
+  4: BattleStatus;
+}
 
-  // TODO: 仮実装。セット効果を正しく計算する
-  for (const drive of [
-    config.slot1.drive,
-    config.slot2.drive,
-    config.slot3.drive,
-  ]) {
-    switch (drive) {
-      case "WoodpeckerElectro":
-        status.critRate = 8;
-        break;
-      case "PufferElectro":
-        status.penRate = 10;
-        break;
-      case "ShockstarDisco":
-        status.impact = 10;
-        break;
-      case "FreedomBlues":
-        status.anomalyProficiency = 10;
-        break;
-      case "HormonePunk":
-        status.attackRate = 10;
-        break;
-      case "SoulRock":
-        status.defenseRate = 16;
-        break;
-      case "SwingJazz":
-        status.energy = 20;
-        break;
-      case "FangedMetal":
-      case "PolarMetal":
-      case "ThunderMetal":
-      case "ChaoticMetal":
-      case "InfernoMetal":
-        status.damageBuff = 10;
-        break;
+const emptyBattleStatus: BattleStatus = {
+  attackBuff: 0,
+  skillDamageRate: 0,
+  attackBonus: 0,
+  critRateBonus: 0,
+  critDamageBonus: 0,
+  penRateBonus: 0,
+  damageBuffBonus: 0,
+  // anomalyProficiency: 0,
+  // impact: 0,
+  // energy: 0,
+};
+
+const emptyDiskSet1Bonus: DiskSetBonus1 = {
+  attackRate: 0,
+  defenseRate: 0,
+  critRate: 0,
+  anomalyProficiency: 0,
+  penRate: 0,
+  damageBuff: 0,
+  impact: 0,
+  energy: 0,
+};
+
+const diskSetBonuses: Record<Drive, DiskSetBonus> = {
+  none: {
+    2: { ...emptyDiskSet1Bonus },
+    4: { ...emptyBattleStatus },
+  },
+  WoodpeckerElectro: {
+    2: { ...emptyDiskSet1Bonus, critRate: 8 },
+    4: { ...emptyBattleStatus, attackBuff: 18 },
+  },
+  HormonePunk: {
+    2: { ...emptyDiskSet1Bonus, attackRate: 10 },
+    4: { ...emptyBattleStatus, attackBuff: 25 },
+  },
+  SwingJazz: {
+    2: { ...emptyDiskSet1Bonus, energy: 20 },
+    4: { ...emptyBattleStatus, damageBuffBonus: 15 },
+  },
+  PufferElectro: {
+    2: { ...emptyDiskSet1Bonus, penRate: 8 },
+    4: { ...emptyBattleStatus },
+  },
+  FreedomBlues: {
+    2: { ...emptyDiskSet1Bonus, anomalyProficiency: 10 },
+    4: { ...emptyBattleStatus },
+  },
+  ShockstarDisco: {
+    2: { ...emptyDiskSet1Bonus, impact: 10 },
+    4: { ...emptyBattleStatus },
+  },
+  SoulRock: {
+    2: { ...emptyDiskSet1Bonus, defenseRate: 16 },
+    4: { ...emptyBattleStatus },
+  },
+  PolarMetal: {
+    attribute: "Ice",
+    2: { ...emptyDiskSet1Bonus, damageBuff: 10 },
+    4: { ...emptyBattleStatus, damageBuffBonus: 40 },
+  },
+  ThunderMetal: {
+    attribute: "Electric",
+    2: { ...emptyDiskSet1Bonus, damageBuff: 10 },
+    4: { ...emptyBattleStatus, attackBuff: 28 },
+  },
+  ChaoticMetal: {
+    attribute: "Ether",
+    2: { ...emptyDiskSet1Bonus, damageBuff: 10 },
+    4: { ...emptyBattleStatus, critDamageBonus: 53 },
+  },
+  FangedMetal: {
+    attribute: "Physical",
+    2: { ...emptyDiskSet1Bonus, damageBuff: 10 },
+    4: { ...emptyBattleStatus, damageBuffBonus: 35 },
+  },
+  InfernoMetal: {
+    attribute: "Fire",
+    2: { ...emptyDiskSet1Bonus, damageBuff: 10 },
+    4: { ...emptyBattleStatus, critRateBonus: 28 },
+  },
+};
+
+const calculateDiskSetBonus = (
+  config: DiskConfig,
+  agent: Agent
+): { status: StatusBase; bonus: BattleStatus } => {
+  const drives: Map<Drive, number> = new Map();
+
+  drives.set(config.slot1.drive, (drives.get(config.slot1.drive) || 0) + 1);
+  drives.set(config.slot2.drive, (drives.get(config.slot2.drive) || 0) + 1);
+  drives.set(config.slot3.drive, (drives.get(config.slot3.drive) || 0) + 1);
+  drives.set(config.slot4.drive, (drives.get(config.slot4.drive) || 0) + 1);
+  drives.set(config.slot5.drive, (drives.get(config.slot5.drive) || 0) + 1);
+  drives.set(config.slot6.drive, (drives.get(config.slot6.drive) || 0) + 1);
+
+  let status: StatusBase = { ...emptyStatus };
+  let battleBonus: BattleStatus = { ...emptyBattleStatus };
+
+  drives.forEach((count, drive) => {
+    if (count == 2) {
+      status = applyDiskSet1Bonus(status, diskSetBonuses[drive][2]);
     }
-  }
+    if (count == 4) {
+      const bonus = diskSetBonuses[drive];
+      if (bonus.attribute == null || bonus.attribute === agent.attribute) {
+        battleBonus = mergeBattleStatus(battleBonus, bonus[4]);
+      }
+    }
+  });
 
-  return status;
+  return { status, bonus: battleBonus };
+};
+
+const applyDiskSet1Bonus = (
+  status1: StatusBase,
+  status2: DiskSetBonus1
+): StatusBase => {
+  return {
+    hp: status1.hp,
+    hpRate: status1.hpRate,
+    attack: status1.attack,
+    attackRate: status1.attackRate + status2.attackRate || 0,
+    attackBonus: status1.attackBonus,
+    defense: status1.defense,
+    defenseRate: status1.defenseRate + status2.defenseRate,
+    critRate: status1.critRate + status2.critRate,
+    critDamage: status1.critDamage,
+    pen: status1.pen,
+    anomalyProficiency: status1.anomalyProficiency + status2.anomalyProficiency,
+    penRate: status1.penRate + status2.penRate,
+    damageBuff: status1.damageBuff + status2.damageBuff,
+    impact: status1.impact + status2.impact,
+    energy: status1.energy + status2.energy,
+  };
+};
+
+export const mergeBattleStatus = (
+  status1: BattleStatus,
+  status2: BattleStatus
+): BattleStatus => {
+  return {
+    attackBuff: status1.attackBuff + status2.attackBuff,
+    skillDamageRate: status1.skillDamageRate + status2.skillDamageRate,
+    attackBonus: status1.attackBonus + status2.attackBonus,
+    critRateBonus: status1.critRateBonus + status2.critRateBonus,
+    critDamageBonus: status1.critDamageBonus + status2.critDamageBonus,
+    penRateBonus: status1.penRateBonus + status2.penRateBonus,
+    damageBuffBonus: status1.damageBuffBonus + status2.damageBuffBonus,
+    // anomalyProficiency: status1.anomalyProficiency + status2.anomalyProficiency,
+    // impact: status1.impact + status2.impact,
+    // energy: status1.energy + status2.energy,
+  };
 };
 
 const calculateDiskSubStatus = (config: DiskSlotConfig): StatusBase => {

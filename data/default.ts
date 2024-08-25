@@ -1,4 +1,4 @@
-import { DiskConfig, EnemyStatus, AdditionalStatus } from "@/types";
+import { DiskConfig, EnemyStatus, BattleStatus } from "@/types";
 
 export const defaultDiskStatus: DiskConfig = {
   slot1: {
@@ -20,7 +20,7 @@ export const defaultDiskStatus: DiskConfig = {
   },
   slot2: {
     rank: "S",
-    drive: "HormonePunk",
+    drive: "WoodpeckerElectro",
     mainStatus: "attack",
     subStatusUp: {
       hp: 0,
@@ -37,7 +37,7 @@ export const defaultDiskStatus: DiskConfig = {
   },
   slot3: {
     rank: "S",
-    drive: "none",
+    drive: "WoodpeckerElectro",
     mainStatus: "defense",
     subStatusUp: {
       hp: 0,
@@ -71,7 +71,7 @@ export const defaultDiskStatus: DiskConfig = {
   },
   slot5: {
     rank: "S",
-    drive: "WoodpeckerElectro",
+    drive: "HormonePunk",
     mainStatus: "damageBuff",
     subStatusUp: {
       hp: 0,
@@ -88,7 +88,7 @@ export const defaultDiskStatus: DiskConfig = {
   },
   slot6: {
     rank: "S",
-    drive: "WoodpeckerElectro",
+    drive: "HormonePunk",
     mainStatus: "attackRate",
     subStatusUp: {
       hp: 0,
@@ -115,7 +115,7 @@ export const defaultEnemyStatus: EnemyStatus = {
   isStun: false,
 };
 
-export const defaultBattleStatus: AdditionalStatus = {
+export const defaultBattleStatus: BattleStatus = {
   attackBonus: 0,
   skillDamageRate: 100,
   attackBuff: 0,

@@ -44,7 +44,7 @@ export const DiskStatusPanel = ({
                   options={[{ value: "S", label: "S" }]}
                 />
                 <Select
-                  className="w-40 grow"
+                  className="w-32 grow"
                   value={"hp"}
                   options={[{ value: "hp", label: "HP" }]}
                 />
@@ -70,7 +70,7 @@ export const DiskStatusPanel = ({
                   }}
                 />
                 <Select
-                  className="w-40 grow"
+                  className="w-32 grow"
                   value={"attack"}
                   options={[{ value: "attack", label: "攻撃力" }]}
                 />
@@ -86,7 +86,7 @@ export const DiskStatusPanel = ({
                   options={[{ value: "S", label: "S" }]}
                 />
                 <Select
-                  className="w-40 grow"
+                  className="w-32 grow"
                   value={"defense"}
                   options={[{ value: "defense", label: "防御力" }]}
                 />
@@ -116,7 +116,7 @@ export const DiskStatusPanel = ({
                 />
 
                 <Select
-                  className="w-40 grow"
+                  className="w-32 grow"
                   value={diskStatus.slot6.mainStatus}
                   options={[
                     { value: "attackRate", label: "攻撃力%" },
@@ -153,7 +153,7 @@ export const DiskStatusPanel = ({
                   }}
                 />
                 <Select
-                  className="w-40 grow"
+                  className="w-32 grow"
                   value={diskStatus.slot5.mainStatus}
                   options={[
                     { value: "attackRate", label: "攻撃力%" },
@@ -192,7 +192,7 @@ export const DiskStatusPanel = ({
                   }}
                 />
                 <Select
-                  className="w-40 grow"
+                  className="w-32 grow"
                   value={diskStatus.slot4.mainStatus}
                   options={[
                     { value: "critRate", label: "会心率" },
@@ -213,10 +213,10 @@ export const DiskStatusPanel = ({
           </div>
         </div>
 
-        <div className="flex lg:flex-row max-md:flex-col gap-2 w-full mt-4">
+        <div className="flex lg:flex-row max-md:flex-col gap-2 max-md:w-full mt-4">
           <div className="flex flex-col gap-2 w-full text-sm">
             <div className="mb-2 mt-2 w-full text-sm bg-gray-800 text-center rounded-md py-1 px-2 relative">
-              セット効果(2セット)
+              セット効果
               <div className="absolute right-2 top-0 h-full flex items-center">
                 <HelpButton
                   title="ディスクセット効果"
@@ -224,9 +224,7 @@ export const DiskStatusPanel = ({
                     <div className="flex flex-col gap-1.5">
                       <p>ディスクのセット効果を設定します。</p>
                       <p>セット効果はステータスに自動的に反映されます。</p>
-                      <p>
-                        現在、2セット効果のみ対応しています。4セット効果は戦闘中バフに手動で追加してください。
-                      </p>
+                      <p>4セット効果は戦闘中バフに自動的に反映されます。</p>
                     </div>
                   }
                 />
@@ -237,7 +235,7 @@ export const DiskStatusPanel = ({
           </div>
 
           <div className="flex flex-col gap-2 w-full text-sm">
-            <div className="mb-2 mt-2 w-full text-sm bg-gray-800 text-center rounded-md py-1 px-2 relative">
+            <div className="mb-2 mt-2 max-md:w-full text-sm bg-gray-800 text-center rounded-md py-1 px-2 relative">
               サブステータス上昇回数
               <div className="absolute right-2 top-0 h-full flex items-center">
                 <HelpButton
@@ -363,7 +361,7 @@ const DiskSetSelect = ({
     { value: "PufferElectro", label: "パファー・エレクトロ x 2" },
     {
       value: "FangedMetal",
-      label: "獣牙のヘヴィメタル: 2セット",
+      label: "獣牙のヘヴィメタル x 2",
     },
     { value: "InfernoMetal", label: "炎獄のヘヴィメタル x 2" },
     {
@@ -388,37 +386,40 @@ const DiskSetSelect = ({
   ];
 
   return (
-    <div className="flex flex-col items-center w-full gap-2">
+    <div className="flex flex-col items-center w-full gap-2 lg:w-72 max-md:w-full">
       <Select
-        className="w-full"
+        className="lg:w-64 grow max-md:w-full"
         value={diskStatus.slot1.drive}
         options={options}
         onChange={(value) =>
           onChange({
             ...diskStatus,
             slot1: { ...diskStatus.slot1, drive: value },
+            slot2: { ...diskStatus.slot2, drive: value },
           })
         }
       />
       <Select
-        className="w-full"
-        value={diskStatus.slot2.drive}
-        options={options}
-        onChange={(value) => {
-          onChange({
-            ...diskStatus,
-            slot2: { ...diskStatus.slot2, drive: value },
-          });
-        }}
-      />
-      <Select
-        className="w-full"
+        className="lg:w-64 grow max-md:w-full"
         value={diskStatus.slot3.drive}
         options={options}
         onChange={(value) => {
           onChange({
             ...diskStatus,
             slot3: { ...diskStatus.slot3, drive: value },
+            slot4: { ...diskStatus.slot4, drive: value },
+          });
+        }}
+      />
+      <Select
+        className="w-64 grow max-md:w-full"
+        value={diskStatus.slot5.drive}
+        options={options}
+        onChange={(value) => {
+          onChange({
+            ...diskStatus,
+            slot5: { ...diskStatus.slot5, drive: value },
+            slot6: { ...diskStatus.slot6, drive: value },
           });
         }}
       />
@@ -436,13 +437,14 @@ const SubStatusInput = ({
   onChange: (value: number) => void;
 }) => {
   return (
-    <div className="flex flex-row items-center w-full">
-      <div className="w-20 text-center">{title}</div>
+    <div className="flex flex-row items-center w-full gap-3">
+      <div className="w-16 text-right">{title}</div>
       <div>
         <Input
-          className="w-14"
+          className="w-16"
           type="number"
           value={value}
+          min={0}
           onChange={(e) => {
             let value = e.target.value;
             if (value == "") {
