@@ -4,6 +4,8 @@ import Decimal from "decimal.js";
 export const agents: Agent[] = [
   {
     name: "猫宮又奈",
+    rank: "S",
+    speciality: "Attack",
     attackTable: {
       1: 131,
       10: 202,
@@ -17,6 +19,8 @@ export const agents: Agent[] = [
   },
   {
     name: "エレン・ジョー",
+    rank: "S",
+    speciality: "Attack",
     attackTable: {
       1: 135,
       10: 209,
@@ -30,6 +34,8 @@ export const agents: Agent[] = [
   },
   {
     name: "朱鳶",
+    rank: "S",
+    speciality: "Attack",
     attackTable: {
       1: 132,
       10: 204,
@@ -43,6 +49,8 @@ export const agents: Agent[] = [
   },
   {
     name: "11号",
+    rank: "S",
+    speciality: "Attack",
     attackTable: {
       1: 128,
       10: 197,
@@ -56,6 +64,8 @@ export const agents: Agent[] = [
   },
   {
     name: "アンドー・イワノフ",
+    rank: "A",
+    speciality: "Attack",
     attackTable: {
       1: 114,
       10: 174,
@@ -69,6 +79,8 @@ export const agents: Agent[] = [
   },
   {
     name: "カリン・ウィクス",
+    rank: "A",
+    speciality: "Attack",
     attackTable: {
       1: 116,
       10: 178,
@@ -82,6 +94,8 @@ export const agents: Agent[] = [
   },
   {
     name: "ビリー・キッド",
+    rank: "A",
+    speciality: "Attack",
     attackTable: {
       1: 113,
       10: 173,
@@ -95,6 +109,8 @@ export const agents: Agent[] = [
   },
   {
     name: "青衣",
+    rank: "S",
+    speciality: "Stun",
     attackTable: {
       1: 113,
       10: 166,
@@ -108,6 +124,8 @@ export const agents: Agent[] = [
   },
   {
     name: "フォン・ライカン",
+    rank: "S",
+    speciality: "Stun",
     attackTable: {
       1: 105,
       10: 160,
@@ -121,6 +139,8 @@ export const agents: Agent[] = [
   },
   {
     name: "クレタ・ベロボーグ",
+    rank: "S",
+    speciality: "Stun",
     attackTable: {
       1: 106,
       10: 161,
@@ -134,6 +154,8 @@ export const agents: Agent[] = [
   },
   {
     name: "アンビー・デマラ",
+    rank: "A",
+    speciality: "Stun",
     attackTable: {
       1: 95,
       10: 143,
@@ -147,6 +169,8 @@ export const agents: Agent[] = [
   },
   {
     name: "グレース・ハワード",
+    rank: "S",
+    speciality: "Anomaly",
     attackTable: {
       1: 119,
       10: 183,
@@ -160,6 +184,8 @@ export const agents: Agent[] = [
   },
   {
     name: "パイパー・ウィール",
+    rank: "A",
+    speciality: "Anomaly",
     attackTable: {
       1: 109,
       10: 166,
@@ -173,6 +199,8 @@ export const agents: Agent[] = [
   },
   {
     name: "アレクサンドリナ・セバスチャン",
+    rank: "S",
+    speciality: "Support",
     attackTable: {
       1: 103,
       10: 157,
@@ -186,6 +214,8 @@ export const agents: Agent[] = [
   },
   {
     name: "ニコ・デマラ",
+    rank: "A",
+    speciality: "Support",
     attackTable: {
       1: 93,
       10: 140,
@@ -199,6 +229,8 @@ export const agents: Agent[] = [
   },
   {
     name: "ルシアーナ・デ・モンテフィーノ",
+    rank: "A",
+    speciality: "Support",
     attackTable: {
       1: 95,
       10: 143,
@@ -212,6 +244,8 @@ export const agents: Agent[] = [
   },
   {
     name: "蒼角",
+    rank: "A",
+    speciality: "Support",
     attackTable: {
       1: 96,
       10: 145,
@@ -225,6 +259,8 @@ export const agents: Agent[] = [
   },
   {
     name: "ベン・ビガー",
+    rank: "A",
+    speciality: "Defense",
     attackTable: {
       1: 117,
       10: 193,

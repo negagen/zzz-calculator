@@ -8,9 +8,10 @@ import { Analytics } from "@vercel/analytics/react";
 
 import {
   Agent,
+  Engine,
   EnemyStatus,
   DiskStatus,
-  EngineStatus,
+  EngineLevel,
   AdditionalStatus,
   AgentLevel,
   CoreSkillLevel,
@@ -27,21 +28,22 @@ import {
   AdditionalStatusPanel,
 } from "@/components/features";
 import {
-  defaultEngineStatus,
   defaultDiskStatus,
   defaultEnemyStatus,
   defaultBattleStatus,
   agents,
+  engines,
   calculateAgentStatus,
+  calculateEngineStatus,
 } from "@/data";
 
 export const Calculator = () => {
   const [agent, setAgent] = useState<Agent>(agents[0]);
+  const [engine, setEngine] = useState<Engine>(engines[0]);
   const [agentLevel, setAgentLevel] = useState<AgentLevel>(60);
+  const [engineLevel, setEngineLevel] = useState<EngineLevel>(60);
   const [agentCoreSkillLevel, setAgentCoreSkillLevel] =
     useState<CoreSkillLevel>(7);
-  const [engineStatus, setEngineStatus] =
-    useState<EngineStatus>(defaultEngineStatus);
   const [diskStatus, setDiskStatus] = useState<DiskStatus>(defaultDiskStatus);
   const [enemyStatus, setEnemyStatus] =
     useState<EnemyStatus>(defaultEnemyStatus);
@@ -53,6 +55,7 @@ export const Calculator = () => {
     agentLevel,
     agentCoreSkillLevel
   );
+  const engineStatus = calculateEngineStatus(engine, engineLevel);
   const baseStatus = calculateBaseStatus(agentStatus, engineStatus, diskStatus);
   const damageBase = calculateDamageBase(baseStatus, enemyStatus, battleStatus);
 
@@ -196,8 +199,12 @@ export const Calculator = () => {
                 />
 
                 <EngineStatusPanel
-                  engineStatus={engineStatus}
-                  onChange={setEngineStatus}
+                  engine={engine}
+                  level={engineLevel}
+                  onChange={(engine: Engine, level: EngineLevel) => {
+                    setEngine(engine);
+                    setEngineLevel(level);
+                  }}
                 />
               </div>
               <DiskStatusPanel

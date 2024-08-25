@@ -7,6 +7,7 @@ import {
   DamageBase,
   AdditionalStatus,
 } from "./types";
+
 import Decimal from "decimal.js";
 
 export const calculateBaseStatus = (

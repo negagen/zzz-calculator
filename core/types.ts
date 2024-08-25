@@ -1,11 +1,14 @@
-export type Speciality = "Attack" | "Stun" | "Anomaly" | "Defense";
+export type Speciality = "Attack" | "Stun" | "Anomaly" | "Defense" | "Support";
 export type Attribute = "Fire" | "Ether" | "Ice" | "Physical" | "Electric";
+export type AgentRank = "S" | "A";
 
 export type AgentLevel = 1 | 10 | 20 | 30 | 40 | 50 | 60;
 export type CoreSkillLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
 export interface Agent {
   name: string;
+  rank: AgentRank;
+  speciality: Speciality;
   attackTable: Record<AgentLevel, number>;
   coreSkillLevelBonusType:
     | "critRate"
@@ -13,17 +16,31 @@ export interface Agent {
     | "penRate"
     | "energy"
     | "anomalyMastery"
+    | "anomalyProficiency"
     | "impact";
 }
 
+export type EngineBaseAttack = 32 | 40 | 42 | 46 | 48;
+export type EngineRank = "S" | "A" | "B";
+export type EngineLevel = 0 | 10 | 20 | 30 | 40 | 50 | 60;
+
+export type EngineStatusType =
+  | "attackRate"
+  | "critRate"
+  | "critDamage"
+  | "penRate"
+  | "energy"
+  | "impact"
+  | "hp"
+  | "defense"
+  | "anomalyProficiency";
+
 export interface Engine {
   name: string;
-  attack: number;
-  attackBuff: number;
-  critRate: number;
-  critDamage: number;
-  impact: number;
-  penRatio: number;
+  rank: EngineRank;
+  speciality: Speciality;
+  baseAttack: EngineBaseAttack;
+  statusType: EngineStatusType;
 }
 
 export interface DiskConfig {}
@@ -58,16 +75,6 @@ export interface AgentStatus {
   critDamage: number;
   penRate: number;
 }
-
-export type EngineRank = "S" | "A" | "B";
-export type EngineLevel = 10 | 20 | 30 | 40 | 50 | 60;
-
-export type EngineStatusType =
-  | "attackRate"
-  | "critRate"
-  | "critDamage"
-  | "penRate"
-  | "other";
 
 export interface EngineStatus {
   level: EngineLevel;
