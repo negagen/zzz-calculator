@@ -14,14 +14,23 @@ export const UpdateInfo = () => {
           <div>
             <List
               size="small"
+              header={<div>2024/08/26</div>}
+              dataSource={[
+                "ディスクの4セット効果が自動で適用されるようにしました。",
+                "選択可能な音動機をエージェントの特性で絞り込むようにしました。",
+              ]}
+              renderItem={renderItem}
+            />
+            <List
+              size="small"
               header={<div>2024/08/25</div>}
-              dataSource={["音動機を選択式へ変更"]}
+              dataSource={["音動機を選択式へ変更しました。"]}
               renderItem={renderItem}
             />
             <List
               size="small"
               header={<div>2024/08/23</div>}
-              dataSource={["スマホ表示へ対応"]}
+              dataSource={["スマホ表示へ対応しました。"]}
               renderItem={renderItem}
             />
             <List
