@@ -14,6 +14,14 @@ export const UpdateInfo = () => {
           <div>
             <List
               size="small"
+              header={<div>2024/08/31</div>}
+              dataSource={[
+                "エージェントのコアスキルレベルのボーナスの計算が誤っていたのを修正しました",
+              ]}
+              renderItem={renderItem}
+            />
+            <List
+              size="small"
               header={<div>2024/08/26</div>}
               dataSource={[
                 "ディスクの4セット効果が自動で適用されるようにしました。",
