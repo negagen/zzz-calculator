@@ -149,7 +149,7 @@ export const calculateAgentStatus = ({
   let critDamage = 50;
   let penRate = 0;
 
-  for (let i = 1; i < coreSkillLevel; i++) {
+  for (let i = 1; i <= coreSkillLevel; i++) {
     if (i % 2 === 0) {
       switch (agent.coreSkillLevelBonusType) {
         case "critRate":
