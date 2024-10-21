@@ -28,6 +28,9 @@ export const DiskStatusPanel = ({
                     ランクに応じたディスクのステータスは自動的にステータスへ反映されます。
                   </p>
                   <p>レベルは最大レベル時のステータスです。</p>
+                  <p>
+                    4セット効果を発動したいときは、x2を2つセットしてください。
+                  </p>
                 </div>
               }
             />
@@ -366,11 +369,11 @@ const DiskSetSelect = ({
     { value: "InfernoMetal", label: "炎獄のヘヴィメタル x 2" },
     {
       value: "ThunderMetal",
-      label: "雷鳴のヘヴィメタル",
+      label: "霹靂のヘヴィメタル x 2",
     },
     {
       value: "ChaoticMetal",
-      label: "混沌のヘヴィメタル ",
+      label: "混沌のヘヴィメタル x 2",
     },
     { value: "PolarMetal", label: "極地のヘヴィメタル x 2" },
     {
