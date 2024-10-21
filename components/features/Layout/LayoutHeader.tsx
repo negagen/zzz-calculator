@@ -25,7 +25,7 @@ export const LayoutHeader = () => (
       </div>
       <div className="flex flex-row items-center hover:bg-gray-700 px-2 text-white cursor-pointer">
         <a
-          href="https://www.hoyolab.com/accountCenter/postList?id=306523314"
+          href="https://www.hoyolab.com/article/32357875"
           target="_blank"
           className="w-full h-full flex flex-row items-center gap-0.5"
         >
