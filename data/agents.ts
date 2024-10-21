@@ -2,6 +2,7 @@ import { Agent, AgentLevel, CoreSkillLevel } from "@/types";
 
 export const agents: Agent[] = [
   {
+    id: "Attack_1",
     name: "猫宮又奈",
     attribute: "Physical",
     rank: "S",
@@ -18,6 +19,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "critRate",
   },
   {
+    id: "Attack_2",
     name: "エレン・ジョー",
     attribute: "Ice",
     rank: "S",
@@ -34,6 +36,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "critRate",
   },
   {
+    id: "Attack_3",
     name: "朱鳶",
     attribute: "Ether",
     rank: "S",
@@ -50,6 +53,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "critDamage",
   },
   {
+    id: "Attack_4",
     name: "11号",
     attribute: "Fire",
     rank: "S",
@@ -66,6 +70,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "critRate",
   },
   {
+    id: "Attack_5",
     name: "アンドー・イワノフ",
     attribute: "Electric",
     rank: "A",
@@ -82,6 +87,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "critRate",
   },
   {
+    id: "Attack_6",
     name: "カリン・ウィクス",
     attribute: "Physical",
     rank: "A",
@@ -98,6 +104,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "critDamage",
   },
   {
+    id: "Attack_7",
     name: "ビリー・キッド",
     attribute: "Physical",
     rank: "A",
@@ -114,6 +121,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "critRate",
   },
   {
+    id: "Stun_1",
     name: "青衣",
     attribute: "Electric",
     rank: "S",
@@ -130,6 +138,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "impact",
   },
   {
+    id: "Stun_2",
     name: "フォン・ライカン",
     attribute: "Ice",
     rank: "S",
@@ -146,6 +155,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "impact",
   },
   {
+    id: "Stun_3",
     name: "クレタ・ベロボーグ",
     attribute: "Fire",
     rank: "S",
@@ -162,6 +172,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "impact",
   },
   {
+    id: "Stun_4",
     name: "アンビー・デマラ",
     attribute: "Electric",
     rank: "A",
@@ -178,6 +189,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "impact",
   },
   {
+    id: "Anomaly_1",
     name: "グレース・ハワード",
     attribute: "Electric",
     rank: "S",
@@ -194,6 +206,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "anomalyMastery",
   },
   {
+    id: "Anomaly_2",
     name: "パイパー・ウィール",
     attribute: "Physical",
     rank: "A",
@@ -210,6 +223,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "energy",
   },
   {
+    id: "Support_1",
     name: "アレクサンドリナ・セバスチャン",
     attribute: "Electric",
     rank: "S",
@@ -226,6 +240,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "penRate",
   },
   {
+    id: "Support_2",
     name: "ニコ・デマラ",
     attribute: "Ether",
     rank: "A",
@@ -242,6 +257,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "energy",
   },
   {
+    id: "Support_3",
     name: "ルシアーナ・デ・モンテフィーノ",
     attribute: "Fire",
     rank: "A",
@@ -258,6 +274,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "energy",
   },
   {
+    id: "Support_1",
     name: "蒼角",
     attribute: "Ice",
     rank: "A",
@@ -274,6 +291,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "energy",
   },
   {
+    id: "Defense_1",
     name: "ベン・ビガー",
     attribute: "Fire",
     rank: "A",

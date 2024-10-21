@@ -22,6 +22,8 @@ import {
   engineCritRateTable,
   engineCritDamageTable,
   enginePenRateTable,
+  agents,
+  engines,
 } from "@/data";
 import Decimal from "decimal.js";
 

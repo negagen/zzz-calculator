@@ -1,7 +1,7 @@
 import { StatusDetail, EnemyStatus, DamageBase, BattleStatus } from "@/types";
 
 import Decimal from "decimal.js";
-import { calculateStatus, mergeBattleStatus } from "./status";
+import { calculateStatus, calculateStatusDetail, mergeBattleStatus } from "./status";
 
 export const calculateDamageBase = (
   detail: StatusDetail,

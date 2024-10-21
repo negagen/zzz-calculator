@@ -13,6 +13,7 @@ import {
   CoreSkillLevel,
   AgentConfig,
   EngineConfig,
+  SaveData,
 } from "@/types";
 import {
   AgentStatusPanel,
@@ -31,6 +32,8 @@ import {
   engines,
 } from "@/data";
 import { calculateStatusDetail, calculateDamageBase } from "@/core";
+import { SaveButton } from "../features/SaveButton";
+import { LoadButton } from "../features/LoadButton";
 
 const selectEngines = (agent: Agent) => {
   return engines.filter((engine) => {
@@ -64,6 +67,49 @@ export const Calculator = () => {
 
   return (
     <div className="flex flex-col gap-2.5 max-md:w-full">
+      <div className="flex flex-row justify-end w-full gap-2">
+        <SaveButton
+          agentConfig={agentConfig}
+          engineConfig={engineConfig}
+          diskConfig={diskConfig}
+          enemyStatus={enemyStatus}
+          battleStatus={battleStatus}
+        />
+        <LoadButton
+          onLoad={(data: SaveData) => {
+            if (data.data.agentConfig) {
+              const agent = agents.find(
+                (agent) => agent.id === data.data.agentConfig?.agentId
+              );
+              setAgentConfig({
+                agent: agent ?? agents[0],
+                level: data.data.agentConfig.level,
+                coreSkillLevel: data.data.agentConfig.coreSkillLevel,
+              });
+            }
+            if (data.data.engineConfig) {
+              const engine = engines.find(
+                (engine) => engine.id === data.data.engineConfig?.engineId
+              );
+              if (engine) {
+                setEngineConfig({
+                  engine,
+                  level: data.data.engineConfig.level,
+                });
+              }
+            }
+            if (data.data.diskConfig) {
+              setDiskConfig(data.data.diskConfig);
+            }
+            if (data.data.enemyStatus) {
+              setEnemyStatus(data.data.enemyStatus);
+            }
+            if (data.data.battleStatus) {
+              setBattleStatus(data.data.battleStatus);
+            }
+          }}
+        />
+      </div>
       <div className="flex gap-2.5 lg:flex-row max-md:flex-col max-md:w-full">
         <div className="flex flex-col items-center rounded-md gap-2 lg:w-72 max-md:w-full">
           <AgentStatusPanel

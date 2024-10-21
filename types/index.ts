@@ -6,6 +6,7 @@ export type AgentLevel = 1 | 10 | 20 | 30 | 40 | 50 | 60;
 export type CoreSkillLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
 export interface Agent {
+  id: string;
   name: string;
   rank: AgentRank;
   attribute: Attribute;
@@ -37,6 +38,7 @@ export type EngineStatusType =
   | "anomalyProficiency";
 
 export interface Engine {
+  id: string;
   name: string;
   rank: EngineRank;
   speciality: Speciality;
@@ -226,4 +228,21 @@ export interface BattleStatus {
   critDamageBonus: number;
   damageBuffBonus: number;
   penRateBonus: number;
+}
+
+export const saveDataKey = "savedata";
+
+export interface SaveData {
+  name: string;
+  data: {
+    agentConfig?: {
+      agentId: string;
+      level: AgentLevel;
+      coreSkillLevel: CoreSkillLevel;
+    };
+    engineConfig?: { engineId: string; level: EngineLevel };
+    diskConfig?: DiskConfig;
+    enemyStatus?: EnemyStatus;
+    battleStatus?: BattleStatus;
+  };
 }
