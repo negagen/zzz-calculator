@@ -23,6 +23,7 @@ import {
   StatusPanel,
   DamageBasePanel,
   AdditionalStatusPanel,
+  HelpButton,
 } from "@/components/features";
 import {
   defaultDiskStatus,
@@ -68,6 +69,22 @@ export const Calculator = () => {
   return (
     <div className="flex flex-col gap-2.5 max-md:w-full">
       <div className="flex flex-row justify-end w-full gap-2">
+        <HelpButton
+          title="データの保存"
+          description="セーブ機能（β）"
+          content={
+            <div className="flex flex-col gap-1.5">
+              <p>
+                β版機能としてデータのセーブ・ロードを出来るようになりました。
+                データは現在ブラウザごとに保存されます。
+              </p>
+              <p>
+                Save/Loadボタンを使用してデータを保存、または読み込むことができます。
+              </p>
+              <p>同じデータ名で保存すると上書きされますのでご注意ください。</p>
+            </div>
+          }
+        />
         <SaveButton
           agentConfig={agentConfig}
           engineConfig={engineConfig}
