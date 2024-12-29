@@ -83,6 +83,10 @@ export const Drives = [
   "PufferElectro",
   "WoodpeckerElectro",
   "SwingJazz",
+  "ProtoPunk",
+  "ChaosJazz",
+  "AstralVoice",
+  "BranchAndBladeSong",
 ] as const;
 export type Drive = (typeof Drives)[number];
 
@@ -143,6 +147,7 @@ export interface DiskConfig {
 export interface DiskSetBonus1 {
   attackRate: number;
   critRate: number;
+  critDamage: number;
   penRate: number;
   damageBuff: number;
   defenseRate: number;

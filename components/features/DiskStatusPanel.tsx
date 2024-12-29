@@ -386,6 +386,10 @@ const DiskSetSelect = ({
     },
     { value: "ShockstarDisco", label: "ショックスター・ディスコ x 2" },
     { value: "SoulRock", label: "ソウルロック x 2" },
+    { value: "ProtoPunk", label: "プロト・パンク x 2" },
+    { value: "ChaosJazz", label: "ケイオス・ジャズ x 2" },
+    { value: "AstralVoice", label: "静寂のアストラ" },
+    { value: "BranchAndBladeSong", label: "折枝の刀歌" },
   ];
 
   return (

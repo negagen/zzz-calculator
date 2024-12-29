@@ -501,6 +501,23 @@ const diskSetBonuses: Record<Drive, DiskSetBonus> = {
     2: { ...emptyDiskSet1Bonus, damageBuff: 10 },
     4: { ...emptyBattleStatus, critRateBonus: 28 },
   },
+  ProtoPunk: {
+    2: { ...emptyDiskSet1Bonus },
+    4: { ...emptyBattleStatus, damageBuffBonus: 15 },
+  },
+  ChaosJazz: {
+    2: { ...emptyDiskSet1Bonus, anomalyProficiency: 30 },
+    4: { ...emptyBattleStatus, damageBuffBonus: 15 },
+  },
+  AstralVoice: {
+    2: { ...emptyDiskSet1Bonus, attackRate: 10 },
+    4: { ...emptyBattleStatus },
+  },
+  BranchAndBladeSong: {
+    attribute: "Frost",
+    2: { ...emptyDiskSet1Bonus, critDamage: 16 },
+    4: { ...emptyBattleStatus, critDamageBonus: 30, critRateBonus: 12 },
+  },
 };
 
 const calculateDiskSetBonus = (
@@ -547,7 +564,7 @@ const applyDiskSet1Bonus = (
     defense: status1.defense,
     defenseRate: status1.defenseRate + status2.defenseRate,
     critRate: status1.critRate + status2.critRate,
-    critDamage: status1.critDamage,
+    critDamage: status1.critDamage + status2.critDamage,
     pen: status1.pen,
     anomalyProficiency: status1.anomalyProficiency + status2.anomalyProficiency,
     penRate: status1.penRate + status2.penRate,
