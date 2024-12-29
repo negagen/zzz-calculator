@@ -44,7 +44,7 @@ interface SaveDataModalProps {
 
 const SaveDataModal = ({ open, onClose, onLoad }: SaveDataModalProps) => {
   const [messageApi, contextHolder] = message.useMessage();
-  const [saveDataList, setSaveDataList] = useState(loadStorage());
+  const [saveDataList, setSaveDataList] = useState<SaveData[]>([]);
 
   useEffect(() => {
     setSaveDataList(loadStorage());

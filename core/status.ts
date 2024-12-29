@@ -436,6 +436,7 @@ const emptyDiskSet1Bonus: DiskSetBonus1 = {
   attackRate: 0,
   defenseRate: 0,
   critRate: 0,
+  critDamage: 0,
   anomalyProficiency: 0,
   penRate: 0,
   damageBuff: 0,
