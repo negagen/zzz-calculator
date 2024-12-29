@@ -19,7 +19,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         <Image
           width={2000}
           height={540}
-          src="/images/zzz1_1.png"
+          src="/images/zzz1_4.jpg"
           alt="Background"
           className="absolute z-0 top-0 opacity-35"
         />
