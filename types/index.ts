@@ -1,5 +1,11 @@
 export type Speciality = "Attack" | "Stun" | "Anomaly" | "Defense" | "Support";
-export type Attribute = "Fire" | "Ether" | "Ice" | "Physical" | "Electric";
+export type Attribute =
+  | "Fire"
+  | "Ether"
+  | "Ice"
+  | "Physical"
+  | "Electric"
+  | "Frost";
 export type AgentRank = "S" | "A";
 
 export type AgentLevel = 1 | 10 | 20 | 30 | 40 | 50 | 60;
@@ -22,7 +28,7 @@ export interface Agent {
     | "impact";
 }
 
-export type EngineBaseAttack = 32 | 40 | 42 | 46 | 48;
+export type EngineBaseAttack = 32 | 40 | 42 | 46 | 48 | 50;
 export type EngineRank = "S" | "A" | "B";
 export type EngineLevel = 0 | 10 | 20 | 30 | 40 | 50 | 60;
 
