@@ -1,3 +1,5 @@
+"use client";
+
 import {
   AgentConfig,
   BattleStatus,
@@ -7,7 +9,7 @@ import {
   SaveData,
   saveDataKey,
 } from "@/types";
-import { Button, Modal, Checkbox, message, Input } from "antd";
+import { Button, Modal, message, Input } from "antd";
 import { useState } from "react";
 
 interface SaveButtonProps {
