@@ -7,11 +7,20 @@ export const UpdateInfo = () => {
   return (
     <HelpButton
       title="更新情報"
-      description="更新情報"
+      description="更新情報: 2025/01/03"
       className="w-full h-full"
       content={
         <div className="flex flex-col gap-1.5">
           <div>
+            <List
+              size="small"
+              header={<div>2025/01/03</div>}
+              dataSource={[
+                "蒼角を保存したときにリナとして扱われてしまう不具合の修正",
+                "Google Formにて 'ダメージ計算機のステータスの攻撃の項目の数値がゲームのステータスと比べて20~30ほど大きくなります' という不具合報告をいただきました。ありがとうございます。原因は調査中です",
+              ]}
+              renderItem={renderItem}
+            />
             <List
               size="small"
               header={<div>2024/12/29</div>}

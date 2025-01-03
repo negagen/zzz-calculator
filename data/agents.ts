@@ -376,7 +376,7 @@ export const agents: Agent[] = [
     coreSkillLevelBonusType: "energy",
   },
   {
-    id: "Support_1",
+    id: "Support_4",
     name: "蒼角",
     attribute: "Ice",
     rank: "A",
