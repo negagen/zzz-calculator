@@ -7,16 +7,25 @@ export const UpdateInfo = () => {
   return (
     <HelpButton
       title="更新情報"
-      description="更新情報: 2025/01/03"
+      description="更新情報: 2025/01/09"
       className="w-full h-full"
       content={
         <div className="flex flex-col gap-1.5">
           <div>
             <List
               size="small"
+              header={<div>2025/01/09</div>}
+              dataSource={[
+                "エージェントの基礎攻撃力が常に+25されてしまっていた不具合を修正しました。",
+                "HoYoLabで報告を頂いて原因が特定できました。ありがとうございます。",
+              ]}
+              renderItem={renderItem}
+            />
+            <List
+              size="small"
               header={<div>2025/01/03</div>}
               dataSource={[
-                "蒼角を保存したときにリナとして扱われてしまう不具合の修正",
+                "蒼角を保存したときにリナとして扱われてしまう不具合を修正しました。",
                 "Google Formにて 'ダメージ計算機のステータスの攻撃の項目の数値がゲームのステータスと比べて20~30ほど大きくなります' という不具合報告をいただきました。ありがとうございます。原因は調査中です",
               ]}
               renderItem={renderItem}
