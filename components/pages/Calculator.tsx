@@ -33,6 +33,7 @@ import {
   engines,
 } from "@/data";
 import { calculateStatusDetail, calculateDamageBase } from "@/core";
+import { useTranslation } from "react-i18next";
 import { SaveButton } from "../features/SaveButton";
 import { LoadButton } from "../features/LoadButton";
 
@@ -65,23 +66,22 @@ export const Calculator = () => {
     diskConfig
   );
   const damageBase = calculateDamageBase(baseStatus, enemyStatus, battleStatus);
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-2.5 max-md:w-full">
       <div className="flex flex-row justify-end w-full gap-2">
         <HelpButton
-          title="データの保存"
-          description="セーブ機能（β）"
+          title={t("components.Calculator.help1.title")}
+          description={t("components.Calculator.help1.description")}
           content={
             <div className="flex flex-col gap-1.5">
               <p>
-                β版機能としてデータのセーブ・ロードを出来るようになりました。
-                データは現在ブラウザごとに保存されます。
+                {t("components.Calculator.help1.0")}
+                {t("components.Calculator.help1.1")}
               </p>
-              <p>
-                Save/Loadボタンを使用してデータを保存、または読み込むことができます。
-              </p>
-              <p>※現在データの上書き保存には対応していません。</p>
+              <p>{t("components.Calculator.help1.2")}</p>
+              <p>{t("components.Calculator.help1.3")}</p>
             </div>
           }
         />

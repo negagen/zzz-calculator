@@ -91,7 +91,7 @@
   "statusBonus": {
     "attack": "Attack",
     "attackRate": "Attack%",
-    "battleAttackRate": "Battle Attack%",
+    "battleAttackRate": "Attack%",
     "critRate": "Crit Rate",
     "critDamage": "Crit DMG",
     "penRate": "PEN Ratio",
@@ -100,7 +100,7 @@
   "components": {
     "AdditionalStatusPanel": {
       "skillDamageRate": "Skill DMG Multiplier",
-      "damageRate": "DMG Multiplier",
+      "damageRate": "DMG %",
       "battleBuff": "In-battle Buff",
       "help": {
         "title": "In-battle Buff",
@@ -112,7 +112,7 @@
     },
     "AgentStatusPanel": {
       "level": "Level",
-      "coreSkill": "Core Skill Enhancement",
+      "coreSkill": "Core Skill",
       "help": {
         "0": "Configure the Agent’s status.",
         "1": "The level-based Agent status and Core Skill stat bonus are automatically reflected in the status.",
@@ -154,7 +154,7 @@
       "title": "Disk",
       "partition": "Partition",
       "diskSet": "Set Effect",
-      "subStatusUp": "Number of Sub-Stat Upgrades",
+      "subStatusUp": "Sub Stat Upgrades",
       "diskSetSelect": {
         "none": "None",
         "WoodpeckerElectro": "Woodpecker Electro x 2",
@@ -225,8 +225,8 @@
       "defense": "Base Defense",
       "defenseDown": "DEF Down%",
       "registance": "Attribute RES",
-      "registanceType.weekness": "Weakness",
-      "registanceType.normal": "Normal",
+      "registanceType.weekness": "Weak",
+      "registanceType.normal": "None",
       "registanceType.resitance": "RES",
       "registanceDown": "RES Down%",
       "registanceDown.stun": "Trigger Stun State",
@@ -270,7 +270,22 @@
     "SaveButton": {
       "title": "Save Data",
       "saveSuccess": "Data has been loaded.",
-      "description": "Please enter the name of the data you want to save."
+      "description": "Please enter the name of the data you want to save.",
+      "help": {
+        "title": "Save Data(Beta)",
+        "description": "Save Data(Beta)",
+        "0": ""
+      }
+    },
+    "Calculator": {
+      "help1": {
+        "title": "Save Data (Beta)",
+        "description": "Save (Beta)",
+        "0": "The Beta version now supports saving and loading data.",
+        "1": "Data is currently stored per browser.",
+        "2": "You can save or load data using the Save/Load buttons.",
+        "3": "Note: Overwriting saved data is not currently supported."
+      }
     },
     "About": {
       "title": "About This Tool",
