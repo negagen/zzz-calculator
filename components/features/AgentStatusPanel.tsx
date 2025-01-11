@@ -2,6 +2,7 @@ import { Select } from "antd";
 import { Agent, AgentLevel, CoreSkillLevel } from "@/types";
 import { agents } from "@/data";
 import { HelpButton } from "./HelpButton";
+import { useTranslation } from "react-i18next";
 
 export const AgentStatusPanel = ({
   agent,
@@ -18,24 +19,22 @@ export const AgentStatusPanel = ({
     coreSkillLevel: CoreSkillLevel
   ) => void;
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col items-center bg-gray-700 rounded-md p-4 max-md:w-full lg:w-72">
       <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative">
-        エージェント
+        {t("agent")}
         <div className="absolute right-2 top-0 h-full flex items-center">
           <HelpButton
-            title="エージェント"
+            title={t("agent")}
             content={
               <div className="flex flex-col gap-1.5">
-                <p>エージェントのステータスを設定します。</p>
-                <p>
-                  レベルに応じたエージェントのステータス、およびコアスキルのステータスボーナスは自動的にステータスへ反映されます。
-                </p>
-                <p>
-                  エージェントのステータスはレベル上限突破前のステータスです。
-                </p>
+                <p>{t("components.AgentStatusPanel.help.0")}</p>
+                <p>{t("components.AgentStatusPanel.help.1")}</p>
+                <p>{t("components.AgentStatusPanel.help.2")}</p>
                 <p className="font-bold">
-                  コアスキルの効果は反映されません。戦闘中バフへ手動で反映してください。
+                  {t("components.AgentStatusPanel.help.3")}
                 </p>
               </div>
             }
@@ -51,7 +50,8 @@ export const AgentStatusPanel = ({
               value={agents.indexOf(agent)}
               options={agents.map((agent, i) => ({
                 value: i,
-                label: agent.name,
+                // @ts-expect-error
+                label: t(`data.agent.${agent.id}`),
               }))}
               onChange={(e) => {
                 onChange(agents[e as number], level, coreSkillLevel);
@@ -61,7 +61,7 @@ export const AgentStatusPanel = ({
         </div>
 
         <div className="flex flex-row items-center w-full gap-2">
-          <div className="w-36">レベル</div>
+          <div className="w-36">{t("components.AgentStatusPanel.level")}</div>
           <div className="grow">
             <Select
               className="w-32 max-md:w-full"
@@ -83,13 +83,15 @@ export const AgentStatusPanel = ({
         </div>
 
         <div className="flex flex-row items-center w-full gap-2">
-          <div className="w-36">コアスキル強化</div>
+          <div className="w-36">
+            {t("components.AgentStatusPanel.coreSkill")}
+          </div>
           <div className="grow">
             <Select
               className="w-32 max-md:w-full"
               value={coreSkillLevel}
               options={[
-                { value: 1, label: "なし" },
+                { value: 1, label: "None" },
                 { value: 2, label: "A" },
                 { value: 3, label: "B" },
                 { value: 4, label: "C" },

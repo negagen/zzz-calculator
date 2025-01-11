@@ -15,7 +15,7 @@ export const HelpButton = ({
     Modal.info({
       title: title,
       content: content,
-      className: "max-md:w-full",
+      className: "max-md:w-full h-svh",
       width: "960px",
     });
   };

@@ -1,6 +1,7 @@
 import { Input, Select } from "antd";
-import { DiskSetBonus1, DiskConfig } from "@/types";
+import { DiskConfig } from "@/types";
 import { HelpButton } from "./HelpButton";
+import { useTranslation } from "react-i18next";
 
 export const DiskStatusPanel = ({
   diskStatus,
@@ -9,33 +10,31 @@ export const DiskStatusPanel = ({
   diskStatus: DiskConfig;
   onChange: (diskStatus: DiskConfig) => void;
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col items-center bg-gray-700 rounded-md p-4 max-md:w-full">
       <div className="mb-2 w-full bg-gray-900 text-center rounded-md p-2">
-        ディスク
+        {t("components.DiskStatusPanel.title")}
       </div>
 
       <div className="flex flex-col gap-2 w-full">
         <div className="mb-2 w-full text-sm bg-gray-800 text-center rounded-md py-1 px-2 relative">
-          パーティション
+          {t("components.DiskStatusPanel.partition")}
           <div className="absolute right-2 top-0 h-full flex items-center">
             <HelpButton
-              title="ディスク（パーティション）"
+              title={t("components.DiskStatusPanel.help1.title")}
               content={
                 <div className="flex flex-col gap-1.5">
-                  <p>ディスクの各パーティションを設定します。</p>
-                  <p>
-                    ランクに応じたディスクのステータスは自動的にステータスへ反映されます。
-                  </p>
-                  <p>レベルは最大レベル時のステータスです。</p>
-                  <p>
-                    4セット効果を発動したいときは、x2を2つセットしてください。
-                  </p>
+                  <p>{t("components.DiskStatusPanel.help1.0")}</p>
+                  <p>{t("components.DiskStatusPanel.help1.1")}</p>
+                  <p>{t("components.DiskStatusPanel.help1.2")}</p>
+                  <p>{t("components.DiskStatusPanel.help1.3")}</p>
 
                   <p className="pt-4">
-                    以下の効果は発動しないので手動で反映してください。
+                    {t("components.DiskStatusPanel.help1.4")}
                     <ul>
-                      <li>静寂のアストラの4セット効果における「天籟」効果</li>
+                      <li>{t("components.DiskStatusPanel.help1.4.1")}</li>
                     </ul>
                   </p>
                 </div>
@@ -82,7 +81,12 @@ export const DiskStatusPanel = ({
                 <Select
                   className="w-32 grow"
                   value={"attack"}
-                  options={[{ value: "attack", label: "攻撃力" }]}
+                  options={[
+                    {
+                      value: "attack",
+                      label: t("components.DiskStatusPanel.status.attack"),
+                    },
+                  ]}
                 />
               </div>
             </div>
@@ -98,7 +102,12 @@ export const DiskStatusPanel = ({
                 <Select
                   className="w-32 grow"
                   value={"defense"}
-                  options={[{ value: "defense", label: "防御力" }]}
+                  options={[
+                    {
+                      value: "defense",
+                      label: t("components.DiskStatusPanel.status.defense"),
+                    },
+                  ]}
                 />
               </div>
             </div>
@@ -129,8 +138,14 @@ export const DiskStatusPanel = ({
                   className="w-32 grow"
                   value={diskStatus.slot6.mainStatus}
                   options={[
-                    { value: "attackRate", label: "攻撃力%" },
-                    { value: "none", label: "その他" },
+                    {
+                      value: "attackRate",
+                      label: t("components.DiskStatusPanel.status.attackRate"),
+                    },
+                    {
+                      value: "none",
+                      label: t("components.DiskStatusPanel.status.none"),
+                    },
                   ]}
                   onChange={(value) => {
                     onChange({
@@ -166,10 +181,22 @@ export const DiskStatusPanel = ({
                   className="w-32 grow"
                   value={diskStatus.slot5.mainStatus}
                   options={[
-                    { value: "attackRate", label: "攻撃力%" },
-                    { value: "damageBuff", label: "属性ダメージ" },
-                    { value: "penRate", label: "貫通率" },
-                    { value: "none", label: "その他" },
+                    {
+                      value: "attackRate",
+                      label: t("components.DiskStatusPanel.status.attackRate"),
+                    },
+                    {
+                      value: "damageBuff",
+                      label: t("components.DiskStatusPanel.status.damageBuff"),
+                    },
+                    {
+                      value: "penRate",
+                      label: t("components.DiskStatusPanel.status.penRate"),
+                    },
+                    {
+                      value: "none",
+                      label: t("components.DiskStatusPanel.status.none"),
+                    },
                   ]}
                   onChange={(value) => {
                     onChange({
@@ -205,10 +232,22 @@ export const DiskStatusPanel = ({
                   className="w-32 grow"
                   value={diskStatus.slot4.mainStatus}
                   options={[
-                    { value: "critRate", label: "会心率" },
-                    { value: "critDamage", label: "会心ダメージ" },
-                    { value: "attackRate", label: "攻撃力%" },
-                    { value: "none", label: "その他" },
+                    {
+                      value: "critRate",
+                      label: t("components.DiskStatusPanel.status.critRate"),
+                    },
+                    {
+                      value: "critDamage",
+                      label: t("components.DiskStatusPanel.status.critDamage"),
+                    },
+                    {
+                      value: "attackRate",
+                      label: t("components.DiskStatusPanel.status.attackRate"),
+                    },
+                    {
+                      value: "none",
+                      label: t("components.DiskStatusPanel.status.none"),
+                    },
                   ]}
                   onChange={(value) => {
                     onChange({
@@ -226,15 +265,15 @@ export const DiskStatusPanel = ({
         <div className="flex lg:flex-row max-md:flex-col gap-2 max-md:w-full mt-4">
           <div className="flex flex-col gap-2 w-full text-sm">
             <div className="mb-2 mt-2 w-full text-sm bg-gray-800 text-center rounded-md py-1 px-2 relative">
-              セット効果
+              {t("components.DiskStatusPanel.diskSet")}
               <div className="absolute right-2 top-0 h-full flex items-center">
                 <HelpButton
-                  title="ディスクセット効果"
+                  title={t("components.DiskStatusPanel.help2.title")}
                   content={
                     <div className="flex flex-col gap-1.5">
-                      <p>ディスクのセット効果を設定します。</p>
-                      <p>セット効果はステータスに自動的に反映されます。</p>
-                      <p>4セット効果は戦闘中バフに自動的に反映されます。</p>
+                      <p>{t("components.DiskStatusPanel.help2.0")}</p>
+                      <p>{t("components.DiskStatusPanel.help2.1")}</p>
+                      <p>{t("components.DiskStatusPanel.help2.2")}</p>
                     </div>
                   }
                 />
@@ -246,14 +285,14 @@ export const DiskStatusPanel = ({
 
           <div className="flex flex-col gap-2 w-full text-sm">
             <div className="mb-2 mt-2 max-md:w-full text-sm bg-gray-800 text-center rounded-md py-1 px-2 relative">
-              サブステータス上昇回数
+              {t("components.DiskStatusPanel.subStatusUp")}
               <div className="absolute right-2 top-0 h-full flex items-center">
                 <HelpButton
-                  title="ディスクサブステータス上昇回数"
+                  title={t("components.DiskStatusPanel.help3.title")}
                   content={
                     <div className="flex flex-col gap-1.5">
-                      <p>ディスクのサブステータスの上昇回数を指定できます。</p>
-                      <p>上昇量はステータスに自動的に反映されます。</p>
+                      <p>{t("components.DiskStatusPanel.help3.0")}</p>
+                      <p>{t("components.DiskStatusPanel.help3.1")}</p>
                     </div>
                   }
                 />
@@ -262,7 +301,7 @@ export const DiskStatusPanel = ({
 
             <div className="flex flex-row items-center w-full gap-2">
               <SubStatusInput
-                title="攻撃力"
+                title={t("components.DiskStatusPanel.status.attack")}
                 value={diskStatus.slot1.subStatusUp.attack}
                 onChange={(value) =>
                   onChange({
@@ -279,7 +318,7 @@ export const DiskStatusPanel = ({
               />
 
               <SubStatusInput
-                title="攻撃力%"
+                title={t("components.DiskStatusPanel.status.attackRate")}
                 value={diskStatus.slot1.subStatusUp.attackRate}
                 onChange={(value) =>
                   onChange({
@@ -297,7 +336,7 @@ export const DiskStatusPanel = ({
             </div>
             <div className="flex flex-row items-center w-full gap-2">
               <SubStatusInput
-                title="会心率"
+                title={t("components.DiskStatusPanel.status.critRate")}
                 value={diskStatus.slot1.subStatusUp.critRate}
                 onChange={(value) =>
                   onChange({
@@ -314,7 +353,7 @@ export const DiskStatusPanel = ({
               />
 
               <SubStatusInput
-                title="会心DMG"
+                title={t("components.DiskStatusPanel.status.critDamage/short")}
                 value={diskStatus.slot1.subStatusUp.critDamage}
                 onChange={(value) =>
                   onChange({
@@ -332,7 +371,7 @@ export const DiskStatusPanel = ({
             </div>
 
             <SubStatusInput
-              title="貫通値"
+              title={t("components.DiskStatusPanel.status.pen")}
               value={diskStatus.slot1.subStatusUp.pen}
               onChange={(value) =>
                 onChange({
@@ -361,43 +400,33 @@ const DiskSetSelect = ({
   diskStatus: DiskConfig;
   onChange: (diskStatus: DiskConfig) => void;
 }) => {
-  const options = [
-    { value: "none", label: "なし" },
-    {
-      value: "WoodpeckerElectro",
-      label: "ウッドペッカー・エレクトロ x 2",
-    },
-    { value: "HormonePunk", label: "ホルモン・パンク x 2" },
-    { value: "PufferElectro", label: "パファー・エレクトロ x 2" },
-    {
-      value: "FangedMetal",
-      label: "獣牙のヘヴィメタル x 2",
-    },
-    { value: "InfernoMetal", label: "炎獄のヘヴィメタル x 2" },
-    {
-      value: "ThunderMetal",
-      label: "霹靂のヘヴィメタル x 2",
-    },
-    {
-      value: "ChaoticMetal",
-      label: "混沌のヘヴィメタル x 2",
-    },
-    { value: "PolarMetal", label: "極地のヘヴィメタル x 2" },
-    {
-      value: "FreedomBlues",
-      label: "フリーダム・ブルース x 2",
-    },
-    {
-      value: "SwingJazz",
-      label: "スウィング・ジャズ x 2",
-    },
-    { value: "ShockstarDisco", label: "ショックスター・ディスコ x 2" },
-    { value: "SoulRock", label: "ソウルロック x 2" },
-    { value: "ProtoPunk", label: "プロト・パンク x 2" },
-    { value: "ChaosJazz", label: "ケイオス・ジャズ x 2" },
-    { value: "AstralVoice", label: "静寂のアストラ" },
-    { value: "BranchAndBladeSong", label: "折枝の刀歌" },
+  const { t } = useTranslation();
+  const disks = [
+    "none",
+    "WoodpeckerElectro",
+    "HormonePunk",
+    "PufferElectro",
+    "FangedMetal",
+    "InfernoMetal",
+    "ThunderMetal",
+    "ChaoticMetal",
+    "PolarMetal",
+    "FreedomBlues",
+    "SwingJazz",
+    "ShockstarDisco",
+    "SoulRock",
+    "ProtoPunk",
+    "ChaosJazz",
+    "AstralVoice",
+    "BranchAndBladeSong",
   ];
+  const options = disks.map((disk) => {
+    return {
+      value: disk,
+      // @ts-expect-error
+      label: t(`components.DiskStatusPanel.diskSetSelect.${disk}`),
+    };
+  });
 
   return (
     <div className="flex flex-col items-center w-full gap-2 lg:w-72 max-md:w-full">

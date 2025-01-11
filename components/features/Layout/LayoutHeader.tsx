@@ -35,7 +35,7 @@ export const LayoutHeader = () => (
             src="/images/hoyolab.png"
             alt="Background"
           />
-          <div className="max-md:hidden">作者HoYoLAB</div>
+          <div className="max-md:hidden">HoYoLAB</div>
         </a>
       </div>
     </div>

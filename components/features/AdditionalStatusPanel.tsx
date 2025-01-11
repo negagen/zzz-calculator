@@ -1,6 +1,7 @@
 import { BattleStatus, DiskConfig, StatusDetail } from "@/types";
 import { StatusInput } from "./StatusInput";
 import { HelpButton } from "./HelpButton";
+import { useTranslation } from "react-i18next";
 
 export const AdditionalStatusPanel = ({
   battleStatus,
@@ -11,14 +12,16 @@ export const AdditionalStatusPanel = ({
   status: StatusDetail;
   onChange: (battleStatus: BattleStatus) => void;
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4 max-md:w-full">
       <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative">
-        スキルダメージ倍率
+        {t("components.AdditionalStatusPanel.skillDamageRate")}
       </div>
 
       <StatusInput
-        title="ダメージ倍率"
+        title={t("components.AdditionalStatusPanel.damageRate")}
         value={battleStatus.skillDamageRate}
         unit="%"
         onChange={(value) =>
@@ -27,22 +30,18 @@ export const AdditionalStatusPanel = ({
       />
 
       <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative mt-4">
-        戦闘中バフ
+        {t("components.AdditionalStatusPanel.battleBuff")}
         <div className="absolute right-2 top-0 h-full flex items-center">
           <HelpButton
-            title="戦闘中バフ設定"
+            title={t("components.AdditionalStatusPanel.help.title")}
             content={
               <div className="flex flex-col gap-1.5">
-                <p>戦闘中のバフの効果を設定します。</p>
-                <p>
-                  エージェントのスキルやコアスキルによる効果、音動機の効果、ディスクの4セット効果、追加能力による効果などはここに入力してください。
-                </p>
-                <p>
-                  現在、属性ダメージバフは与ダメージバフと合算して計算しています。属性ダメージバフも与ダメージ%に追加してください。
-                </p>
+                <p>{t("components.AdditionalStatusPanel.help.0")}</p>
+                <p>{t("components.AdditionalStatusPanel.help.1")}</p>
+                <p>{t("components.AdditionalStatusPanel.help.2")}</p>
                 <br />
                 <p className="font-bold">
-                  ここに入力した内容はステータスには直接反映されず、ダメージ基礎値に反映されます。
+                  {t("components.AdditionalStatusPanel.help.3")}
                 </p>
               </div>
             }
@@ -52,7 +51,7 @@ export const AdditionalStatusPanel = ({
 
       <div className="flex flex-col items-center w-full gap-2">
         <StatusInput
-          title="攻撃力実数"
+          title={t("statusBonus.attack")}
           value={battleStatus.attackBonus}
           onChange={(value) =>
             onChange({ ...battleStatus, attackBonus: value })
@@ -60,7 +59,7 @@ export const AdditionalStatusPanel = ({
         />
 
         <StatusInput
-          title="戦闘攻撃力%"
+          title={t("statusBonus.battleAttackRate")}
           unit="%"
           base={status.statusBonus.attackBuff}
           value={battleStatus.attackBuff}
@@ -68,7 +67,7 @@ export const AdditionalStatusPanel = ({
         />
 
         <StatusInput
-          title="会心率"
+          title={t("statusBonus.critRate")}
           base={status.statusBonus.critRateBonus}
           value={battleStatus.critRateBonus}
           unit="%"
@@ -78,7 +77,7 @@ export const AdditionalStatusPanel = ({
         />
 
         <StatusInput
-          title="会心ダメージ"
+          title={t("statusBonus.critDamage")}
           base={status.statusBonus.critDamageBonus}
           value={battleStatus.critDamageBonus}
           unit="%"
@@ -88,7 +87,7 @@ export const AdditionalStatusPanel = ({
         />
 
         <StatusInput
-          title="貫通率"
+          title={t("statusBonus.penRate")}
           base={status.statusBonus.penRateBonus}
           value={battleStatus.penRateBonus}
           unit="%"
@@ -98,7 +97,7 @@ export const AdditionalStatusPanel = ({
         />
 
         <StatusInput
-          title="与ダメージ%"
+          title={t("statusBonus.damageBuff")}
           base={status.statusBonus.damageBuffBonus}
           value={battleStatus.damageBuffBonus}
           unit="%"
