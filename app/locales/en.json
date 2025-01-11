@@ -1,0 +1,304 @@
+{
+  "data": {
+    "agent": {
+      "Attack_1": "Nekomiya Mana",
+      "Attack_2": "Ellen Joe",
+      "Attack_3": "Zhu Yuan",
+      "Attack_4": "Soldier 11",
+      "Attack_5": "Anton Ivanov",
+      "Attack_6": "Carin Wickes",
+      "Attack_7": "Billy Kid",
+      "Attack_8": "Asaba Harumasa",
+      "Stun_1": "Qingyi",
+      "Stun_2": "Von Lycaon",
+      "Stun_3": "Koleda Belobog",
+      "Stun_4": "Anby Demara",
+      "Stun_5": "Lighter",
+      "Anomaly_1": "Grace Howard",
+      "Anomaly_2": "Piper Wheel",
+      "Anomaly_3": "Jane Doe",
+      "Anomaly_4": "Burnice White",
+      "Anomaly_5": "Tsukishiro Yanagi",
+      "Anomaly_6": "Hoshimi Miyabi",
+      "Support_1": "Alexandrina Sebastiane",
+      "Support_2": "Nicole Demara",
+      "Support_3": "Luciana de Montefio",
+      "Support_4": "Soukaku",
+      "Defense_1": "Ben Bigger",
+      "Defense_2": "Caesar King",
+      "Defense_3": "Seth Lowell"
+    },
+    "engine": {
+      "Attack_1": "Steel Cushion",
+      "Attack_2": "The Brimstone",
+      "Attack_3": "Deep Sea Visitor",
+      "Attack_4": "Riot Suppressor Mark VI",
+      "Attack_5": "Street Superstar",
+      "Attack_6": "Starlight Engine",
+      "Attack_7": "Housekeeper",
+      "Attack_8": "Starlight Engine Replica",
+      "Attack_9": "Drill Rig - Red Axis",
+      "Attack_10": "Cannon Rotor",
+      "Attack_11": "Gilded Blossom",
+      "Attack_12": "[Lunar] - Pleniluna",
+      "Attack_13": "[Lunar] - Decrescent",
+      "Attack_14": "[Lunar] - Noviluna",
+      "Attack_15": "Zanshin Herb Case",
+      "Attack_16": "Marcato Desire",
+      "Stun_1": "Ice-Jade Teapot",
+      "Stun_2": "Hellfire Gears",
+      "Stun_3": "The Restrained",
+      "Stun_4": "Steam Oven",
+      "Stun_5": "Precious Fossilized Core",
+      "Stun_6": "Demara Battery Mark II",
+      "Stun_7": "Six Shooter",
+      "Stun_8": "[Vortex] Revolver",
+      "Stun_9": "[Vortex] Arrow",
+      "Stun_10": "[Vortex] Hatchet",
+      "Stun_11": "Blazing Laurel",
+      "Anomaly_1": "Fusion Compiler",
+      "Anomaly_2": "Rainforest Gourmet",
+      "Anomaly_3": "Weeping Gemini",
+      "Anomaly_4": "Electro-Lip Gloss",
+      "Anomaly_5": "Roaring Ride",
+      "Anomaly_6": "[Magnetic Storm] Alpha",
+      "Anomaly_7": "[Magnetic Storm] Bravo",
+      "Anomaly_8": "[Magnetic Storm] Charlie",
+      "Anomaly_9": "Sharpened Stinger",
+      "Anomaly_10": "Hailstorm Shrine",
+      "Anomaly_11": "Timeweaver",
+      "Anomaly_12": "Flamemaker Shaker",
+      "Support_1": "Weeping Cradle",
+      "Support_2": "Slice of Time",
+      "Support_3": "The Vault",
+      "Support_4": "Bashful Demon",
+      "Support_5": "Kaboom the Cannon",
+      "Support_6": "Unfettered Game Ball",
+      "Support_7": "[Reverb] Mark I",
+      "Support_8": "[Reverb] Mark II",
+      "Support_9": "[Reverb] Mark III",
+      "Defense_1": "Big Cylinder",
+      "Defense_2": "Original Transmorpher",
+      "Defense_3": "Bunny Band",
+      "Defense_4": "Spring Embrace",
+      "Defense_5": "[Identity] Base",
+      "Defense_6": "[Identity] Inflection",
+      "Defense_7": "Tusks of Fury",
+      "Defense_8": "Peacekeeper - Specialized"
+    }
+  },
+  "agent": "Agent",
+  "statusBonus": {
+    "attack": "Attack",
+    "attackRate": "Attack%",
+    "battleAttackRate": "Battle Attack%",
+    "critRate": "Crit Rate",
+    "critDamage": "Crit DMG",
+    "penRate": "PEN Ratio",
+    "damageBuff": "DMG%"
+  },
+  "components": {
+    "AdditionalStatusPanel": {
+      "skillDamageRate": "Skill DMG Multiplier",
+      "damageRate": "DMG Multiplier",
+      "battleBuff": "In-battle Buff",
+      "help": {
+        "title": "In-battle Buff",
+        "0": "Configure the effects of buffs during battle.",
+        "1": "Please enter effects from Agent skills or Core Skills, Engine effects, 4-set Disk effects, and additional abilities here.",
+        "2": "Currently, Attribute DMG buffs are calculated together with DMG%. Please add any Attribute DMG buffs to DMG% as well.",
+        "3": "The information entered here is not directly reflected in the status panel; instead, it is applied to the base damage value."
+      }
+    },
+    "AgentStatusPanel": {
+      "level": "Level",
+      "coreSkill": "Core Skill Enhancement",
+      "help": {
+        "0": "Configure the Agent’s status.",
+        "1": "The level-based Agent status and Core Skill stat bonus are automatically reflected in the status.",
+        "2": "The Agent’s status is based on values before the level limit break.",
+        "3": "Core Skill effects are not reflected here. Please apply them manually as in-battle buffs."
+      }
+    },
+    "DamageBasePanel": {
+      "title": "Base Damage",
+      "battleAttack": "Battle Attack",
+      "critCoefficient": "Crit Multiplier",
+      "damageCoefficient": "DMG Multiplier",
+      "defenseCoefficient": "DEF Multiplier",
+      "stunCoefficient": "Stun Bonus",
+      "elementCoefficient": "Attribute Multiplier",
+      "skillDamageRate": "Skill DMG Multiplier",
+      "damageExpected": "Expected Damage",
+      "normalDamage": "Normal DMG",
+      "critDamage": "Crit DMG",
+      "help1": {
+        "title": "Base Damage",
+        "0": "Displays the final value used in the damage calculation formula.",
+        "1": "If you want to enable the Stun bonus, please check 'Trigger Stun State' in the enemy status settings.",
+        "2": "Damage is calculated using the following formula:",
+        "3": "Damage = Attack * Crit Multiplier * DMG Multiplier * Skill DMG Multiplier * DEF Multiplier * Break Debuff Ratio * Attribute Multiplier",
+        "4": "Crit Multiplier = 100 + (Crit DMG * Crit Rate)",
+        "5": "Attribute Multiplier = 100 + Attribute RES Adjustment + Attribute RES Down",
+        "6": "For Weakness, the Attribute RES Adjustment is +20%. For RES, it is −20%."
+      },
+      "help2": {
+        "0": "Based on the Base Damage, the expected damage is calculated.",
+        "1": "Since the damage is based on presumed specifications and may involve rounding errors, it can differ from the actual in-game damage.",
+        "2": "From our tests, the margin of error is within ±5%. If you find any major discrepancies, please let us know.",
+        "3": "Expected damage is calculated using the Crit Multiplier.",
+        "4": "The values shown at the bottom are the actual Normal DMG and Crit DMG respectively."
+      }
+    },
+    "DiskStatusPanel": {
+      "title": "Disk",
+      "partition": "Partition",
+      "diskSet": "Set Effect",
+      "subStatusUp": "Number of Sub-Stat Upgrades",
+      "diskSetSelect": {
+        "none": "None",
+        "WoodpeckerElectro": "Woodpecker Electro x 2",
+        "HormonePunk": "Hormone Punk x 2",
+        "PufferElectro": "Puffer Electro x 2",
+        "FangedMetal": "Fanged Metal x 2",
+        "InfernoMetal": "Inferno Metal x 2",
+        "ThunderMetal": "Thunder Metal x 2",
+        "ChaoticMetal": "Chaotic Metal x 2",
+        "PolarMetal": "Polar Metal x 2",
+        "FreedomBlues": "Freedom Blues x 2",
+        "SwingJazz": "Swing Jazz x 2",
+        "ShockstarDisco": "Shockstar Disco x 2",
+        "SoulRock": "Soul Rock x 2",
+        "ProtoPunk": "Proto Punk x 2",
+        "ChaosJazz": "Chaos Jazz x 2",
+        "AstralVoice": "Astral Voice x 2",
+        "BranchAndBladeSong": "Branch and Blade Song x 2"
+      },
+      "status": {
+        "attack": "Attack",
+        "attackRate": "Attack%",
+        "defense": "Defense",
+        "critRate": "Crit Rate",
+        "critDamage": "Crit DMG",
+        "critDamage/short": "Crit DMG",
+        "damageBuff": "Attribute DMG",
+        "pen": "PEN",
+        "penRate": "PEN Ratio",
+        "none": "Other"
+      },
+      "help1": {
+        "title": "Disk (Partition)",
+        "0": "Configure each partition of the Disk.",
+        "1": "Disk stats according to rank are automatically reflected in the status.",
+        "2": "The level refers to the stats at max level.",
+        "3": "If you want to activate a 4-set effect, please equip x2 twice.",
+        "4": "The following effects are not activated automatically, so please apply them manually:",
+        "4.1": "The “Tenrai” effect of Astral Voice in its 4-set effect"
+      },
+      "help2": {
+        "title": "Disk (Set Effect)",
+        "0": "Configure the Disk set effects here.",
+        "1": "Set effects are automatically reflected in the status.",
+        "2": "4-set effects are automatically reflected as in-battle buffs."
+      },
+      "help3": {
+        "title": "Disk (Number of Sub-Stat Upgrades)",
+        "0": "You can specify how many times the sub-stats on the Disk have been increased.",
+        "1": "The increase is automatically reflected in the status."
+      }
+    },
+    "EngineStatusPanel": {
+      "title": "Engine",
+      "level": "Level",
+      "help": {
+        "title": "Engine",
+        "0": "Configure the Engine.",
+        "1": "Engine stats and advanced stats based on its level are automatically reflected in the status.",
+        "2.1": "The advanced stats bonus is the stat before the limit break.",
+        "2.2": "Due to insufficient data, some stats for A-rank and B-rank Engines below level 50 may not be accurate.",
+        "3": "The Engine’s effects are not reflected. Please apply them manually in the in-battle buffs."
+      }
+    },
+    "EnemyStatusPanel": {
+      "title": "Enemy Settings",
+      "level": "Level",
+      "defense": "Base Defense",
+      "defenseDown": "DEF Down%",
+      "registance": "Attribute RES",
+      "registanceType.weekness": "Weakness",
+      "registanceType.normal": "Normal",
+      "registanceType.resitance": "RES",
+      "registanceDown": "RES Down%",
+      "registanceDown.stun": "Trigger Stun State",
+      "stunBonus": "Stun Bonus",
+      "help": {
+        "title": "Enemy Settings",
+        "0": "You can configure the enemy’s status here.",
+        "1": "Defense factor, attribute factor, and stun bonus are automatically reflected in the base damage value.",
+        "2": "Configure Attribute RES Down caused by Lycaon and DEF Down caused by Nicole here.",
+        "3": "For Rina’s PEN Ratio debuff and similar effects, please manually reflect them in the in-battle buffs.",
+        "4.1": "Base Defense represents the enemy’s defense at level 1. The enemy’s defense is automatically calculated based on this value.",
+        "4.2": "As of Ver1.1, there are discussions that bosses might uniformly have a Base Defense of 60, but since this may change depending on game settings, consider it just a reference. If you are unsure, setting it to 60 is a good choice.",
+        "5": "The defense factor is calculated using the following formula:",
+        "6": "Defense Factor = Agent Level Factor / (Agent Level Factor + Effective Defense)",
+        "7": "Effective Defense = [Defense * (1 - DEF Down) * (1 - PEN Ratio)] - PEN",
+        "8": "Defense = Enemy Level Factor * Base Defense / 50",
+        "9": "Effective Defense ≥ 0"
+      }
+    },
+    "StatusPanel": {
+      "title": "Status",
+      "attack": "Attack",
+      "critRate": "Crit Rate",
+      "critDamage": "Crit DMG",
+      "penRate": "PEN Ratio",
+      "pen": "PEN",
+      "damageBuff": "Attribute DMG",
+      "help": {
+        "title": "Status",
+        "0": "Displays the final status of the Agent.",
+        "1": "The status changes based on the Agent, Engine, and Disk settings.",
+        "2.1": "It is the same as what is shown on the status screen in the formation screen.",
+        "2.2": "However, attribute damage buffs are calculated together with DMG% buffs.",
+        "3": "In-battle buffs are not directly reflected in the status, but are applied to the base damage value."
+      }
+    },
+    "LoadButton": {
+      "title": "Load Data",
+      "loadSuccess": "Data has been loaded."
+    },
+    "SaveButton": {
+      "title": "Save Data",
+      "saveSuccess": "Data has been loaded.",
+      "description": "Please enter the name of the data you want to save."
+    },
+    "About": {
+      "title": "About This Tool",
+      "0": "Introduction",
+      "1": "This site is an unofficial damage calculator for “Zenless Zone Zero.”",
+      "2": "Damage calculations are based on presumed specifications as of Version 1.1 and may include numerical errors.",
+      "3": "Therefore, please note that the values in this data are not guaranteed.",
+      "4": "Also, this site takes no responsibility for any damages incurred by using this data.",
+      "5": "Disclaimer",
+      "6": "Images used on this site include those quoted from HoYoLAB.",
+      "7": "All rights to these images and to “Zenless Zone Zero” belong to HoYoverse.",
+      "8": "In addition, this site is unofficial and is not affiliated with HoYoverse in any way.",
+      "9": "Feedback, Requests, and Bug Reports",
+      "10": "If you have any feedback, requests, or bug reports, please use",
+      "11": "this",
+      "12": "Google Form or reach out on HoYoLAB.",
+      "13": "This site is open source.",
+      "14": "If you would like to contribute to the development, please access",
+      "15": "here",
+      "16": "."
+    },
+    "UpdateInfo": {
+      "title": "Update Information",
+      "2025/01/11": {
+        "0": "English support has been added as part of multilingual support.",
+        "1": "The translation is provided by AI, so it may not be completely accurate.",
+        "2": "If you find any mistakes, please let us know."
+      }
+    }
+  }
+}
