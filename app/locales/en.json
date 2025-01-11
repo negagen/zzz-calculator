@@ -270,12 +270,7 @@
     "SaveButton": {
       "title": "Save Data",
       "saveSuccess": "Data has been loaded.",
-      "description": "Please enter the name of the data you want to save.",
-      "help": {
-        "title": "Save Data(Beta)",
-        "description": "Save Data(Beta)",
-        "0": ""
-      }
+      "description": "Please enter the name of the data you want to save."
     },
     "Calculator": {
       "help1": {
