@@ -91,7 +91,7 @@
   "statusBonus": {
     "attack": "Attack",
     "attackRate": "Attack%",
-    "battleAttackRate": "Attack%",
+    "battleAttackRate": "Battle ATK %",
     "critRate": "Crit Rate",
     "critDamage": "Crit DMG",
     "penRate": "PEN Ratio",
