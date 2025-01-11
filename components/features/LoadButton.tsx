@@ -10,6 +10,7 @@ import {
   calculateStatusDetail,
 } from "@/core";
 import { agents, engines } from "@/data";
+import { useTranslation } from "react-i18next";
 
 interface LoadButtonProps {
   onLoad: (saveData: SaveData) => void;
@@ -45,6 +46,7 @@ interface SaveDataModalProps {
 const SaveDataModal = ({ open, onClose, onLoad }: SaveDataModalProps) => {
   const [messageApi, contextHolder] = message.useMessage();
   const [saveDataList, setSaveDataList] = useState<SaveData[]>([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setSaveDataList(loadStorage());
@@ -78,7 +80,7 @@ const SaveDataModal = ({ open, onClose, onLoad }: SaveDataModalProps) => {
       onLoad: () => {
         onLoad(loadSaveData);
 
-        messageApi.success("データを読み込みました");
+        messageApi.success(t("components.LoadButton.loadSuccess"));
 
         onClose();
       },
@@ -94,7 +96,7 @@ const SaveDataModal = ({ open, onClose, onLoad }: SaveDataModalProps) => {
 
   return (
     <Modal
-      title="データ保存"
+      title={t("components.LoadButton.title")}
       open={open}
       width="1260px"
       onOk={onClose}

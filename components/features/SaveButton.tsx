@@ -11,6 +11,7 @@ import {
 } from "@/types";
 import { Button, Modal, message, Input } from "antd";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface SaveButtonProps {
   agentConfig: AgentConfig;
@@ -68,6 +69,7 @@ const SaveModal = ({
   enemyStatus,
   battleStatus,
 }: SaveButtonProps & { onClose: () => void; open: boolean }) => {
+  const { t } = useTranslation();
   const [messageApi, contextHolder] = message.useMessage();
 
   const [saveConfig, setSaveConfig] = useState<SaveConfig>({
@@ -80,7 +82,7 @@ const SaveModal = ({
   });
 
   const onOk = () => {
-    messageApi.success("データを保存しました");
+    messageApi.success(t("components.SaveButton.saveSuccess"));
     const saveData: SaveData = {
       name: saveConfig.name,
       data: {
@@ -109,7 +111,7 @@ const SaveModal = ({
 
   return (
     <Modal
-      title="データ保存"
+      title={t("components.SaveButton.title")}
       open={open}
       width="960px"
       okButtonProps={{ disabled: saveConfig.name === "" }}
@@ -120,7 +122,7 @@ const SaveModal = ({
     >
       {contextHolder}
 
-      <p>保存するデータ名を入力してください</p>
+      <p>{t("components.SaveButton.description")}</p>
       <Input
         type="text"
         value={saveConfig.name}

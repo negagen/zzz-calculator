@@ -1,17 +1,29 @@
 import { List } from "antd";
 import { HelpButton } from "@/components/features";
+import { useTranslation } from "react-i18next";
 
 export const UpdateInfo = () => {
   const renderItem = (item: string) => <List.Item>{item}</List.Item>;
+  const { t } = useTranslation();
 
   return (
     <HelpButton
-      title="更新情報"
-      description="更新情報: 2025/01/09"
-      className="w-full h-full"
+      title={t("components.UpdateInfo.title")}
+      description={`${t("components.UpdateInfo.title")}: 2025/01/11`}
+      className="w-full h-svh"
       content={
         <div className="flex flex-col gap-1.5">
           <div>
+            <List
+              size="small"
+              header={<div>2025/01/11</div>}
+              dataSource={[
+                t("components.UpdateInfo.2025/01/11.0"),
+                t("components.UpdateInfo.2025/01/11.1"),
+                t("components.UpdateInfo.2025/01/11.2"),
+              ]}
+              renderItem={renderItem}
+            />
             <List
               size="small"
               header={<div>2025/01/09</div>}

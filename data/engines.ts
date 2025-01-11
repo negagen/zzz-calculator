@@ -394,7 +394,7 @@ export const engines: Engine[] = [
     statusType: "impact",
   },
   {
-    id: "Defense_7",
+    id: "Defense_8",
     name: "秩序の守り手・特化型",
     rank: "A",
     speciality: "Defense",

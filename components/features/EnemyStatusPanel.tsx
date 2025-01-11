@@ -2,6 +2,7 @@ import { Input, Select, Checkbox } from "antd";
 import { EnemyStatus } from "@/types";
 import { StatusInput } from "./StatusInput";
 import { HelpButton } from "./HelpButton";
+import { useTranslation } from "react-i18next";
 
 export const EnemyStatusPanel = ({
   enemyStatus,
@@ -10,50 +11,43 @@ export const EnemyStatusPanel = ({
   enemyStatus: EnemyStatus;
   onChange: (enemyStatus: EnemyStatus) => void;
 }) => {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4 max-md:w-full">
       <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative">
-        エネミー
+        {t("components.EnemyStatusPanel.title")}
         <div className="absolute right-2 top-0 h-full flex items-center">
           <HelpButton
-            title="エネミー設定"
+            title={t("components.EnemyStatusPanel.help.title")}
             content={
               <div className="flex flex-col gap-1.5 text-wrap">
-                <p>エネミーのステータスを設定できます。</p>
-                <p>
-                  防御係数や属性係数、ブレイク弱体倍率は自動的にダメージ基礎値へと反映されます。
-                </p>
-                <p>
-                  ライカンによる属性耐性ダウンや、ニコによる防御ダウンはここに設定してください。
-                </p>
-                <p>
-                  リナの貫通率デバフなどは戦闘中バフへ手動で反映してください。
-                </p>
+                <p>{t("components.EnemyStatusPanel.help.0")}</p>
+                <p>{t("components.EnemyStatusPanel.help.1")}</p>
+                <p>{t("components.EnemyStatusPanel.help.2")}</p>
+                <p>{t("components.EnemyStatusPanel.help.3")}</p>
                 <br />
                 <p>
-                  基礎防御力はエネミーのレベルが1の時の防御力を指定します。基礎防御力からエネミーの防御力が自動的に計算されます。
+                  {t("components.EnemyStatusPanel.help.4.1")}
                   <br />
-                  Ver1.1現在、ボスの場合は一律で60という話もありますが、ここはゲーム側の設定によって変更される値なので参考程度にしてください。よくわからなければ60を指定するのがいいでしょう。
+                  {t("components.EnemyStatusPanel.help.4.2")}
                 </p>
                 <br />
-                <p>防御係数は以下の式で計算しています。</p>
+                <p>{t("components.EnemyStatusPanel.help.5")}</p>
                 <p>
                   <pre className="bg-gray-700 text-white p-2 text-wrap">
-                    防御係数 = エージェントレベル係数 / ( エージェントレベル係数
-                    + 有効防御力 )
+                    {t("components.EnemyStatusPanel.help.6")}
                   </pre>
 
                   <pre className="bg-gray-700 text-white p-2 text-wrap">
-                    有効防御力 = [ 防御力 × ( 1 - 防御デバフ ) × ( 1 - 貫通率 )
-                    ] - 貫通値
+                    {t("components.EnemyStatusPanel.help.7")}
                   </pre>
 
                   <pre className="bg-gray-700 text-white p-2 text-wrap">
-                    防御力 = エネミーレベル係数 * 基礎防御力 / 50
+                    {t("components.EnemyStatusPanel.help.8")}
                   </pre>
 
                   <pre className="bg-gray-700 text-white p-2 text-wrap">
-                    有効防御力 ≧ 0
+                    {t("components.EnemyStatusPanel.help.9")}
                   </pre>
                 </p>
               </div>
@@ -64,7 +58,9 @@ export const EnemyStatusPanel = ({
 
       <div className="flex flex-col items-center gap-2 w-full">
         <div className="flex flex-row items-center w-full gap-1">
-          <div className="w-38 max-md:w-48">レベル</div>
+          <div className="w-38 max-md:w-48">
+            {t("components.EnemyStatusPanel.level")}
+          </div>
           <Select
             className="w-20 grow mr-5 ml-1"
             value={enemyStatus.level}
@@ -86,7 +82,9 @@ export const EnemyStatusPanel = ({
         </div>
 
         <div className="flex flex-row items-center w-full gap-1">
-          <div className="w-38 max-md:w-48">基礎防御力</div>
+          <div className="w-38 max-md:w-48">
+            {t("components.EnemyStatusPanel.defense")}
+          </div>
           <Select
             className="w-20 grow mr-5 ml-1"
             value={enemyStatus.defense}
@@ -118,21 +116,34 @@ export const EnemyStatusPanel = ({
         </div>
 
         <StatusInput
-          title="防御ダウン%"
+          title={t("components.EnemyStatusPanel.defenseDown")}
           value={enemyStatus.defenseDown}
           unit="%"
           onChange={(value) => onChange({ ...enemyStatus, defenseDown: value })}
         />
 
         <div className="flex flex-row items-center w-full gap-1">
-          <div className="w-38 max-md:w-48">属性耐性</div>
+          <div className="w-38 max-md:w-48">
+            {t("components.EnemyStatusPanel.registance")}
+          </div>
           <Select
             className="w-20 grow mr-5 ml-1"
             defaultValue={enemyStatus.damageRes}
             options={[
-              { value: -20, label: "弱点" },
-              { value: 0, label: "普通" },
-              { value: 20, label: "耐性" },
+              {
+                value: -20,
+                label: t("components.EnemyStatusPanel.registanceType.weekness"),
+              },
+              {
+                value: 0,
+                label: t("components.EnemyStatusPanel.registanceType.normal"),
+              },
+              {
+                value: 20,
+                label: t(
+                  "components.EnemyStatusPanel.registanceType.resitance"
+                ),
+              },
             ]}
             onChange={(value) => {
               onChange({ ...enemyStatus, damageRes: value });
@@ -141,7 +152,7 @@ export const EnemyStatusPanel = ({
         </div>
 
         <StatusInput
-          title="耐性ダウン%"
+          title={t("components.EnemyStatusPanel.registanceDown")}
           value={enemyStatus.registanceDown}
           unit="%"
           onChange={(value) =>
@@ -160,16 +171,20 @@ export const EnemyStatusPanel = ({
                 });
               }}
             >
-              <p className="text-white">ブレイク状態にする</p>
+              <p className="text-white">
+                {t("components.EnemyStatusPanel.registanceDown.stun")}
+              </p>
             </Checkbox>
           </div>
         </div>
 
         <div className="flex flex-row items-center w-full gap-1">
-          <div className="w-38 max-md:w-48">ブレイク弱体倍率</div>
+          <div className="w-38 max-md:w-48">
+            {t("components.EnemyStatusPanel.stunBonus")}
+          </div>
           <Input
             className="w-20 grow ml-1"
-            placeholder="ブレイク弱体倍率"
+            placeholder={t("components.EnemyStatusPanel.stunBonus")}
             type="number"
             value={enemyStatus.stunDamageMultiplier}
             disabled={!enemyStatus.isStun}

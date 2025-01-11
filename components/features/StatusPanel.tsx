@@ -1,6 +1,7 @@
 import { StatusDetail } from "@/types";
 import { calculateStatus } from "@/core";
 import { HelpButton } from "./HelpButton";
+import { useTranslation } from "react-i18next";
 
 export const StatusPanel = ({
   baseStatus: detail,
@@ -9,28 +10,27 @@ export const StatusPanel = ({
 }) => {
   const baseStatus = detail.base;
   const status = calculateStatus(baseStatus);
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col items-center w-84 bg-yellow-700 rounded-md p-4 text-slate-300 max-md:w-full">
       <div className="mb-4 w-full bg-yellow-950 text-center rounded-md p-2 relative">
-        ステータス
+        {t("components.StatusPanel.title")}
         <div className="absolute right-2 top-0 h-full flex items-center">
           <HelpButton
-            title="ステータス"
+            title={t("components.StatusPanel.help.title")}
             content={
               <div className="flex flex-col gap-1.5">
-                <p>最終的なエージェントのステータスを表示しています。</p>
-                <p>
-                  ステータスはエージェント、音動機、ディスクの設定によって変化します。
-                </p>
+                <p>{t("components.StatusPanel.help.0")}</p>
+                <p>{t("components.StatusPanel.help.1")}</p>
                 <br />
                 <p>
-                  編成画面のステータス画面で表示されるものと同じです。
-                  ただし、属性ダメージバフは与ダメージバフと合算して計算しています。
+                  {t("components.StatusPanel.help.2.1")}
+                  {t("components.StatusPanel.help.2.2")}
                 </p>
                 <br />
                 <p className="font-bold">
-                  戦闘中バフはステータスには直接反映されず、ダメージ基礎値に反映されます。
+                  {t("components.StatusPanel.help.3")}
                 </p>
               </div>
             }
@@ -40,7 +40,7 @@ export const StatusPanel = ({
 
       <div className="flex flex-col gap-1.5 bg-yellow-950 rounded-md p-4 w-full h-full">
         <div className="flex flex-row">
-          <div className="w-28">攻撃力</div>
+          <div className="w-28">{t("components.StatusPanel.attack")}</div>
 
           <div className="flex flex-col">
             <div>
@@ -50,7 +50,7 @@ export const StatusPanel = ({
         </div>
 
         <div className="flex flex-row">
-          <div className="w-28">会心率</div>
+          <div className="w-28">{t("components.StatusPanel.critRate")}</div>
 
           <div className="flex flex-col">
             <div>{status.critRate}%</div>
@@ -58,7 +58,7 @@ export const StatusPanel = ({
         </div>
 
         <div className="flex flex-row">
-          <div className="w-28">会心ダメージ</div>
+          <div className="w-28">{t("components.StatusPanel.critDamage")}</div>
 
           <div className="flex flex-col">
             <div>{status.critDamage}%</div>
@@ -66,7 +66,7 @@ export const StatusPanel = ({
         </div>
 
         <div className="flex flex-row">
-          <div className="w-28">貫通率</div>
+          <div className="w-28">{t("components.StatusPanel.penRate")}</div>
 
           <div className="flex flex-col">
             <div>{status.penRate}%</div>
@@ -74,7 +74,7 @@ export const StatusPanel = ({
         </div>
 
         <div className="flex flex-row">
-          <div className="w-28">貫通値</div>
+          <div className="w-28">{t("components.StatusPanel.pen")}</div>
 
           <div className="flex flex-col">
             <div>{status.pen}</div>
@@ -82,7 +82,7 @@ export const StatusPanel = ({
         </div>
 
         <div className="flex flex-row">
-          <div className="w-28">属性ダメージ</div>
+          <div className="w-28">{t("components.StatusPanel.damageBuff")}</div>
 
           <div className="flex flex-col">
             <div>{status.damageBuff}%</div>

@@ -1,6 +1,7 @@
 import { Select } from "antd";
 import { Engine, EngineLevel } from "@/types";
 import { HelpButton } from "./HelpButton";
+import { useTranslation } from "react-i18next";
 
 export const EngineStatusPanel = ({
   engine,
@@ -13,26 +14,26 @@ export const EngineStatusPanel = ({
   level: EngineLevel;
   onChange: (engine: Engine, level: EngineLevel) => void;
 }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4 h-full max-md:w-full">
       <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative">
-        音動機
+        {t("components.EngineStatusPanel.title")}
         <div className="absolute right-2 top-0 h-full flex items-center">
           <HelpButton
-            title="音動機"
+            title={t("components.EngineStatusPanel.help.title")}
             content={
               <div className="flex flex-col gap-1.5">
-                <p>音動機を設定します。</p>
+                <p>{t("components.EngineStatusPanel.help.0")}</p>
+                <p>{t("components.EngineStatusPanel.help.1")}</p>
                 <p>
-                  レベルに応じた音動機のステータス、および上級ステータスは自動的にステータスへ反映されます。
-                </p>
-                <p>
-                  上級ステータスのボーナスは上限突破前のステータスです。
+                  {t("components.EngineStatusPanel.help.2.1")}
                   <br />
-                  また、情報が足りずAランクおよびBランクのレベル50以下のステータスに関しては正確ではないものが含まれています。
+                  {t("components.EngineStatusPanel.help.2.2")}
                 </p>
                 <p className="font-bold">
-                  音動機の効果は反映されません。戦闘中バフへ手動で反映してください。
+                  {t("components.EngineStatusPanel.help.3")}
                 </p>
               </div>
             }
@@ -48,7 +49,8 @@ export const EngineStatusPanel = ({
               value={engines.indexOf(engine)}
               options={engines.map((engine, i) => ({
                 value: i,
-                label: engine.name,
+                // @ts-expect-error
+                label: t(`data.engine.${engine.id}`),
               }))}
               onChange={(e) => {
                 onChange(engines[e as number], level);
@@ -58,7 +60,7 @@ export const EngineStatusPanel = ({
         </div>
 
         <div className="flex flex-row items-center w-full gap-2">
-          <div className="w-36">レベル</div>
+          <div className="w-36">{t("components.EngineStatusPanel.level")}</div>
           <div className="grow">
             <Select
               className="w-32 max-md:w-full"
