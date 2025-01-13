@@ -31,7 +31,7 @@ export const AgentStatusPanel = ({
   };
 
   return (
-    <div className="flex flex-col items-center bg-gray-700 rounded-md p-4 max-md:w-full lg:w-72">
+    <div className="flex flex-col items-center bg-gray-700 rounded-md p-4 max-lg:w-full lg:w-72">
       <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative">
         {t("agent")}
         <div className="absolute right-2 top-0 h-full flex items-center">

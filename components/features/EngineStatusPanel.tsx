@@ -17,7 +17,7 @@ export const EngineStatusPanel = ({
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4 h-full max-md:w-full">
+    <div className="flex flex-col items-center w-72 bg-gray-700 rounded-md p-4 h-full max-lg:w-full">
       <div className="mb-4 w-full bg-gray-900 text-center rounded-md p-2 relative">
         {t("components.EngineStatusPanel.title")}
         <div className="absolute right-2 top-0 h-full flex items-center">

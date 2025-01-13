@@ -28,7 +28,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
           style={{ minHeight: "60vh" }}
         ></div>
 
-        <main className="flex flex-col p-4 border border-3 border-gray-600 rounded-lg z-10 opacity-95 mt-2 max-md:w-full">
+        <main className="flex flex-col p-4 border border-3 border-gray-600 rounded-lg z-10 opacity-95 mt-2 max-lg:w-full">
           {children}
         </main>
 

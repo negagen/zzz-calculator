@@ -46,8 +46,8 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
           </div>
         </div>
 
-        <div className="flex lg:flex-row max-md:flex-col items-center justify-center gap-2 w-full">
-          <div className="grid max-md:grid-cols-2 lg:grid-cols-3 gap-2 items-center bg-yellow-700 rounded-md text-slate-200 w-full">
+        <div className="flex flex-row max-lg:flex-col items-center justify-center gap-2 w-full">
+          <div className="grid max-lg:grid-cols-2 lg:grid-cols-3 gap-2 items-center bg-yellow-700 rounded-md text-slate-200 w-full">
             <CalculatorCard
               text={t("components.DamageBasePanel.battleAttack")}
               value={damageBase.attack}
@@ -74,7 +74,7 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
             />
           </div>
 
-          <div className="flex flex-col w-56 items-center justify-center bg-yellow-950 rounded-md text-slate-200 max-md:w-full max-md:py-4 h-full">
+          <div className="flex flex-col w-56 items-center justify-center bg-yellow-950 rounded-md text-slate-200 max-lg:w-full max-lg:py-4 h-full">
             <div className="font-bold">
               {t("components.DamageBasePanel.skillDamageRate")}
             </div>

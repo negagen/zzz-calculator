@@ -13,7 +13,7 @@ export const StatusPanel = ({
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col items-center w-84 bg-yellow-700 rounded-md p-4 text-slate-300 max-md:w-full">
+    <div className="flex flex-col items-center w-84 bg-yellow-700 rounded-md p-4 text-slate-300 max-lg:w-full">
       <div className="mb-4 w-full bg-yellow-950 text-center rounded-md p-2 relative">
         {t("components.StatusPanel.title")}
         <div className="absolute right-2 top-0 h-full flex items-center">
