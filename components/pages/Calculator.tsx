@@ -69,7 +69,7 @@ export const Calculator = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col gap-2.5 max-md:w-full">
+    <div className="flex flex-col gap-2.5 max-lg:w-full">
       <div className="flex flex-row justify-end w-full gap-2">
         <HelpButton
           title={t("components.Calculator.help1.title")}
@@ -127,8 +127,8 @@ export const Calculator = () => {
           }}
         />
       </div>
-      <div className="flex gap-2.5 lg:flex-row max-md:flex-col max-md:w-full">
-        <div className="flex flex-col items-center rounded-md gap-2 lg:w-72 max-md:w-full">
+      <div className="flex gap-2.5 flex-wrap max-lg:flex-col max-lg:w-full">
+        <div className="flex flex-col items-center rounded-md gap-2 lg:w-72 max-lg:w-full">
           <AgentStatusPanel
             agent={agentConfig.agent}
             level={agentConfig.level}
@@ -158,18 +158,19 @@ export const Calculator = () => {
           />
         </div>
         <DiskStatusPanel diskStatus={diskConfig} onChange={setDiskConfig} />
-        <EnemyStatusPanel enemyStatus={enemyStatus} onChange={setEnemyStatus} />
 
         <AdditionalStatusPanel
-          status={baseStatus}
+          baseStatus={baseStatus}
+          enemyStatus={enemyStatus}
+          setBattleStatus={setBattleStatus}
+          setEnemyStatus={setEnemyStatus}
           battleStatus={battleStatus}
-          onChange={setBattleStatus}
         />
       </div>
 
       <div className="h-0.5 w-full bg-gray-600"></div>
 
-      <div className="flex lg:flex-row max-md:flex-col gap-2.5">
+      <div className="flex flex-row max-lg:flex-col gap-2.5">
         <StatusPanel baseStatus={baseStatus} />
         <DamageBasePanel damageBase={damageBase} />
       </div>

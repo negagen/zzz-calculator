@@ -87,6 +87,21 @@
       "Defense_8": "Peacekeeper - Specialized"
     }
   },
+  "attribute": {
+    "Physical": "Physical",
+    "Fire": "Fire",
+    "Ice": "Ice",
+    "Electric": "Electric",
+    "Ether": "Ether",
+    "Frost": "Frost"
+  },
+  "speciality": {
+    "Attack": "Attack",
+    "Stun": "Stun",
+    "Anomaly": "Anomaly",
+    "Support": "Support",
+    "Defense": "Defense"
+  },
   "agent": "Agent",
   "statusBonus": {
     "attack": "Attack",
@@ -111,8 +126,9 @@
       }
     },
     "AgentStatusPanel": {
-      "level": "Level",
+      "level": "Lv",
       "coreSkill": "Core Skill",
+      "selectAgent": "Select Agent",
       "help": {
         "0": "Configure the Agent’s status.",
         "1": "The level-based Agent status and Core Skill stat bonus are automatically reflected in the status.",
@@ -304,6 +320,12 @@
     },
     "UpdateInfo": {
       "title": "Update Information",
+      "2025/01/14": {
+        "2025/01/14": {
+          "0": "You can now select Agents by using images.",
+          "1": "The layout has been changed to fix an issue where the display might not work properly on certain screen sizes."
+        }
+      },
       "2025/01/11": {
         "0": "English support has been added as part of multilingual support.",
         "1": "The translation is provided by AI, so it may not be completely accurate.",
