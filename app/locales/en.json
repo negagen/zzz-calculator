@@ -320,6 +320,12 @@
     },
     "UpdateInfo": {
       "title": "Update Information",
+      "2025/01/14": {
+        "2025/01/14": {
+          "0": "You can now select Agents by using images.",
+          "1": "The layout has been changed to fix an issue where the display might not work properly on certain screen sizes."
+        }
+      },
       "2025/01/11": {
         "0": "English support has been added as part of multilingual support.",
         "1": "The translation is provided by AI, so it may not be completely accurate.",

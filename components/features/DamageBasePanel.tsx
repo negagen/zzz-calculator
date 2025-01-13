@@ -83,7 +83,7 @@ export const DamageBasePanel = ({ damageBase }: CalculatorProps) => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center bg-green-700 grow rounded-md p-4">
+      <div className="flex flex-col items-center w-72 max-lg:w-full bg-green-700 grow rounded-md p-4">
         <div className="mb-2.5 w-full bg-green-950 text-center rounded-md p-2 relative">
           <div className="flex flex-col h-32 items-center justify-center rounded-lg shadow-md w-full text-lg">
             <div className="font-bold">
