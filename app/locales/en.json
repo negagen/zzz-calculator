@@ -126,7 +126,7 @@
       }
     },
     "AgentStatusPanel": {
-      "level": "Level",
+      "level": "Lv",
       "coreSkill": "Core Skill",
       "selectAgent": "Select Agent",
       "help": {
