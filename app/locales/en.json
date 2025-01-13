@@ -87,6 +87,21 @@
       "Defense_8": "Peacekeeper - Specialized"
     }
   },
+  "attribute": {
+    "Physical": "Physical",
+    "Fire": "Fire",
+    "Ice": "Ice",
+    "Electric": "Electric",
+    "Ether": "Ether",
+    "Frost": "Frost"
+  },
+  "speciality": {
+    "Attack": "Attack",
+    "Stun": "Stun",
+    "Anomaly": "Anomaly",
+    "Support": "Support",
+    "Defense": "Defense"
+  },
   "agent": "Agent",
   "statusBonus": {
     "attack": "Attack",
@@ -113,6 +128,7 @@
     "AgentStatusPanel": {
       "level": "Level",
       "coreSkill": "Core Skill",
+      "selectAgent": "Select Agent",
       "help": {
         "0": "Configure the Agent’s status.",
         "1": "The level-based Agent status and Core Skill stat bonus are automatically reflected in the status.",

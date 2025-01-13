@@ -2,11 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .scrollbar::-webkit-scrollbar {
+    @apply w-2 h-1 bg-transparent py-1.5;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    @apply text-gray-50 bg-gray-600;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply rounded bg-gray-800;
+  }
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
