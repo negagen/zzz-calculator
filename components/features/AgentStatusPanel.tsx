@@ -53,7 +53,7 @@ export const AgentStatusPanel = ({
 
       <div className="flex flex-col items-center gap-2 w-full">
         <div className="flex flex-row items-center w-full gap-2">
-          <div className="w-full h-[148px]">
+          <div className="w-full">
             <div className="flex flex-row gap-2 w-full h-full">
               <AgentSelectModal
                 agent={agent}
@@ -61,21 +61,23 @@ export const AgentStatusPanel = ({
                 onClose={() => setVisible(false)}
                 visible={visible}
               />
-              <div onClick={() => setVisible(true)}>
+              <div onClick={() => setVisible(true)} className="h-full">
                 <AgentImage agent={agent} />
               </div>
 
-              <div className="flex flex-col gap-2 grow">
-                <div className="w-full pl-0.5">
-                  {
-                    // @ts-ignore
-                    t(`data.agent.${agent.id}`)
-                  }
-                </div>
+              <div className="flex flex-col gap-2 grow justify-between">
+                <div className="flex flex-col gap-2">
+                  <div className="w-full pl-0.5 text-sm font-bold">
+                    {
+                      // @ts-ignore
+                      t(`data.agent.${agent.id}`)
+                    }
+                  </div>
 
-                <div className="flex flex-col gap-1">
-                  <AgentInfo agent={agent} />
-                  <AgentAttack agent={agent} level={level} />
+                  <div className="flex flex-col">
+                    <AgentInfo agent={agent} />
+                    <AgentAttack agent={agent} level={level} />
+                  </div>
                 </div>
 
                 <div className="flex flex-col gap-1">
@@ -106,11 +108,11 @@ const AgentImage = ({ agent }: { agent: Agent }) => {
   const rankImage =
     agent.rank === "S" ? `/images/agent_s.png` : `/images/agent_a.png`;
   return (
-    <div className="relative cursor-pointer aspect-[102/148] h-[148px] bg-gray-800 rounded-lg overflow-hidden">
+    <div className="relative cursor-pointer aspect-[102/148] h-[160px] bg-gray-800 rounded-lg overflow-hidden">
       <Image
         src={`/images/agents/${agent.id}.png`}
-        width={256}
-        height={250}
+        width={148}
+        height={148}
         alt="agent"
         className="object-cover h-full w-full"
       />
@@ -143,7 +145,7 @@ const AgentLevelSelect = ({
       </div>
       <div className="grow">
         <Select
-          className="w-full"
+          className="w-full h-6"
           value={level}
           options={[
             { value: 1, label: "1" },
@@ -180,7 +182,7 @@ const CoreSkillSelect = ({
       </div>
       <div className="grow">
         <Select
-          className="w-full"
+          className="w-full h-6"
           value={coreSkillLevel}
           options={[
             { value: 1, label: "None" },
@@ -200,11 +202,13 @@ const CoreSkillSelect = ({
 
 const AgentAttack = ({ agent, level }: { agent: Agent; level: AgentLevel }) => {
   return (
-    <div className="flex flex-row items-center gap-1 text-sm">
+    <div className="flex flex-row items-center text-xs items-center h-5">
       <div className="flex w-5 h-5 items-center justify-center">
         <Image src="/images/attack.png" alt="attack" width={14} height={14} />
       </div>
-      <div className="">{agent.attackTable[level]}</div>
+      <span className="inline-block align-middle">
+        {agent.attackTable[level]}
+      </span>
     </div>
   );
 };
@@ -212,8 +216,8 @@ const AgentAttack = ({ agent, level }: { agent: Agent; level: AgentLevel }) => {
 const AgentInfo = ({ agent }: { agent: Agent }) => {
   const { t } = useTranslation();
   return (
-    <div className="flex flex-row gap-2">
-      <div className="flex flex-row text-sm">
+    <div className="flex flex-row gap-2 text-xs h-5">
+      <div className="flex flex-row h-5 items-center jusity-center">
         <div className="flex w-5 h-5 items-center justify-center">
           <Image
             src={`/images/attribute_${agent.attribute.toLowerCase()}.png`}
@@ -222,14 +226,16 @@ const AgentInfo = ({ agent }: { agent: Agent }) => {
             alt="attribute"
           />
         </div>
-        <span>{t(`attribute.${agent.attribute}`)}</span>
+        <span className="align-middle inline-block">
+          {t(`attribute.${agent.attribute}`)}
+        </span>
       </div>
-      <div className="flex flex-row text-sm">
+      <div className="flex flex-row h-5 items-center jusity-center">
         <div className="flex w-5 h-5 items-center justify-center">
           <Image
             src="/images/speciality_attack.png"
-            width={22}
-            height={22}
+            width={20}
+            height={20}
             alt="attribute"
           />
         </div>
