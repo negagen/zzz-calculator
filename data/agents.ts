@@ -3,7 +3,6 @@ import { Agent, AgentLevel, CoreSkillLevel } from "@/types";
 export const agents: Agent[] = [
   {
     id: "Attack_1",
-    name: "猫宮又奈",
     attribute: "Physical",
     rank: "S",
     speciality: "Attack",
@@ -20,7 +19,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Attack_2",
-    name: "エレン・ジョー",
     attribute: "Ice",
     rank: "S",
     speciality: "Attack",
@@ -37,7 +35,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Attack_3",
-    name: "朱鳶",
     attribute: "Ether",
     rank: "S",
     speciality: "Attack",
@@ -54,7 +51,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Attack_4",
-    name: "11号",
     attribute: "Fire",
     rank: "S",
     speciality: "Attack",
@@ -71,7 +67,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Attack_8",
-    name: "浅羽悠真",
     attribute: "Electric",
     rank: "S",
     speciality: "Attack",
@@ -88,7 +83,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Attack_5",
-    name: "アンドー・イワノフ",
     attribute: "Electric",
     rank: "A",
     speciality: "Attack",
@@ -105,7 +99,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Attack_6",
-    name: "カリン・ウィクス",
     attribute: "Physical",
     rank: "A",
     speciality: "Attack",
@@ -122,7 +115,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Attack_7",
-    name: "ビリー・キッド",
     attribute: "Physical",
     rank: "A",
     speciality: "Attack",
@@ -139,7 +131,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Stun_1",
-    name: "青衣",
     attribute: "Electric",
     rank: "S",
     speciality: "Stun",
@@ -156,7 +147,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Stun_2",
-    name: "フォン・ライカン",
     attribute: "Ice",
     rank: "S",
     speciality: "Stun",
@@ -173,7 +163,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Stun_3",
-    name: "クレタ・ベロボーグ",
     attribute: "Fire",
     rank: "S",
     speciality: "Stun",
@@ -190,7 +179,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Stun_5",
-    name: "ライト",
     attribute: "Fire",
     rank: "S",
     speciality: "Stun",
@@ -207,7 +195,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Stun_4",
-    name: "アンビー・デマラ",
     attribute: "Electric",
     rank: "A",
     speciality: "Stun",
@@ -224,7 +211,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Anomaly_1",
-    name: "グレース・ハワード",
     attribute: "Electric",
     rank: "S",
     speciality: "Anomaly",
@@ -241,7 +227,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Anomaly_3",
-    name: "ジェーン・ドゥ",
     attribute: "Physical",
     rank: "S",
     speciality: "Anomaly",
@@ -258,7 +243,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Anomaly_4",
-    name: "バーニス",
     attribute: "Fire",
     rank: "S",
     speciality: "Anomaly",
@@ -275,7 +259,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Anomaly_5",
-    name: "月城柳",
     attribute: "Electric",
     rank: "S",
     speciality: "Anomaly",
@@ -292,7 +275,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Anomaly_6",
-    name: "星見雅",
     attribute: "Frost",
     rank: "S",
     speciality: "Anomaly",
@@ -309,7 +291,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Anomaly_2",
-    name: "パイパー・ウィール",
     attribute: "Physical",
     rank: "A",
     speciality: "Anomaly",
@@ -326,7 +307,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Support_1",
-    name: "アレクサンドリナ・セバスチャン",
     attribute: "Electric",
     rank: "S",
     speciality: "Support",
@@ -343,7 +323,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Support_2",
-    name: "ニコ・デマラ",
     attribute: "Ether",
     rank: "A",
     speciality: "Support",
@@ -360,7 +339,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Support_3",
-    name: "ルシアーナ・デ・モンテフィーノ",
     attribute: "Fire",
     rank: "A",
     speciality: "Support",
@@ -377,7 +355,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Support_4",
-    name: "蒼角",
     attribute: "Ice",
     rank: "A",
     speciality: "Support",
@@ -394,7 +371,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Defense_2",
-    name: "キングシーザー",
     attribute: "Physical",
     rank: "S",
     speciality: "Defense",
@@ -411,7 +387,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Defense_1",
-    name: "ベン・ビガー",
     attribute: "Fire",
     rank: "A",
     speciality: "Defense",
@@ -428,7 +403,6 @@ export const agents: Agent[] = [
   },
   {
     id: "Defense_3",
-    name: "セス・ローウェル",
     attribute: "Electric",
     rank: "A",
     speciality: "Defense",
