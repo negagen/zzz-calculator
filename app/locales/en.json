@@ -9,6 +9,7 @@
       "Attack_6": "Carin Wickes",
       "Attack_7": "Billy Kid",
       "Attack_8": "Asaba Harumasa",
+      "Attack_9": "Evelyn Chevalier",
       "Stun_1": "Qingyi",
       "Stun_2": "Von Lycaon",
       "Stun_3": "Koleda Belobog",
@@ -24,6 +25,7 @@
       "Support_2": "Nicole Demara",
       "Support_3": "Luciana de Montefio",
       "Support_4": "Soukaku",
+      "Support_5": "Astra Yao",
       "Defense_1": "Ben Bigger",
       "Defense_2": "Caesar King",
       "Defense_3": "Seth Lowell"
@@ -45,6 +47,7 @@
       "Attack_14": "[Lunar] - Noviluna",
       "Attack_15": "Zanshin Herb Case",
       "Attack_16": "Marcato Desire",
+      "Attack_17": "Heartstring Nocturne",
       "Stun_1": "Ice-Jade Teapot",
       "Stun_2": "Hellfire Gears",
       "Stun_3": "The Restrained",
@@ -77,6 +80,7 @@
       "Support_7": "[Reverb] Mark I",
       "Support_8": "[Reverb] Mark II",
       "Support_9": "[Reverb] Mark III",
+      "Support_10": "Elegant Vanity",
       "Defense_1": "Big Cylinder",
       "Defense_2": "Original Transmorpher",
       "Defense_3": "Bunny Band",
@@ -320,6 +324,10 @@
     },
     "UpdateInfo": {
       "title": "Update Information",
+      "2025/02/16": {
+        "0": "A Wiki link has been added for each Agent.",
+        "1": "Data for Evelyn, Astra, Heartstring Nocturne, and Elegant Vanity has been added."
+      },
       "2025/01/14": {
         "2025/01/14": {
           "0": "You can now select Agents by using images.",

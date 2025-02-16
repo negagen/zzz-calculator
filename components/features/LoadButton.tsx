@@ -74,7 +74,6 @@ const SaveDataModal = ({ open, onClose, onLoad }: SaveDataModalProps) => {
 
     return {
       name: saveData.name,
-      agentName: agent?.name ?? "",
       engineName: engine?.name ?? "",
       damageScore: damageScore,
       onLoad: () => {
@@ -154,7 +153,6 @@ const calculateDamageScore = (saveData: SaveData) => {
 
 type SaveDataTableData = {
   name: string;
-  agentName: string;
   engineName: string;
   damageScore: number | undefined;
   onLoad: () => void;

@@ -16,6 +16,15 @@ export const UpdateInfo = () => {
           <div>
             <List
               size="small"
+              header={<div>2025/02/16</div>}
+              dataSource={[
+                t("components.UpdateInfo.2025/02/16.0"),
+                t("components.UpdateInfo.2025/02/16.1"),
+              ]}
+              renderItem={renderItem}
+            />
+            <List
+              size="small"
               header={<div>2025/01/14</div>}
               dataSource={[
                 t("components.UpdateInfo.2025/01/14.0"),

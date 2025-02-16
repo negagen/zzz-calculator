@@ -66,7 +66,7 @@ export const AgentStatusPanel = ({
               </div>
 
               <div className="flex flex-col gap-2 grow justify-between">
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-1">
                   <div className="w-full pl-0.5 text-sm font-bold">
                     {
                       // @ts-ignore
@@ -77,6 +77,16 @@ export const AgentStatusPanel = ({
                   <div className="flex flex-col">
                     <AgentInfo agent={agent} />
                     <AgentAttack agent={agent} level={level} />
+                  </div>
+
+                  <div>
+                    <a
+                      className="bg-gray-800 rounded text-xs p-[3px] text-center hover:opacity-80"
+                      href={agent.wikiUrl}
+                      target="_blank"
+                    >
+                      WIKI
+                    </a>
                   </div>
                 </div>
 

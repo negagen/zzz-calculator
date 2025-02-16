@@ -13,11 +13,11 @@ export type CoreSkillLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
 export interface Agent {
   id: string;
-  name: string;
   rank: AgentRank;
   attribute: Attribute;
   speciality: Speciality;
   attackTable: Record<AgentLevel, number>;
+  wikiUrl: string;
   coreSkillLevelBonusType:
     | "critRate"
     | "critDamage"
