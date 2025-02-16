@@ -324,6 +324,10 @@
     },
     "UpdateInfo": {
       "title": "Update Information",
+      "2025/02/16": {
+        "0": "A Wiki link has been added for each Agent.",
+        "1": "Data for Evelyn, Astra, Heartstring Nocturne, and Elegant Vanity has been added."
+      },
       "2025/01/14": {
         "2025/01/14": {
           "0": "You can now select Agents by using images.",
