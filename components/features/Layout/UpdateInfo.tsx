@@ -9,7 +9,7 @@ export const UpdateInfo = () => {
   return (
     <HelpButton
       title={t("components.UpdateInfo.title")}
-      description={`${t("components.UpdateInfo.title")}: 2025/01/14`}
+      description={`${t("components.UpdateInfo.title")}: 2025/02/16`}
       className="w-full h-svh"
       content={
         <div className="flex flex-col gap-1.5">
