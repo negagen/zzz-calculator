@@ -2,6 +2,23 @@ import { Agent } from "@/types";
 
 export const agents: Agent[] = [
   {
+    id: "Attack_9",
+    attribute: "Fire",
+    rank: "S",
+    speciality: "Attack",
+    attackTable: {
+      1: 134,
+      10: 207,
+      20: 337,
+      30: 465,
+      40: 595,
+      50: 725,
+      60: 854,
+    },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/589",
+    coreSkillLevelBonusType: "critRate",
+  },
+  {
     id: "Attack_1",
     attribute: "Physical",
     rank: "S",
@@ -322,6 +339,23 @@ export const agents: Agent[] = [
       60: 683,
     },
     wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/126",
+    coreSkillLevelBonusType: "energy",
+  },
+  {
+    id: "Support_5",
+    attribute: "Ether",
+    rank: "S",
+    speciality: "Support",
+    attackTable: {
+      1: 103,
+      10: 156,
+      20: 253,
+      30: 350,
+      40: 446,
+      50: 543,
+      60: 640,
+    },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/588",
     coreSkillLevelBonusType: "energy",
   },
   {
