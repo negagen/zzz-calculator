@@ -17,6 +17,7 @@ export interface Agent {
   attribute: Attribute;
   speciality: Speciality;
   attackTable: Record<AgentLevel, number>;
+  wikiUrl: string;
   coreSkillLevelBonusType:
     | "critRate"
     | "critDamage"

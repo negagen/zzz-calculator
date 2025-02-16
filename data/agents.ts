@@ -1,4 +1,4 @@
-import { Agent, AgentLevel, CoreSkillLevel } from "@/types";
+import { Agent } from "@/types";
 
 export const agents: Agent[] = [
   {
@@ -15,6 +15,7 @@ export const agents: Agent[] = [
       50: 708,
       60: 835,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/21",
     coreSkillLevelBonusType: "critRate",
   },
   {
@@ -31,6 +32,7 @@ export const agents: Agent[] = [
       50: 732,
       60: 863,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/29",
     coreSkillLevelBonusType: "critRate",
   },
   {
@@ -47,6 +49,7 @@ export const agents: Agent[] = [
       50: 716,
       60: 844,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/31",
     coreSkillLevelBonusType: "critDamage",
   },
   {
@@ -63,6 +66,7 @@ export const agents: Agent[] = [
       50: 691,
       60: 813,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/22",
     coreSkillLevelBonusType: "critRate",
   },
   {
@@ -79,6 +83,7 @@ export const agents: Agent[] = [
       50: 713,
       60: 840,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/538",
     coreSkillLevelBonusType: "critRate",
   },
   {
@@ -95,6 +100,7 @@ export const agents: Agent[] = [
       50: 608,
       60: 716,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/24",
     coreSkillLevelBonusType: "critRate",
   },
   {
@@ -111,6 +117,7 @@ export const agents: Agent[] = [
       50: 621,
       60: 732,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/23",
     coreSkillLevelBonusType: "critDamage",
   },
   {
@@ -127,6 +134,7 @@ export const agents: Agent[] = [
       50: 604,
       60: 712,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/19",
     coreSkillLevelBonusType: "critRate",
   },
   {
@@ -143,6 +151,7 @@ export const agents: Agent[] = [
       50: 579,
       60: 683,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/350",
     coreSkillLevelBonusType: "impact",
   },
   {
@@ -159,6 +168,7 @@ export const agents: Agent[] = [
       50: 555,
       60: 653,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/28",
     coreSkillLevelBonusType: "impact",
   },
   {
@@ -175,6 +185,7 @@ export const agents: Agent[] = [
       50: 560,
       60: 660,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/26",
     coreSkillLevelBonusType: "impact",
   },
   {
@@ -191,6 +202,7 @@ export const agents: Agent[] = [
       50: 612,
       60: 722,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/530",
     coreSkillLevelBonusType: "impact",
   },
   {
@@ -207,6 +219,7 @@ export const agents: Agent[] = [
       50: 495,
       60: 583,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/2",
     coreSkillLevelBonusType: "impact",
   },
   {
@@ -223,6 +236,7 @@ export const agents: Agent[] = [
       50: 637,
       60: 750,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/27",
     coreSkillLevelBonusType: "anomalyMastery",
   },
   {
@@ -239,6 +253,7 @@ export const agents: Agent[] = [
       50: 683,
       60: 805,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/368",
     coreSkillLevelBonusType: "anomalyMastery",
   },
   {
@@ -255,6 +270,7 @@ export const agents: Agent[] = [
       50: 668,
       60: 788,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/382",
     coreSkillLevelBonusType: "energy",
   },
   {
@@ -271,6 +287,7 @@ export const agents: Agent[] = [
       50: 676,
       60: 797,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/529",
     coreSkillLevelBonusType: "anomalyMastery",
   },
   {
@@ -287,6 +304,7 @@ export const agents: Agent[] = [
       50: 683,
       60: 805,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/537",
     coreSkillLevelBonusType: "anomalyProficiency",
   },
   {
@@ -303,6 +321,7 @@ export const agents: Agent[] = [
       50: 580,
       60: 683,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/126",
     coreSkillLevelBonusType: "energy",
   },
   {
@@ -319,6 +338,7 @@ export const agents: Agent[] = [
       50: 544,
       60: 642,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/30",
     coreSkillLevelBonusType: "penRate",
   },
   {
@@ -335,6 +355,7 @@ export const agents: Agent[] = [
       50: 486,
       60: 574,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/20",
     coreSkillLevelBonusType: "energy",
   },
   {
@@ -351,6 +372,7 @@ export const agents: Agent[] = [
       50: 495,
       60: 583,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/125",
     coreSkillLevelBonusType: "energy",
   },
   {
@@ -367,6 +389,7 @@ export const agents: Agent[] = [
       50: 501,
       60: 590,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/89",
     coreSkillLevelBonusType: "energy",
   },
   {
@@ -383,6 +406,7 @@ export const agents: Agent[] = [
       50: 539,
       60: 636,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/381",
     coreSkillLevelBonusType: "impact",
   },
   {
@@ -399,6 +423,7 @@ export const agents: Agent[] = [
       50: 732,
       60: 867,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/25",
     coreSkillLevelBonusType: "energy",
   },
   {
@@ -415,6 +440,7 @@ export const agents: Agent[] = [
       50: 482,
       60: 568,
     },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/369",
     coreSkillLevelBonusType: "energy",
   },
 ];

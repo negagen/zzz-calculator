@@ -80,6 +80,16 @@ export const AgentStatusPanel = ({
                   </div>
                 </div>
 
+                <div>
+                  <a
+                    className="bg-gray-800 rounded text-xs p-1 text-center hover:opacity-80"
+                    href={agent.wikiUrl}
+                    target="_blank"
+                  >
+                    WIKI
+                  </a>
+                </div>
+
                 <div className="flex flex-col gap-1">
                   <AgentLevelSelect
                     level={level}
