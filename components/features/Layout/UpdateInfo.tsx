@@ -9,11 +9,20 @@ export const UpdateInfo = () => {
   return (
     <HelpButton
       title={t("components.UpdateInfo.title")}
-      description={`${t("components.UpdateInfo.title")}: 2025/02/16`}
-      className="w-full h-svh"
+      description={`${t("components.UpdateInfo.title")}: 2025/03/16`}
       content={
-        <div className="flex flex-col gap-1.5">
+        <div className="flex flex-col gap-1.5 h-[calc(50svh)] overflow-auto">
           <div>
+            <List
+              size="small"
+              header={<div>2025/03/16</div>}
+              dataSource={[
+                t("components.UpdateInfo.2025/03/16.0"),
+                t("components.UpdateInfo.2025/03/16.1"),
+                t("components.UpdateInfo.2025/03/16.2"),
+              ]}
+              renderItem={renderItem}
+            />
             <List
               size="small"
               header={<div>2025/02/16</div>}

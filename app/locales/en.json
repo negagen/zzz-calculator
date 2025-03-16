@@ -331,6 +331,11 @@
     },
     "UpdateInfo": {
       "title": "Update Information",
+      "2025/03/16": {
+        "0": "Data for 0-Gou Ambie, Purukura, Pure Sacrifice, and Paper Cutter has been added.",
+        "1": "Data for Shadow Harmony and “Song of Phaethon” has also been added. However, both are conditional and will not affect the values even when set.",
+        "2": "At user request, an option for Attribute DMG Buff has been added. For calculation purposes, it is combined with the total DMG Buff, so if you continue to put the combined value in the DMG% field as before, the calculation results will remain unchanged."
+      },
       "2025/02/16": {
         "0": "A Wiki link has been added for each Agent.",
         "1": "Data for Evelyn, Astra, Heartstring Nocturne, and Elegant Vanity has been added."

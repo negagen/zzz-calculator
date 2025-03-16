@@ -15,7 +15,7 @@ export const HelpButton = ({
     Modal.info({
       title: title,
       content: content,
-      className: "max-md:w-full h-svh",
+      className: "max-md:w-full max-h-svh",
       width: "960px",
     });
   };
@@ -23,7 +23,7 @@ export const HelpButton = ({
   return (
     <div
       onClick={onClick}
-      className={`flex flex-row justify-center items-center gap-0.5 ${className}`}
+      className={`flex flex-row justify-center items-center gap-0.5 ${className} scroll-hidden`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
