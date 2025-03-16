@@ -87,6 +87,8 @@ export const Drives = [
   "ChaosJazz",
   "AstralVoice",
   "BranchAndBladeSong",
+  "ShadowHarmony",
+  "PhaethonsMelody",
 ] as const;
 export type Drive = (typeof Drives)[number];
 

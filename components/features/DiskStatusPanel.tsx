@@ -419,6 +419,8 @@ const DiskSetSelect = ({
     "ChaosJazz",
     "AstralVoice",
     "BranchAndBladeSong",
+    "ShadowHarmony",
+    "PhaethonsMelody",
   ];
   const options = disks.map((disk) => {
     return {

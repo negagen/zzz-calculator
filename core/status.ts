@@ -521,6 +521,14 @@ const diskSetBonuses: Record<Drive, DiskSetBonus> = {
     2: { ...emptyDiskSet1Bonus, critDamage: 16 },
     4: { ...emptyBattleStatus, critDamageBonus: 30, critRateBonus: 12 },
   },
+  ShadowHarmony: {
+    2: { ...emptyDiskSet1Bonus },
+    4: { ...emptyBattleStatus },
+  },
+  PhaethonsMelody: {
+    2: { ...emptyDiskSet1Bonus },
+    4: { ...emptyBattleStatus },
+  },
 };
 
 const calculateDiskSetBonus = (
