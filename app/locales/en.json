@@ -116,7 +116,8 @@
     "critRate": "Crit Rate",
     "critDamage": "Crit DMG",
     "penRate": "PEN Ratio",
-    "damageBuff": "DMG%"
+    "damageBuff": "DMG%",
+    "attrBuff": "Attribute DMG"
   },
   "components": {
     "AdditionalStatusPanel": {
@@ -281,7 +282,7 @@
         "0": "Displays the final status of the Agent.",
         "1": "The status changes based on the Agent, Engine, and Disk settings.",
         "2.1": "It is the same as what is shown on the status screen in the formation screen.",
-        "2.2": "However, attribute damage buffs are calculated together with DMG% buffs.",
+        "2.2": "Attribute damage buffs are calculated together with DMG% buffs when calculating the base damage value.",
         "3": "In-battle buffs are not directly reflected in the status, but are applied to the base damage value."
       }
     },

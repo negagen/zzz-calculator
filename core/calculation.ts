@@ -1,7 +1,11 @@
 import { StatusDetail, EnemyStatus, DamageBase, BattleStatus } from "@/types";
 
 import Decimal from "decimal.js";
-import { calculateStatus, calculateStatusDetail, mergeBattleStatus } from "./status";
+import {
+  calculateStatus,
+  calculateStatusDetail,
+  mergeBattleStatus,
+} from "./status";
 
 export const calculateDamageBase = (
   detail: StatusDetail,
@@ -12,7 +16,10 @@ export const calculateDamageBase = (
   const status = calculateStatus(detail.base);
   const critRate = Math.min(status.critRate + battleStatus.critRateBonus, 100);
   const critDamage = status.critDamage + battleStatus.critDamageBonus;
-  const damageBuff = status.damageBuff + battleStatus.damageBuffBonus;
+  const damageBuff =
+    status.damageBuff +
+    battleStatus.damageBuffBonus +
+    battleStatus.attrBuffBonus;
   const penRate = status.penRate + battleStatus.penRateBonus;
 
   const attack = new Decimal(status.attack)

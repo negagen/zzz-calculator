@@ -32,7 +32,9 @@ export const StatusInput = ({
             value = "0";
           }
 
-          onChange(parseFloat(value));
+          const val = parseFloat(value);
+
+          onChange(isNaN(val) ? 0 : val);
         }}
       />
       <div className="w-4">{unit}</div>

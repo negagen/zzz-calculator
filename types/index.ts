@@ -238,6 +238,7 @@ export interface BattleStatus {
   critRateBonus: number;
   critDamageBonus: number;
   damageBuffBonus: number;
+  attrBuffBonus: number;
   penRateBonus: number;
 }
 
