@@ -2,8 +2,8 @@ import { Agent } from "@/types";
 
 export const agents: Agent[] = [
   {
-    id: "Attack_9",
-    attribute: "Fire",
+    id: "Attack_10",
+    attribute: "Electric",
     rank: "S",
     speciality: "Attack",
     attackTable: {
@@ -15,7 +15,7 @@ export const agents: Agent[] = [
       50: 725,
       60: 854,
     },
-    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/589",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/618",
     coreSkillLevelBonusType: "critRate",
   },
   {
@@ -101,6 +101,23 @@ export const agents: Agent[] = [
       60: 840,
     },
     wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/538",
+    coreSkillLevelBonusType: "critRate",
+  },
+  {
+    id: "Attack_9",
+    attribute: "Fire",
+    rank: "S",
+    speciality: "Attack",
+    attackTable: {
+      1: 134,
+      10: 207,
+      20: 337,
+      30: 465,
+      40: 595,
+      50: 725,
+      60: 854,
+    },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/589",
     coreSkillLevelBonusType: "critRate",
   },
   {
@@ -237,6 +254,23 @@ export const agents: Agent[] = [
       60: 583,
     },
     wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/2",
+    coreSkillLevelBonusType: "impact",
+  },
+  {
+    id: "Stun_6",
+    attribute: "Physical",
+    rank: "A",
+    speciality: "Stun",
+    attackTable: {
+      1: 96,
+      10: 145,
+      20: 234,
+      30: 323,
+      40: 413,
+      50: 501,
+      60: 590,
+    },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/619",
     coreSkillLevelBonusType: "impact",
   },
   {

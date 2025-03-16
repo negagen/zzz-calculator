@@ -87,6 +87,8 @@ export const Drives = [
   "ChaosJazz",
   "AstralVoice",
   "BranchAndBladeSong",
+  "ShadowHarmony",
+  "PhaethonsMelody",
 ] as const;
 export type Drive = (typeof Drives)[number];
 
@@ -238,6 +240,7 @@ export interface BattleStatus {
   critRateBonus: number;
   critDamageBonus: number;
   damageBuffBonus: number;
+  attrBuffBonus: number;
   penRateBonus: number;
 }
 

@@ -10,11 +10,13 @@
       "Attack_7": "Billy Kid",
       "Attack_8": "Asaba Harumasa",
       "Attack_9": "Evelyn Chevalier",
+      "Attack_10": "Soldier 0 - Anby",
       "Stun_1": "Qingyi",
       "Stun_2": "Von Lycaon",
       "Stun_3": "Koleda Belobog",
       "Stun_4": "Anby Demara",
       "Stun_5": "Lighter",
+      "Stun_6": "Pulchra Fellini",
       "Anomaly_1": "Grace Howard",
       "Anomaly_2": "Piper Wheel",
       "Anomaly_3": "Jane Doe",
@@ -48,6 +50,7 @@
       "Attack_15": "Zanshin Herb Case",
       "Attack_16": "Marcato Desire",
       "Attack_17": "Heartstring Nocturne",
+      "Attack_18": "Severed Innocence",
       "Stun_1": "Ice-Jade Teapot",
       "Stun_2": "Hellfire Gears",
       "Stun_3": "The Restrained",
@@ -59,6 +62,7 @@
       "Stun_9": "[Vortex] Arrow",
       "Stun_10": "[Vortex] Hatchet",
       "Stun_11": "Blazing Laurel",
+      "Stun_12": "Box Cutter",
       "Anomaly_1": "Fusion Compiler",
       "Anomaly_2": "Rainforest Gourmet",
       "Anomaly_3": "Weeping Gemini",
@@ -114,7 +118,8 @@
     "critRate": "Crit Rate",
     "critDamage": "Crit DMG",
     "penRate": "PEN Ratio",
-    "damageBuff": "DMG%"
+    "damageBuff": "DMG%",
+    "attrBuff": "Attribute DMG"
   },
   "components": {
     "AdditionalStatusPanel": {
@@ -192,7 +197,9 @@
         "ProtoPunk": "Proto Punk x 2",
         "ChaosJazz": "Chaos Jazz x 2",
         "AstralVoice": "Astral Voice x 2",
-        "BranchAndBladeSong": "Branch and Blade Song x 2"
+        "BranchAndBladeSong": "Branch and Blade Song x 2",
+        "ShadowHarmony": "Shadow Harmony x 2",
+        "PhaethonsMelody": "Phaethon's Melody x 2"
       },
       "status": {
         "attack": "Attack",
@@ -279,7 +286,7 @@
         "0": "Displays the final status of the Agent.",
         "1": "The status changes based on the Agent, Engine, and Disk settings.",
         "2.1": "It is the same as what is shown on the status screen in the formation screen.",
-        "2.2": "However, attribute damage buffs are calculated together with DMG% buffs.",
+        "2.2": "Attribute damage buffs are calculated together with DMG% buffs when calculating the base damage value.",
         "3": "In-battle buffs are not directly reflected in the status, but are applied to the base damage value."
       }
     },
@@ -324,6 +331,11 @@
     },
     "UpdateInfo": {
       "title": "Update Information",
+      "2025/03/16": {
+        "0": "Data for 0-Gou Ambie, Purukura, Pure Sacrifice, and Paper Cutter has been added.",
+        "1": "Data for Shadow Harmony and “Song of Phaethon” has also been added. However, both are conditional and will not affect the values even when set.",
+        "2": "At user request, an option for Attribute DMG Buff has been added. For calculation purposes, it is combined with the total DMG Buff, so if you continue to put the combined value in the DMG% field as before, the calculation results will remain unchanged."
+      },
       "2025/02/16": {
         "0": "A Wiki link has been added for each Agent.",
         "1": "Data for Evelyn, Astra, Heartstring Nocturne, and Elegant Vanity has been added."

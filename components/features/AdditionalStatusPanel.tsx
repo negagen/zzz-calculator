@@ -201,6 +201,16 @@ const CombatSettingTab = ({
             onChange({ ...battleStatus, damageBuffBonus: value })
           }
         />
+
+        <StatusInput
+          title={t("statusBonus.attrBuff")}
+          base={status.statusBonus.attrBuffBonus}
+          value={battleStatus.attrBuffBonus}
+          unit="%"
+          onChange={(value) =>
+            onChange({ ...battleStatus, attrBuffBonus: value })
+          }
+        />
       </div>
     </>
   );

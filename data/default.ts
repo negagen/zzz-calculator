@@ -122,5 +122,6 @@ export const defaultBattleStatus: BattleStatus = {
   critRateBonus: 0,
   critDamageBonus: 0,
   damageBuffBonus: 0,
+  attrBuffBonus: 0,
   penRateBonus: 0,
 };

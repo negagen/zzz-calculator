@@ -428,6 +428,7 @@ const emptyBattleStatus: BattleStatus = {
   critDamageBonus: 0,
   penRateBonus: 0,
   damageBuffBonus: 0,
+  attrBuffBonus: 0,
   // anomalyProficiency: 0,
   // impact: 0,
   // energy: 0,
@@ -520,6 +521,14 @@ const diskSetBonuses: Record<Drive, DiskSetBonus> = {
     2: { ...emptyDiskSet1Bonus, critDamage: 16 },
     4: { ...emptyBattleStatus, critDamageBonus: 30, critRateBonus: 12 },
   },
+  ShadowHarmony: {
+    2: { ...emptyDiskSet1Bonus },
+    4: { ...emptyBattleStatus },
+  },
+  PhaethonsMelody: {
+    2: { ...emptyDiskSet1Bonus },
+    4: { ...emptyBattleStatus },
+  },
 };
 
 const calculateDiskSetBonus = (
@@ -588,6 +597,7 @@ export const mergeBattleStatus = (
     critDamageBonus: status1.critDamageBonus + status2.critDamageBonus,
     penRateBonus: status1.penRateBonus + status2.penRateBonus,
     damageBuffBonus: status1.damageBuffBonus + status2.damageBuffBonus,
+    attrBuffBonus: status1.attrBuffBonus + status2.attrBuffBonus,
     // anomalyProficiency: status1.anomalyProficiency + status2.anomalyProficiency,
     // impact: status1.impact + status2.impact,
     // energy: status1.energy + status2.energy,

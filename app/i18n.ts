@@ -22,8 +22,11 @@ i18n
   // .use(i18nextPlugin)
   .use(initReactI18next)
   .init({
-    fallbackLng: "en",
+    fallbackLng: ["en", "ja"],
     resources,
+    supportedLngs: ["ja", "en"],
+    nonExplicitSupportedLngs: true,
+    load: "languageOnly",
     interpolation: {
       escapeValue: false,
     },

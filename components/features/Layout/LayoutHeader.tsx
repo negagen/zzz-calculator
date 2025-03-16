@@ -29,7 +29,7 @@ export const LayoutHeader = () => {
         <div className="flex items-center text-white cursor-pointer gap-0.5 px-2">
           <Select
             className="w-18"
-            value={i18n.language}
+            value={i18n.language.split("-")[0]}
             onChange={changeLanguage}
             options={[
               { value: "ja", label: "ja" },
