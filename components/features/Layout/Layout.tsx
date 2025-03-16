@@ -17,15 +17,15 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         style={{ minHeight: "calc(100vh - 64px)" }}
       >
         <Image
-          width={2000}
-          height={540}
-          src="/images/zzz1_5.jpg"
+          width={1246 * 1.1}
+          height={336}
+          src="/images/zzz1_6.jpg"
           alt="Background"
-          className="absolute z-0 top-0 opacity-35"
+          className="absolute z-0 top-1 opacity-35"
         />
         <div
           className="w-full bg-gradient-to-t from-slate-950 z-1 absolute"
-          style={{ minHeight: "60vh" }}
+          style={{ minHeight: "80vh" }}
         ></div>
 
         <main className="flex flex-col p-4 border border-3 border-gray-600 rounded-lg z-10 opacity-95 mt-2 max-lg:w-full">
