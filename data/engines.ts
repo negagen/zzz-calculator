@@ -3,7 +3,6 @@ import { Engine, EngineLevel, EngineBaseAttack, EngineRank } from "@/types";
 export const engines: Engine[] = [
   {
     id: "Stun_13",
-    name: "奪魂の瞑目",
     rank: "S",
     speciality: "Stun",
     baseAttack: 48,
@@ -11,7 +10,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_18",
-    name: "純然たる犠牲",
     rank: "S",
     speciality: "Attack",
     baseAttack: 48,
@@ -19,7 +17,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_1",
-    name: "鋼の肉球",
     rank: "S",
     speciality: "Attack",
     baseAttack: 46,
@@ -27,7 +24,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_2",
-    name: "ブリムストーン",
     rank: "S",
     speciality: "Attack",
     baseAttack: 46,
@@ -35,7 +31,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_3",
-    name: "ディープシー・ビジター",
     rank: "S",
     speciality: "Attack",
     baseAttack: 48,
@@ -43,7 +38,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_4",
-    name: "サプレッサーVI型",
     rank: "S",
     speciality: "Attack",
     baseAttack: 48,
@@ -51,7 +45,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_15",
-    name: "残心の青籠",
     rank: "S",
     speciality: "Attack",
     baseAttack: 48,
@@ -59,7 +52,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_17",
-    name: "心弦のノクターン",
     rank: "S",
     speciality: "Attack",
     baseAttack: 48,
@@ -67,7 +59,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_5",
-    name: "ストリートスター",
     rank: "A",
     speciality: "Attack",
     baseAttack: 40,
@@ -75,7 +66,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_6",
-    name: "スターライトエンジン",
     rank: "A",
     speciality: "Attack",
     baseAttack: 40,
@@ -83,7 +73,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_7",
-    name: "ハウスキーパー",
     rank: "A",
     speciality: "Attack",
     baseAttack: 42,
@@ -91,7 +80,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_8",
-    name: "なんちゃってスターライトエンジン",
     rank: "A",
     speciality: "Attack",
     baseAttack: 42,
@@ -99,7 +87,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_9",
-    name: "ドリルリグ-レッドシャフト",
     rank: "A",
     speciality: "Attack",
     baseAttack: 42,
@@ -107,7 +94,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_10",
-    name: "キャノンローラー",
     rank: "A",
     speciality: "Attack",
     baseAttack: 40,
@@ -115,7 +101,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_11",
-    name: "金メッキの花信",
     rank: "A",
     speciality: "Attack",
     baseAttack: 40,
@@ -123,7 +108,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_16",
-    name: "強音デザイア",
     rank: "A",
     speciality: "Attack",
     baseAttack: 40,
@@ -131,7 +115,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_12",
-    name: "「月相」-望",
     rank: "B",
     speciality: "Attack",
     baseAttack: 32,
@@ -139,7 +122,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_13",
-    name: "「月相」-晦",
     rank: "B",
     speciality: "Attack",
     baseAttack: 32,
@@ -147,7 +129,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Attack_14",
-    name: "「月相」-朔",
     rank: "B",
     speciality: "Attack",
     baseAttack: 32,
@@ -155,7 +136,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Stun_1",
-    name: "玉壺青氷",
     rank: "S",
     speciality: "Stun",
     baseAttack: 48,
@@ -163,7 +143,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Stun_2",
-    name: "燃獄ギア",
     rank: "S",
     speciality: "Stun",
     baseAttack: 46,
@@ -171,7 +150,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Stun_3",
-    name: "拘縛されし者",
     rank: "S",
     speciality: "Stun",
     baseAttack: 46,
@@ -179,7 +157,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Stun_11",
-    name: "炎心の桂冠",
     rank: "S",
     speciality: "Stun",
     baseAttack: 48,
@@ -187,7 +164,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Stun_12",
-    name: "ペーパーカッター",
     rank: "A",
     speciality: "Stun",
     baseAttack: 42,
@@ -195,7 +171,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Stun_4",
-    name: "まな板の鯉",
     rank: "A",
     speciality: "Stun",
     baseAttack: 40,
@@ -203,7 +178,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Stun_5",
-    name: "貴重な化石コア",
     rank: "A",
     speciality: "Stun",
     baseAttack: 40,
@@ -211,7 +185,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Stun_6",
-    name: "デマラ式電池II型",
     rank: "A",
     speciality: "Stun",
     baseAttack: 42,
@@ -219,7 +192,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Stun_7",
-    name: "シックスシューター",
     rank: "A",
     speciality: "Stun",
     baseAttack: 40,
@@ -227,7 +199,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Stun_8",
-    name: "「激流」-銃型",
     rank: "B",
     speciality: "Stun",
     baseAttack: 32,
@@ -235,7 +206,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Stun_9",
-    name: "「激流」-矢型",
     rank: "B",
     speciality: "Stun",
     baseAttack: 32,
@@ -243,7 +213,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Stun_10",
-    name: "「激流」-斧型",
     rank: "B",
     speciality: "Stun",
     baseAttack: 32,
@@ -251,7 +220,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Anomaly_1",
-    name: "複合コンパイラ",
     rank: "S",
     speciality: "Anomaly",
     baseAttack: 46,
@@ -259,7 +227,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Anomaly_9",
-    name: "磨き抜かれた切っ先",
     rank: "S",
     speciality: "Anomaly",
     baseAttack: 48,
@@ -267,7 +234,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Anomaly_10",
-    name: "あられ落つ星殿",
     rank: "S",
     speciality: "Anomaly",
     baseAttack: 50,
@@ -275,7 +241,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Anomaly_11",
-    name: "刻流の賢者",
     rank: "S",
     speciality: "Anomaly",
     baseAttack: 48,
@@ -283,7 +248,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Anomaly_12",
-    name: "バーニング・シェイカー",
     rank: "S",
     speciality: "Anomaly",
     baseAttack: 48,
@@ -291,7 +255,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Anomaly_2",
-    name: "密林の食いしん坊",
     rank: "A",
     speciality: "Anomaly",
     baseAttack: 40,
@@ -299,7 +262,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Anomaly_3",
-    name: "双生の涙",
     rank: "A",
     speciality: "Anomaly",
     baseAttack: 40,
@@ -307,7 +269,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Anomaly_4",
-    name: "電撃リップクロス",
     rank: "A",
     speciality: "Anomaly",
     baseAttack: 40,
@@ -315,7 +276,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Anomaly_5",
-    name: "グロウル・マイ・カー",
     rank: "A",
     speciality: "Anomaly",
     baseAttack: 42,
@@ -323,7 +283,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Anomaly_6",
-    name: "「磁気嵐」-壱式",
     rank: "B",
     speciality: "Anomaly",
     baseAttack: 32,
@@ -331,7 +290,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Anomaly_7",
-    name: "「磁気嵐」-弐式",
     rank: "B",
     speciality: "Anomaly",
     baseAttack: 32,
@@ -339,7 +297,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Anomaly_8",
-    name: "「磁気嵐」-参式",
     rank: "B",
     speciality: "Anomaly",
     baseAttack: 32,
@@ -347,7 +304,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Support_10",
-    name: "優美のヴァニティ",
     rank: "S",
     speciality: "Support",
     baseAttack: 48,
@@ -355,7 +311,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Support_1",
-    name: "啜り泣くゆりかご",
     rank: "S",
     speciality: "Support",
     baseAttack: 46,
@@ -363,7 +318,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Support_2",
-    name: "歳月の薄片",
     rank: "A",
     speciality: "Support",
     baseAttack: 40,
@@ -371,7 +325,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Support_3",
-    name: "ザ・ボールド",
     rank: "A",
     speciality: "Support",
     baseAttack: 42,
@@ -379,7 +332,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Support_4",
-    name: "恥じらう悪面",
     rank: "A",
     speciality: "Support",
     baseAttack: 42,
@@ -387,7 +339,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Support_5",
-    name: "喧嘩腰のボンバルダム",
     rank: "A",
     speciality: "Support",
     baseAttack: 42,
@@ -395,7 +346,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Support_6",
-    name: "ゲームボール",
     rank: "A",
     speciality: "Support",
     baseAttack: 40,
@@ -403,7 +353,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Support_7",
-    name: "「残響」-I型",
     rank: "B",
     speciality: "Support",
     baseAttack: 32,
@@ -411,7 +360,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Support_8",
-    name: "「残響」-II型",
     rank: "B",
     speciality: "Support",
     baseAttack: 32,
@@ -419,7 +367,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Support_9",
-    name: "「残響」-III型",
     rank: "B",
     speciality: "Support",
     baseAttack: 32,
@@ -427,7 +374,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Defense_7",
-    name: "猛進するキバ",
     rank: "S",
     speciality: "Defense",
     baseAttack: 48,
@@ -435,7 +381,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Defense_8",
-    name: "秩序の守り手・特化型",
     rank: "A",
     speciality: "Defense",
     baseAttack: 42,
@@ -443,7 +388,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Defense_1",
-    name: "ビガー・シリンダー",
     rank: "A",
     speciality: "Defense",
     baseAttack: 40,
@@ -451,7 +395,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Defense_2",
-    name: "正規版変身装置",
     rank: "A",
     speciality: "Defense",
     baseAttack: 40,
@@ -459,7 +402,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Defense_3",
-    name: "ラピットチャージャー",
     rank: "A",
     speciality: "Defense",
     baseAttack: 40,
@@ -467,7 +409,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Defense_4",
-    name: "ホットスプリング",
     rank: "A",
     speciality: "Defense",
     baseAttack: 40,
@@ -475,7 +416,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Defense_5",
-    name: "「恒等式」-本格",
     rank: "B",
     speciality: "Defense",
     baseAttack: 32,
@@ -483,7 +423,6 @@ export const engines: Engine[] = [
   },
   {
     id: "Defense_6",
-    name: "「恒等式」-変格",
     rank: "B",
     speciality: "Defense",
     baseAttack: 32,

@@ -57,9 +57,13 @@ const SaveDataModal = ({ open, onClose, onLoad }: SaveDataModalProps) => {
     const agent = agents.find(
       (agent) => agent.id === saveData.data.agentConfig?.agentId
     );
+    // @ts-expect-error
+    const agentName: string = t(`data.agent.${agent?.id}`);
     const engine = engines.find(
       (engine) => engine.id === saveData.data.engineConfig?.engineId
     );
+    // @ts-expect-error
+    const engineName: string = t(`data.engine.${engine?.id}`);
 
     const loadSaveData: SaveData = {
       name: saveData.name,
@@ -74,7 +78,8 @@ const SaveDataModal = ({ open, onClose, onLoad }: SaveDataModalProps) => {
 
     return {
       name: saveData.name,
-      engineName: engine?.name ?? "",
+      agentName: agentName,
+      engineName: engineName,
       damageScore: damageScore,
       onLoad: () => {
         onLoad(loadSaveData);

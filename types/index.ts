@@ -45,7 +45,6 @@ export type EngineStatusType =
 
 export interface Engine {
   id: string;
-  name: string;
   rank: EngineRank;
   speciality: Speciality;
   baseAttack: EngineBaseAttack;
