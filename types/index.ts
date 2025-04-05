@@ -49,6 +49,7 @@ export interface Engine {
   speciality: Speciality;
   baseAttack: EngineBaseAttack;
   statusType: EngineStatusType;
+  wikiUrl: string;
 }
 
 export interface Skill {

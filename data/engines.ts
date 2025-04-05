@@ -7,6 +7,7 @@ export const engines: Engine[] = [
     speciality: "Stun",
     baseAttack: 48,
     statusType: "critRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/701",
   },
   {
     id: "Attack_18",
@@ -14,6 +15,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 48,
     statusType: "critDamage",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/621",
   },
   {
     id: "Attack_1",
@@ -21,6 +23,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 46,
     statusType: "critRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/80",
   },
   {
     id: "Attack_2",
@@ -28,6 +31,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 46,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/81",
   },
   {
     id: "Attack_3",
@@ -35,6 +39,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 48,
     statusType: "critRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/85",
   },
   {
     id: "Attack_4",
@@ -42,6 +47,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 48,
     statusType: "critDamage",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/87",
   },
   {
     id: "Attack_15",
@@ -49,6 +55,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 48,
     statusType: "critDamage",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/541",
   },
   {
     id: "Attack_17",
@@ -56,6 +63,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 48,
     statusType: "critRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/591",
   },
   {
     id: "Attack_5",
@@ -63,6 +71,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 40,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/59",
   },
   {
     id: "Attack_6",
@@ -70,6 +79,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 40,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/62",
   },
   {
     id: "Attack_7",
@@ -77,6 +87,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 42,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/72",
   },
   {
     id: "Attack_8",
@@ -84,6 +95,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 42,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/73",
   },
   {
     id: "Attack_9",
@@ -91,6 +103,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 42,
     statusType: "energy",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/74",
   },
   {
     id: "Attack_10",
@@ -98,6 +111,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 40,
     statusType: "critRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/77",
   },
   {
     id: "Attack_11",
@@ -105,6 +119,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 40,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/354",
   },
   {
     id: "Attack_16",
@@ -112,6 +127,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 40,
     statusType: "critRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/539",
   },
   {
     id: "Attack_12",
@@ -119,6 +135,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 32,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/45",
   },
   {
     id: "Attack_13",
@@ -126,6 +143,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 32,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/46",
   },
   {
     id: "Attack_14",
@@ -133,6 +151,7 @@ export const engines: Engine[] = [
     speciality: "Attack",
     baseAttack: 32,
     statusType: "critRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/47",
   },
   {
     id: "Stun_1",
@@ -140,6 +159,7 @@ export const engines: Engine[] = [
     speciality: "Stun",
     baseAttack: 48,
     statusType: "impact",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/355",
   },
   {
     id: "Stun_2",
@@ -147,6 +167,7 @@ export const engines: Engine[] = [
     speciality: "Stun",
     baseAttack: 46,
     statusType: "impact",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/82",
   },
   {
     id: "Stun_3",
@@ -154,6 +175,7 @@ export const engines: Engine[] = [
     speciality: "Stun",
     baseAttack: 46,
     statusType: "impact",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/83",
   },
   {
     id: "Stun_11",
@@ -161,6 +183,7 @@ export const engines: Engine[] = [
     speciality: "Stun",
     baseAttack: 48,
     statusType: "impact",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/534",
   },
   {
     id: "Stun_12",
@@ -168,6 +191,7 @@ export const engines: Engine[] = [
     speciality: "Stun",
     baseAttack: 42,
     statusType: "impact",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/622",
   },
   {
     id: "Stun_4",
@@ -175,6 +199,7 @@ export const engines: Engine[] = [
     speciality: "Stun",
     baseAttack: 40,
     statusType: "energy",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/701",
   },
   {
     id: "Stun_5",
@@ -182,6 +207,7 @@ export const engines: Engine[] = [
     speciality: "Stun",
     baseAttack: 40,
     statusType: "impact",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/64",
   },
   {
     id: "Stun_6",
@@ -189,6 +215,7 @@ export const engines: Engine[] = [
     speciality: "Stun",
     baseAttack: 42,
     statusType: "impact",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/3",
   },
   {
     id: "Stun_7",
@@ -196,6 +223,7 @@ export const engines: Engine[] = [
     speciality: "Stun",
     baseAttack: 40,
     statusType: "impact",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/79",
   },
   {
     id: "Stun_8",
@@ -203,6 +231,7 @@ export const engines: Engine[] = [
     speciality: "Stun",
     baseAttack: 32,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/52",
   },
   {
     id: "Stun_9",
@@ -210,6 +239,7 @@ export const engines: Engine[] = [
     speciality: "Stun",
     baseAttack: 32,
     statusType: "impact",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/51",
   },
   {
     id: "Stun_10",
@@ -217,6 +247,7 @@ export const engines: Engine[] = [
     speciality: "Stun",
     baseAttack: 32,
     statusType: "energy",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/53",
   },
   {
     id: "Anomaly_1",
@@ -224,6 +255,7 @@ export const engines: Engine[] = [
     speciality: "Anomaly",
     baseAttack: 46,
     statusType: "penRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/84",
   },
   {
     id: "Anomaly_9",
@@ -231,6 +263,7 @@ export const engines: Engine[] = [
     speciality: "Anomaly",
     baseAttack: 48,
     statusType: "anomalyProficiency",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/377",
   },
   {
     id: "Anomaly_10",
@@ -238,6 +271,7 @@ export const engines: Engine[] = [
     speciality: "Anomaly",
     baseAttack: 50,
     statusType: "critRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/540",
   },
   {
     id: "Anomaly_11",
@@ -245,6 +279,7 @@ export const engines: Engine[] = [
     speciality: "Anomaly",
     baseAttack: 48,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/531",
   },
   {
     id: "Anomaly_12",
@@ -252,6 +287,7 @@ export const engines: Engine[] = [
     speciality: "Anomaly",
     baseAttack: 48,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/525",
   },
   {
     id: "Anomaly_2",
@@ -259,6 +295,7 @@ export const engines: Engine[] = [
     speciality: "Anomaly",
     baseAttack: 40,
     statusType: "anomalyProficiency",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/61",
   },
   {
     id: "Anomaly_3",
@@ -266,6 +303,7 @@ export const engines: Engine[] = [
     speciality: "Anomaly",
     baseAttack: 40,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/66",
   },
   {
     id: "Anomaly_4",
@@ -273,6 +311,7 @@ export const engines: Engine[] = [
     speciality: "Anomaly",
     baseAttack: 40,
     statusType: "anomalyProficiency",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/67",
   },
   {
     id: "Anomaly_5",
@@ -280,6 +319,7 @@ export const engines: Engine[] = [
     speciality: "Anomaly",
     baseAttack: 42,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/274",
   },
   {
     id: "Anomaly_6",
@@ -287,6 +327,7 @@ export const engines: Engine[] = [
     speciality: "Anomaly",
     baseAttack: 32,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/54",
   },
   {
     id: "Anomaly_7",
@@ -294,6 +335,7 @@ export const engines: Engine[] = [
     speciality: "Anomaly",
     baseAttack: 32,
     statusType: "anomalyProficiency",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/55",
   },
   {
     id: "Anomaly_8",
@@ -301,6 +343,7 @@ export const engines: Engine[] = [
     speciality: "Anomaly",
     baseAttack: 32,
     statusType: "penRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/56",
   },
   {
     id: "Support_10",
@@ -308,6 +351,7 @@ export const engines: Engine[] = [
     speciality: "Support",
     baseAttack: 48,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/590",
   },
   {
     id: "Support_1",
@@ -315,6 +359,7 @@ export const engines: Engine[] = [
     speciality: "Support",
     baseAttack: 46,
     statusType: "penRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/86",
   },
   {
     id: "Support_2",
@@ -322,6 +367,7 @@ export const engines: Engine[] = [
     speciality: "Support",
     baseAttack: 40,
     statusType: "penRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/60",
   },
   {
     id: "Support_3",
@@ -329,6 +375,7 @@ export const engines: Engine[] = [
     speciality: "Support",
     baseAttack: 42,
     statusType: "energy",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/71",
   },
   {
     id: "Support_4",
@@ -336,6 +383,7 @@ export const engines: Engine[] = [
     speciality: "Support",
     baseAttack: 42,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/76",
   },
   {
     id: "Support_5",
@@ -343,6 +391,7 @@ export const engines: Engine[] = [
     speciality: "Support",
     baseAttack: 42,
     statusType: "energy",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/273",
   },
   {
     id: "Support_6",
@@ -350,6 +399,7 @@ export const engines: Engine[] = [
     speciality: "Support",
     baseAttack: 40,
     statusType: "energy",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/78",
   },
   {
     id: "Support_7",
@@ -357,6 +407,7 @@ export const engines: Engine[] = [
     speciality: "Support",
     baseAttack: 32,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/48",
   },
   {
     id: "Support_8",
@@ -364,6 +415,7 @@ export const engines: Engine[] = [
     speciality: "Support",
     baseAttack: 32,
     statusType: "energy",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/49",
   },
   {
     id: "Support_9",
@@ -371,6 +423,7 @@ export const engines: Engine[] = [
     speciality: "Support",
     baseAttack: 32,
     statusType: "hp",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/50",
   },
   {
     id: "Defense_7",
@@ -378,6 +431,7 @@ export const engines: Engine[] = [
     speciality: "Defense",
     baseAttack: 48,
     statusType: "impact",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/389",
   },
   {
     id: "Defense_8",
@@ -385,6 +439,7 @@ export const engines: Engine[] = [
     speciality: "Defense",
     baseAttack: 42,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/378",
   },
   {
     id: "Defense_1",
@@ -392,6 +447,7 @@ export const engines: Engine[] = [
     speciality: "Defense",
     baseAttack: 40,
     statusType: "defense",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/75",
   },
   {
     id: "Defense_2",
@@ -399,6 +455,7 @@ export const engines: Engine[] = [
     speciality: "Defense",
     baseAttack: 40,
     statusType: "hp",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/65",
   },
   {
     id: "Defense_3",
@@ -406,6 +463,7 @@ export const engines: Engine[] = [
     speciality: "Defense",
     baseAttack: 40,
     statusType: "defense",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/68",
   },
   {
     id: "Defense_4",
@@ -413,6 +471,7 @@ export const engines: Engine[] = [
     speciality: "Defense",
     baseAttack: 40,
     statusType: "attackRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/69",
   },
   {
     id: "Defense_5",
@@ -420,6 +479,7 @@ export const engines: Engine[] = [
     speciality: "Defense",
     baseAttack: 32,
     statusType: "defense",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/57",
   },
   {
     id: "Defense_6",
@@ -427,6 +487,7 @@ export const engines: Engine[] = [
     speciality: "Defense",
     baseAttack: 32,
     statusType: "defense",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/58",
   },
 ];
 

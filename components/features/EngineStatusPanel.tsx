@@ -45,7 +45,7 @@ export const EngineStatusPanel = ({
         <div className="flex flex-row items-center w-full gap-2">
           <div className="w-full">
             <Select
-              className="lg:w-64 max-md:w-full"
+              className="w-full"
               value={engines.indexOf(engine)}
               options={engines.map((engine, i) => ({
                 value: i,
@@ -78,6 +78,15 @@ export const EngineStatusPanel = ({
                 onChange(engine, e as EngineLevel);
               }}
             />
+          </div>
+          <div>
+            <a
+              className="bg-gray-800 rounded text-xs p-[3px] text-center hover:opacity-80"
+              href={engine.wikiUrl}
+              target="_blank"
+            >
+              WIKI
+            </a>
           </div>
         </div>
       </div>
