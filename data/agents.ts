@@ -2,6 +2,23 @@ import { Agent } from "@/types";
 
 export const agents: Agent[] = [
   {
+    id: "Stun_7",
+    attribute: "Electric",
+    rank: "S",
+    speciality: "Stun",
+    attackTable: {
+      1: 108,
+      10: 165,
+      20: 267,
+      30: 369,
+      40: 471,
+      50: 573,
+      60: 675,
+    },
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/620",
+    coreSkillLevelBonusType: "impact",
+  },
+  {
     id: "Attack_10",
     attribute: "Electric",
     rank: "S",

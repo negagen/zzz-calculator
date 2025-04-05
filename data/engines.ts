@@ -2,6 +2,14 @@ import { Engine, EngineLevel, EngineBaseAttack, EngineRank } from "@/types";
 
 export const engines: Engine[] = [
   {
+    id: "Stun_13",
+    name: "奪魂の瞑目",
+    rank: "S",
+    speciality: "Stun",
+    baseAttack: 48,
+    statusType: "critRate",
+  },
+  {
     id: "Attack_18",
     name: "純然たる犠牲",
     rank: "S",
