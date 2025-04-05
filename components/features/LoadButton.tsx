@@ -141,10 +141,15 @@ const calculateDamageScore = (saveData: SaveData) => {
       { engine, level: saveData.data.engineConfig.level },
       saveData.data.diskConfig
     );
+    const battleStatus = {
+      ...saveData.data.battleStatus,
+      attrBuffBonus: saveData.data.battleStatus.attrBuffBonus || 0,
+    };
+
     const damageBase = calculateDamageBase(
       base,
       saveData.data.enemyStatus,
-      saveData.data.battleStatus
+      battleStatus
     );
     return calculateExpectedDamage(damageBase);
   }
