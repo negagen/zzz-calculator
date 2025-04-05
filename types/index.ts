@@ -45,11 +45,11 @@ export type EngineStatusType =
 
 export interface Engine {
   id: string;
-  name: string;
   rank: EngineRank;
   speciality: Speciality;
   baseAttack: EngineBaseAttack;
   statusType: EngineStatusType;
+  wikiUrl: string;
 }
 
 export interface Skill {
@@ -246,6 +246,17 @@ export interface BattleStatus {
 
 export const saveDataKey = "savedata";
 
+export interface SavedBattleStatus {
+  attackBonus: number;
+  attackBuff: number;
+  skillDamageRate: number;
+  critRateBonus: number;
+  critDamageBonus: number;
+  damageBuffBonus: number;
+  attrBuffBonus?: number;
+  penRateBonus: number;
+}
+
 export interface SaveData {
   name: string;
   data: {
@@ -257,6 +268,6 @@ export interface SaveData {
     engineConfig?: { engineId: string; level: EngineLevel };
     diskConfig?: DiskConfig;
     enemyStatus?: EnemyStatus;
-    battleStatus?: BattleStatus;
+    battleStatus?: SavedBattleStatus;
   };
 }

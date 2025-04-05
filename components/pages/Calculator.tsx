@@ -122,7 +122,10 @@ export const Calculator = () => {
               setEnemyStatus(data.data.enemyStatus);
             }
             if (data.data.battleStatus) {
-              setBattleStatus(data.data.battleStatus);
+              setBattleStatus({
+                ...data.data.battleStatus,
+                attrBuffBonus: data.data.battleStatus.attrBuffBonus || 0,
+              });
             }
           }}
         />

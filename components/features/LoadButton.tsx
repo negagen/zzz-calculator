@@ -57,9 +57,15 @@ const SaveDataModal = ({ open, onClose, onLoad }: SaveDataModalProps) => {
     const agent = agents.find(
       (agent) => agent.id === saveData.data.agentConfig?.agentId
     );
+    const agentName: string =
+      // @ts-expect-error
+      t(`data.agent.${agent?.id}`) || agent?.id || "unknown";
     const engine = engines.find(
       (engine) => engine.id === saveData.data.engineConfig?.engineId
     );
+    const engineName: string =
+      // @ts-expect-error
+      t(`data.engine.${engine?.id}`) || engine?.id || "unknown";
 
     const loadSaveData: SaveData = {
       name: saveData.name,
@@ -74,7 +80,8 @@ const SaveDataModal = ({ open, onClose, onLoad }: SaveDataModalProps) => {
 
     return {
       name: saveData.name,
-      engineName: engine?.name ?? "",
+      agentName: agentName,
+      engineName: engineName,
       damageScore: damageScore,
       onLoad: () => {
         onLoad(loadSaveData);
@@ -141,10 +148,15 @@ const calculateDamageScore = (saveData: SaveData) => {
       { engine, level: saveData.data.engineConfig.level },
       saveData.data.diskConfig
     );
+    const battleStatus = {
+      ...saveData.data.battleStatus,
+      attrBuffBonus: saveData.data.battleStatus.attrBuffBonus || 0,
+    };
+
     const damageBase = calculateDamageBase(
       base,
       saveData.data.enemyStatus,
-      saveData.data.battleStatus
+      battleStatus
     );
     return calculateExpectedDamage(damageBase);
   }
