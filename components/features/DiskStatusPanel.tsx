@@ -2,6 +2,7 @@ import { Input, Select } from "antd";
 import { DiskConfig } from "@/types";
 import { HelpButton } from "./HelpButton";
 import { useTranslation } from "react-i18next";
+import { drives } from "@/data/drives";
 
 export const DiskStatusPanel = ({
   diskStatus,
@@ -432,42 +433,81 @@ const DiskSetSelect = ({
 
   return (
     <div className="flex flex-col items-center w-full gap-2 lg:w-72 max-md:w-full">
-      <Select
-        className="lg:w-64 grow max-md:w-full"
-        value={diskStatus.slot1.drive}
-        options={options}
-        onChange={(value) =>
-          onChange({
-            ...diskStatus,
-            slot1: { ...diskStatus.slot1, drive: value },
-            slot2: { ...diskStatus.slot2, drive: value },
-          })
-        }
-      />
-      <Select
-        className="lg:w-64 grow max-md:w-full"
-        value={diskStatus.slot3.drive}
-        options={options}
-        onChange={(value) => {
-          onChange({
-            ...diskStatus,
-            slot3: { ...diskStatus.slot3, drive: value },
-            slot4: { ...diskStatus.slot4, drive: value },
-          });
-        }}
-      />
-      <Select
-        className="w-64 grow max-md:w-full"
-        value={diskStatus.slot5.drive}
-        options={options}
-        onChange={(value) => {
-          onChange({
-            ...diskStatus,
-            slot5: { ...diskStatus.slot5, drive: value },
-            slot6: { ...diskStatus.slot6, drive: value },
-          });
-        }}
-      />
+      <div className="flex flex-row w-68 gap-1 grow max-md:w-full items-center">
+        <Select
+          className="w-60 grow max-md:w-full"
+          value={diskStatus.slot1.drive}
+          options={options}
+          onChange={(value) =>
+            onChange({
+              ...diskStatus,
+              slot1: { ...diskStatus.slot1, drive: value },
+              slot2: { ...diskStatus.slot2, drive: value },
+            })
+          }
+        />
+        {drives[diskStatus.slot1.drive]?.wikiUrl && (
+          <div>
+            <a
+              className="bg-gray-800 rounded text-xs p-[3px] text-center hover:opacity-80"
+              href={drives[diskStatus.slot1.drive]?.wikiUrl}
+              target="_blank"
+            >
+              WIKI
+            </a>
+          </div>
+        )}
+      </div>
+      <div className="flex flex-row w-68 gap-1 grow max-md:w-full items-center">
+        <Select
+          className="w-60 grow max-md:w-full"
+          value={diskStatus.slot3.drive}
+          options={options}
+          onChange={(value) => {
+            onChange({
+              ...diskStatus,
+              slot3: { ...diskStatus.slot3, drive: value },
+              slot4: { ...diskStatus.slot4, drive: value },
+            });
+          }}
+        />
+        {drives[diskStatus.slot3.drive]?.wikiUrl && (
+          <div>
+            <a
+              className="bg-gray-800 rounded text-xs p-[3px] text-center hover:opacity-80"
+              href={drives[diskStatus.slot3.drive]?.wikiUrl}
+              target="_blank"
+            >
+              WIKI
+            </a>
+          </div>
+        )}
+      </div>
+      <div className="flex flex-row w-68 gap-1 grow max-md:w-full items-center">
+        <Select
+          className="w-60 grow max-md:w-full"
+          value={diskStatus.slot5.drive}
+          options={options}
+          onChange={(value) => {
+            onChange({
+              ...diskStatus,
+              slot5: { ...diskStatus.slot5, drive: value },
+              slot6: { ...diskStatus.slot6, drive: value },
+            });
+          }}
+        />
+        {drives[diskStatus.slot5.drive]?.wikiUrl && (
+          <div>
+            <a
+              className="bg-gray-800 rounded text-xs p-[3px] text-center hover:opacity-80"
+              href={drives[diskStatus.slot5.drive]?.wikiUrl}
+              target="_blank"
+            >
+              WIKI
+            </a>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
