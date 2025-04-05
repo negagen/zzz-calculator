@@ -335,8 +335,9 @@
       "title": "Update Information",
       "2025/04/05": {
         "0": "Updated data for Triggers and Engines.",
-        "1": "Fixed an issue where the damage score in saved data and the damage calculation immediately after loading would become NaN.",
-        "2": "Fixed an issue where the Agent name in the saved data was not displayed correctly. Thank you to those who reported this."
+        "1": "A Wiki link has been added for each Engine.",
+        "2": "Fixed an issue where the damage score in saved data and the damage calculation immediately after loading would become NaN.",
+        "3": "Fixed an issue where the Agent name in the saved data was not displayed correctly. Thank you to those who reported this."
       },
       "2025/03/16": {
         "0": "Data for 0-Gou Ambie, Purukura, Pure Sacrifice, and Paper Cutter has been added.",

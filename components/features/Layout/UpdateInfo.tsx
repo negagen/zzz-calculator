@@ -20,6 +20,7 @@ export const UpdateInfo = () => {
                 t("components.UpdateInfo.2025/04/05.0"),
                 t("components.UpdateInfo.2025/04/05.1"),
                 t("components.UpdateInfo.2025/04/05.2"),
+                t("components.UpdateInfo.2025/04/05.3"),
               ]}
               renderItem={renderItem}
             />
