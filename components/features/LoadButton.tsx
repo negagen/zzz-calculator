@@ -57,13 +57,15 @@ const SaveDataModal = ({ open, onClose, onLoad }: SaveDataModalProps) => {
     const agent = agents.find(
       (agent) => agent.id === saveData.data.agentConfig?.agentId
     );
-    // @ts-expect-error
-    const agentName: string = t(`data.agent.${agent?.id}`);
+    const agentName: string =
+      // @ts-expect-error
+      t(`data.agent.${agent?.id}`) || agent?.id || "unknown";
     const engine = engines.find(
       (engine) => engine.id === saveData.data.engineConfig?.engineId
     );
-    // @ts-expect-error
-    const engineName: string = t(`data.engine.${engine?.id}`);
+    const engineName: string =
+      // @ts-expect-error
+      t(`data.engine.${engine?.id}`) || engine?.id || "unknown";
 
     const loadSaveData: SaveData = {
       name: saveData.name,
