@@ -2,12 +2,12 @@ import { Engine, EngineLevel, EngineBaseAttack, EngineRank } from "@/types";
 
 export const engines: Engine[] = [
   {
-    id: "Stun_13",
+    id: "Anomaly_13",
     rank: "S",
-    speciality: "Stun",
-    baseAttack: 48,
-    statusType: "critRate",
-    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/701",
+    speciality: "Anomaly",
+    baseAttack: 46,
+    statusType: "anomalyProficiency",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/705",
   },
   {
     id: "Attack_18",
@@ -152,6 +152,14 @@ export const engines: Engine[] = [
     baseAttack: 32,
     statusType: "critRate",
     wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/47",
+  },
+  {
+    id: "Stun_13",
+    rank: "S",
+    speciality: "Stun",
+    baseAttack: 48,
+    statusType: "critRate",
+    wikiUrl: "https://wiki.hoyolab.com/pc/zzz/entry/701",
   },
   {
     id: "Stun_1",
