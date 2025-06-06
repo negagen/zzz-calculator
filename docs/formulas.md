@@ -376,9 +376,6 @@ When enemies are Stunned, Chain Attacks can be initiated against them by using H
 
 ---
 
-*Thanks to Arkkus for document setup inspiration and the DMG Calculation Sheet.*
-
-*Last updated 29/04/2025*
-
+*This md document is generated from this published [google doc](https://docs.google.com/document/d/e/2PACX-1vSB_gaua-DY-JlsGt1-CpI5Ik3jiCeSmBfQKQdpx1dX2o0ZH9DJ0hbeWdIK05uUc_eyu4yLfHSt2AaD/pub?export=pdf)*
 
 ---
